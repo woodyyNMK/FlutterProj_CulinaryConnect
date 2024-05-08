@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import '/backend/backend.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-import 'base_structure/base_util.dart';
 
 class FFAppState extends ChangeNotifier {
   static FFAppState _instance = FFAppState._internal();

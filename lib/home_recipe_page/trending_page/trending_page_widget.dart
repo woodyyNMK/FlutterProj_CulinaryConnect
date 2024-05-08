@@ -4,11 +4,8 @@ import '/components/log_in_required_widget.dart';
 import '/base_structure/icon_button.dart';
 import '/base_structure/base_theme.dart';
 import '/base_structure/base_util.dart';
-import '/base_structure/base_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'trending_page_model.dart';
 export 'trending_page_model.dart';
 

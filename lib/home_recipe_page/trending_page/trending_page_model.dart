@@ -1,15 +1,6 @@
-import '/auth/base_auth_user_provider.dart';
-import '/backend/backend.dart';
-import '/components/log_in_required_widget.dart';
-import '/base_structure/icon_button.dart';
-import '/base_structure/base_theme.dart';
 import '/base_structure/base_util.dart';
-import '/base_structure/base_widgets.dart';
 import 'trending_page_widget.dart' show TrendingPageWidget;
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 
 class TrendingPageModel extends BaseModel<TrendingPageWidget> {
   ///  State fields for stateful widgets in this page.

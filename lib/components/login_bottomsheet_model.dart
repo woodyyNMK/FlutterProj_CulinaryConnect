@@ -1,11 +1,6 @@
-import '/base_structure/base_theme.dart';
 import '/base_structure/base_util.dart';
-import '/base_structure/base_widgets.dart';
 import 'login_bottomsheet_widget.dart' show LoginBottomsheetWidget;
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
-
 class LoginBottomsheetModel extends BaseModel<LoginBottomsheetWidget> {
   ///  State fields for stateful widgets in this component.
 

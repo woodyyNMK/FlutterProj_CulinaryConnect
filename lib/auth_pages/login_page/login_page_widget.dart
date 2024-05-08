@@ -3,8 +3,6 @@ import '/base_structure/base_theme.dart';
 import '/base_structure/base_util.dart';
 import '/base_structure/base_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'login_page_model.dart';
 export 'login_page_model.dart';
 
