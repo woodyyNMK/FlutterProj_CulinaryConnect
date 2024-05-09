@@ -47,126 +47,123 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
         key: scaffoldKey,
         backgroundColor: BaseTheme.of(context).primaryBackground,
         body: Container(
-          width: MediaQuery.sizeOf(context).width * 1.0,
-          height: MediaQuery.sizeOf(context).height * 1.0,
+          width: MediaQuery.sizeOf(context).width,
+          height: MediaQuery.sizeOf(context).height * 1,
           decoration: BoxDecoration(
             gradient: LinearGradient(
               colors: [
                 BaseTheme.of(context).primary,
                 BaseTheme.of(context).secondary
               ],
-              stops: [0.0, 0.75],
-              begin: AlignmentDirectional(0.0, -1.0),
-              end: AlignmentDirectional(0, 1.0),
+              stops: [0, 0.75],
+              begin: AlignmentDirectional(0, -1),
+              end: AlignmentDirectional(0, 1),
             ),
           ),
-          child: SingleChildScrollView(
-            child: Column(
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Row(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [
-                    Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(15.0, 55.0, 0.0, 10.0),
-                      child: InkWell(
-                        splashColor: Colors.transparent,
-                        focusColor: Colors.transparent,
-                        hoverColor: Colors.transparent,
-                        highlightColor: Colors.transparent,
-                        onTap: () async {
-                          context.pushNamed('Home_Page');
-                        },
-                        child: Icon(
-                          Icons.arrow_back_ios,
-                          color: BaseTheme.of(context).primaryBackground,
-                          size: 24.0,
-                        ),
+          child: Column(
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Row(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(15, 55, 0, 10),
+                    child: InkWell(
+                      splashColor: Colors.transparent,
+                      focusColor: Colors.transparent,
+                      hoverColor: Colors.transparent,
+                      highlightColor: Colors.transparent,
+                      onTap: () async {
+                        context.pushNamed('Home_Page');
+                      },
+                      child: Icon(
+                        Icons.arrow_back_ios,
+                        color: BaseTheme.of(context).primaryBackground,
+                        size: 24,
                       ),
                     ),
-                  ],
-                ),
-                Column(
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    Row(
-                      mainAxisSize: MainAxisSize.max,
+                  ),
+                ],
+              ),
+              Column(
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text(
+                        'Log In',
+                        style: BaseTheme.of(context).bodyMedium.override(
+                              fontFamily: 'Playfair Display',
+                              fontSize: 32,
+                              letterSpacing: 0,
+                              fontWeight: FontWeight.w600,
+                            ),
+                      ),
+                    ],
+                  ),
+                  Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(15, 11, 15, 0),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
                       mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        Text(
-                          'Log In',
-                          style:
-                              BaseTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Playfair Display',
-                                    fontSize: 32.0,
-                                    letterSpacing: 0.0,
-                                    fontWeight: FontWeight.w600,
-                                  ),
+                        Flexible(
+                          child: Text(
+                            'Please sign in to your  account',
+                            textAlign: TextAlign.center,
+                            style: BaseTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Playfair Display',
+                                  fontSize: 20,
+                                  letterSpacing: 0,
+                                  fontWeight: FontWeight.normal,
+                                ),
+                          ),
                         ),
                       ],
                     ),
-                    Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(15.0, 11.0, 15.0, 0.0),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Flexible(
-                            child: Text(
-                              'Please sign in to your  account',
-                              textAlign: TextAlign.center,
-                              style: BaseTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    fontFamily: 'Playfair Display',
-                                    fontSize: 20.0,
-                                    letterSpacing: 0.0,
-                                    fontWeight: FontWeight.normal,
-                                  ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
+                  ),
+                ],
+              ),
+              Flexible(
+                child: Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(0, 30, 0, 0),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       Align(
-                        alignment: AlignmentDirectional(0.0, 1.0),
+                        alignment: AlignmentDirectional(0, 1),
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              15.0, 0.0, 15.0, 0.0),
+                          padding:
+                              EdgeInsetsDirectional.fromSTEB(15, 30, 15, 0),
                           child: Container(
                             decoration: BoxDecoration(
                               color: BaseTheme.of(context).tertiary,
                               borderRadius: BorderRadius.only(
-                                bottomLeft: Radius.circular(0.0),
-                                bottomRight: Radius.circular(0.0),
-                                topLeft: Radius.circular(25.0),
-                                topRight: Radius.circular(25.0),
+                                bottomLeft: Radius.circular(0),
+                                bottomRight: Radius.circular(0),
+                                topLeft: Radius.circular(25),
+                                topRight: Radius.circular(25),
                               ),
                             ),
-                            alignment: AlignmentDirectional(0.0, 1.0),
+                            alignment: AlignmentDirectional(0, 1),
                             child: Align(
-                              alignment: AlignmentDirectional(0.0, 1.0),
+                              alignment: AlignmentDirectional(0, 1),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 mainAxisAlignment: MainAxisAlignment.end,
                                 children: [
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        24.0, 24.0, 0.0, 0.0),
+                                        24, 24, 0, 0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
@@ -179,8 +176,8 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                 color:
                                                     BaseTheme.of(context)
                                                         .secondaryText,
-                                                fontSize: 13.0,
-                                                letterSpacing: 0.0,
+                                                fontSize: 13,
+                                                letterSpacing: 0,
                                               ),
                                         ),
                                       ],
@@ -195,18 +192,18 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    25.0, 8.0, 25.0, 0.0),
+                                                    25, 8, 25, 0),
                                             child: Container(
-                                              height: 62.0,
+                                              height: 62,
                                               decoration: BoxDecoration(
                                                 color:
                                                     BaseTheme.of(context)
                                                         .accent3,
                                                 borderRadius:
-                                                    BorderRadius.circular(10.0),
+                                                    BorderRadius.circular(10),
                                               ),
                                               child: Container(
-                                                width: 327.0,
+                                                width: 327,
                                                 child: TextFormField(
                                                   controller: _model
                                                       .emailTextController,
@@ -215,14 +212,15 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                   autofocus: false,
                                                   obscureText: false,
                                                   decoration: InputDecoration(
-                                                    labelStyle: BaseTheme
-                                                            .of(context)
-                                                        .labelMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              'Playfair Display',
-                                                          letterSpacing: 0.0,
-                                                        ),
+                                                    labelStyle:
+                                                        BaseTheme.of(
+                                                                context)
+                                                            .labelMedium
+                                                            .override(
+                                                              fontFamily:
+                                                                  'Playfair Display',
+                                                              letterSpacing: 0,
+                                                            ),
                                                     alignLabelWithHint: true,
                                                     hintText:
                                                         'example@gmail.com',
@@ -234,7 +232,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                               'Playfair Display',
                                                           color:
                                                               Color(0xFFA0A5BA),
-                                                          letterSpacing: 0.0,
+                                                          letterSpacing: 0,
                                                         ),
                                                     enabledBorder:
                                                         InputBorder.none,
@@ -246,8 +244,8 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                         InputBorder.none,
                                                     contentPadding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(16.0,
-                                                                14.0, 0.0, 0.0),
+                                                            .fromSTEB(
+                                                                16, 14, 0, 0),
                                                   ),
                                                   style: BaseTheme.of(
                                                           context)
@@ -259,7 +257,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                             BaseTheme.of(
                                                                     context)
                                                                 .secondaryText,
-                                                        letterSpacing: 0.0,
+                                                        letterSpacing: 0,
                                                         fontWeight:
                                                             FontWeight.bold,
                                                       ),
@@ -276,7 +274,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                   ),
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        24.0, 24.0, 0.0, 0.0),
+                                        24, 24, 0, 0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
@@ -289,8 +287,8 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                 color:
                                                     BaseTheme.of(context)
                                                         .secondaryText,
-                                                fontSize: 13.0,
-                                                letterSpacing: 0.0,
+                                                fontSize: 13,
+                                                letterSpacing: 0,
                                               ),
                                         ),
                                       ],
@@ -298,7 +296,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                   ),
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        25.0, 0.0, 25.0, 0.0),
+                                        25, 0, 25, 0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
@@ -307,20 +305,19 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                             opacity: 0.5,
                                             child: Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0.0, 8.0, 0.0, 0.0),
+                                                  .fromSTEB(0, 8, 0, 0),
                                               child: Container(
-                                                width: 327.0,
-                                                height: 62.0,
+                                                width: 327,
+                                                height: 62,
                                                 decoration: BoxDecoration(
                                                   color: BaseTheme.of(
                                                           context)
                                                       .accent3,
                                                   borderRadius:
-                                                      BorderRadius.circular(
-                                                          10.0),
+                                                      BorderRadius.circular(10),
                                                 ),
                                                 child: Container(
-                                                  width: 327.0,
+                                                  width: 327,
                                                   child: TextFormField(
                                                     controller: _model
                                                         .passwordTextController,
@@ -338,7 +335,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                                 fontFamily:
                                                                     'Playfair Display',
                                                                 letterSpacing:
-                                                                    0.0,
+                                                                    0,
                                                               ),
                                                       alignLabelWithHint: true,
                                                       hintText:
@@ -353,7 +350,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                                 color: Color(
                                                                     0xFFA0A5BA),
                                                                 letterSpacing:
-                                                                    0.0,
+                                                                    0,
                                                               ),
                                                       enabledBorder:
                                                           InputBorder.none,
@@ -366,10 +363,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                       contentPadding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  16.0,
-                                                                  24.0,
-                                                                  0.0,
-                                                                  0.0),
+                                                                  16, 24, 0, 0),
                                                       suffixIcon: InkWell(
                                                         onTap: () => setState(
                                                           () => _model
@@ -388,7 +382,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                                   .visibility_off_outlined,
                                                           color:
                                                               Color(0xFFB4B9CA),
-                                                          size: 20.0,
+                                                          size: 20,
                                                         ),
                                                       ),
                                                     ),
@@ -401,7 +395,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                           color: BaseTheme
                                                                   .of(context)
                                                               .secondaryText,
-                                                          letterSpacing: 0.0,
+                                                          letterSpacing: 0,
                                                           fontWeight:
                                                               FontWeight.bold,
                                                         ),
@@ -419,7 +413,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                   ),
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        24.0, 24.0, 0.0, 0.0),
+                                        24, 24, 0, 0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
@@ -433,7 +427,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                       .shrinkWrap,
                                               shape: RoundedRectangleBorder(
                                                 borderRadius:
-                                                    BorderRadius.circular(4.0),
+                                                    BorderRadius.circular(4),
                                               ),
                                             ),
                                             unselectedWidgetColor:
@@ -464,7 +458,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  10.0, 0.0, 0.0, 0.0),
+                                                  10, 0, 0, 0),
                                           child: Text(
                                             'Remember me ',
                                             style: BaseTheme.of(context)
@@ -473,8 +467,8 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                   fontFamily:
                                                       'Playfair Display',
                                                   color: Color(0xFF7E8A97),
-                                                  fontSize: 13.0,
-                                                  letterSpacing: 0.0,
+                                                  fontSize: 13,
+                                                  letterSpacing: 0,
                                                 ),
                                           ),
                                         ),
@@ -482,7 +476,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 25.0, 0.0),
+                                                    0, 0, 25, 0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               mainAxisAlignment:
@@ -524,8 +518,8 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                               'Playfair Display',
                                                           color:
                                                               Color(0xFFFF7622),
-                                                          fontSize: 14.0,
-                                                          letterSpacing: 0.0,
+                                                          fontSize: 14,
+                                                          letterSpacing: 0,
                                                         ),
                                                   ),
                                                 ),
@@ -546,7 +540,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                         child: Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  25.0, 0.0, 25.0, 0.0),
+                                                  25, 0, 25, 0),
                                           child: FFButtonWidget(
                                             onPressed: () async {
                                               GoRouter.of(context)
@@ -568,13 +562,12 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                             },
                                             text: 'LOG IN',
                                             options: FFButtonOptions(
-                                              width: 327.0,
-                                              height: 62.0,
+                                              width: 327,
+                                              height: 62,
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      24.0, 0.0, 24.0, 0.0),
+                                                  .fromSTEB(24, 0, 24, 0),
                                               iconPadding: EdgeInsetsDirectional
-                                                  .fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                  .fromSTEB(0, 0, 0, 0),
                                               color:
                                                   BaseTheme.of(context)
                                                       .accent1,
@@ -585,16 +578,16 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                         fontFamily:
                                                             'Playfair Display',
                                                         color: Colors.white,
-                                                        fontSize: 14.0,
-                                                        letterSpacing: 0.0,
+                                                        fontSize: 14,
+                                                        letterSpacing: 0,
                                                       ),
-                                              elevation: 3.0,
+                                              elevation: 3,
                                               borderSide: BorderSide(
                                                 color: Colors.transparent,
-                                                width: 12.0,
+                                                width: 12,
                                               ),
                                               borderRadius:
-                                                  BorderRadius.circular(8.0),
+                                                  BorderRadius.circular(8),
                                             ),
                                           ),
                                         ),
@@ -603,14 +596,14 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                   ),
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        24.0, 24.0, 0.0, 0.0),
+                                        24, 24, 0, 0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  10.0, 0.0, 0.0, 0.0),
+                                                  10, 0, 0, 0),
                                           child: Text(
                                             'Don’t have an account?',
                                             style: BaseTheme.of(context)
@@ -619,8 +612,8 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                   fontFamily:
                                                       'Playfair Display',
                                                   color: Color(0xFF646982),
-                                                  fontSize: 16.0,
-                                                  letterSpacing: 0.0,
+                                                  fontSize: 16,
+                                                  letterSpacing: 0,
                                                 ),
                                           ),
                                         ),
@@ -628,7 +621,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 25.0, 0.0),
+                                                    0, 0, 25, 0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               mainAxisAlignment:
@@ -670,8 +663,8 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                               'Playfair Display',
                                                           color:
                                                               Color(0xFFFF7622),
-                                                          fontSize: 14.0,
-                                                          letterSpacing: 0.0,
+                                                          fontSize: 14,
+                                                          letterSpacing: 0,
                                                         ),
                                                   ),
                                                 ),
@@ -684,7 +677,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                   ),
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 27.0, 0.0, 0.0),
+                                        0, 27, 0, 0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       mainAxisAlignment:
@@ -697,8 +690,8 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                               .override(
                                                 fontFamily: 'Playfair Display',
                                                 color: Color(0xFF646982),
-                                                fontSize: 16.0,
-                                                letterSpacing: 0.0,
+                                                fontSize: 16,
+                                                letterSpacing: 0,
                                               ),
                                         ),
                                       ],
@@ -706,7 +699,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                   ),
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        25.0, 15.0, 25.0, 15.0),
+                                        25, 15, 25, 15),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       mainAxisAlignment:
@@ -731,16 +724,16 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                           },
                                           child: ClipRRect(
                                             borderRadius:
-                                                BorderRadius.circular(62.0),
+                                                BorderRadius.circular(62),
                                             child: Image.asset(
                                               'assets/images/Google.png',
-                                              width: 62.0,
-                                              height: 62.0,
+                                              width: 62,
+                                              height: 62,
                                               fit: BoxFit.cover,
                                             ),
                                           ),
                                         ),
-                                      ].divide(SizedBox(width: 30.0)),
+                                      ].divide(SizedBox(width: 30)),
                                     ),
                                   ),
                                 ],
@@ -752,8 +745,8 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                     ],
                   ),
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),

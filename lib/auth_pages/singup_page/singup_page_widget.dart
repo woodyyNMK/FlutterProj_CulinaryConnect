@@ -68,76 +68,83 @@ class _SingupPageWidgetState extends State<SingupPageWidget> {
               end: AlignmentDirectional(0, 1),
             ),
           ),
-          child: SingleChildScrollView(
-            child: Column(
-              mainAxisSize: MainAxisSize.max,
-              children: [
-                Row(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [
-                    Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(15, 55, 0, 10),
-                      child: InkWell(
-                        splashColor: Colors.transparent,
-                        focusColor: Colors.transparent,
-                        hoverColor: Colors.transparent,
-                        highlightColor: Colors.transparent,
-                        onTap: () async {
-                          context.pushNamed('Login_Page');
-                        },
-                        child: Icon(
-                          Icons.arrow_back_ios,
-                          color: BaseTheme.of(context).primaryBackground,
-                          size: 24,
-                        ),
+          child: Column(
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Row(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(15, 55, 0, 10),
+                    child: InkWell(
+                      splashColor: Colors.transparent,
+                      focusColor: Colors.transparent,
+                      hoverColor: Colors.transparent,
+                      highlightColor: Colors.transparent,
+                      onTap: () async {
+                        context.pushNamed('Login_Page');
+                      },
+                      child: Icon(
+                        Icons.arrow_back_ios,
+                        color: BaseTheme.of(context).primaryBackground,
+                        size: 24,
                       ),
                     ),
-                  ],
-                ),
-                Row(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      'Sign Up',
-                      style: BaseTheme.of(context).bodyMedium.override(
-                            fontFamily: 'Playfair Display',
-                            fontSize: 32,
-                            letterSpacing: 0,
-                            fontWeight: FontWeight.w600,
-                          ),
-                    ),
-                  ],
-                ),
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(15, 11, 15, 0),
-                  child: Row(
+                  ),
+                ],
+              ),
+              Column(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Row(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        'Please sign up to get started',
-                        textAlign: TextAlign.center,
+                        'Sign Up',
                         style: BaseTheme.of(context).bodyMedium.override(
                               fontFamily: 'Playfair Display',
-                              fontSize: 20,
+                              fontSize: 32,
                               letterSpacing: 0,
-                              fontWeight: FontWeight.normal,
+                              fontWeight: FontWeight.w600,
                             ),
                       ),
                     ],
                   ),
-                ),
-                Container(
-                  height: MediaQuery.sizeOf(context).height * 1,
-                  decoration: BoxDecoration(),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      Padding(
+                  Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(15, 11, 15, 0),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          'Please sign up to get started',
+                          textAlign: TextAlign.center,
+                          style:
+                              BaseTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Playfair Display',
+                                    fontSize: 20,
+                                    letterSpacing: 0,
+                                    fontWeight: FontWeight.normal,
+                                  ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+              Flexible(
+                child: Column(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Align(
+                      alignment: AlignmentDirectional(0, 1),
+                      child: Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(15, 30, 15, 0),
                         child: Container(
                           decoration: BoxDecoration(
@@ -198,7 +205,7 @@ class _SingupPageWidgetState extends State<SingupPageWidget> {
                                                   _model.fullnameTextController,
                                               focusNode:
                                                   _model.fullnameFocusNode,
-                                              autofocus: false,
+                                              autofocus: true,
                                               obscureText: false,
                                               decoration: InputDecoration(
                                                 labelStyle:
@@ -297,7 +304,7 @@ class _SingupPageWidgetState extends State<SingupPageWidget> {
                                               controller:
                                                   _model.emailTextController,
                                               focusNode: _model.emailFocusNode,
-                                              autofocus: false,
+                                              autofocus: true,
                                               obscureText: false,
                                               decoration: InputDecoration(
                                                 labelStyle:
@@ -397,7 +404,7 @@ class _SingupPageWidgetState extends State<SingupPageWidget> {
                                                   _model.passwordTextController,
                                               focusNode:
                                                   _model.passwordFocusNode,
-                                              autofocus: false,
+                                              autofocus: true,
                                               obscureText:
                                                   !_model.passwordVisibility,
                                               decoration: InputDecoration(
@@ -517,7 +524,7 @@ class _SingupPageWidgetState extends State<SingupPageWidget> {
                                                   .passwordretypedTextController,
                                               focusNode: _model
                                                   .passwordretypedFocusNode,
-                                              autofocus: false,
+                                              autofocus: true,
                                               obscureText: !_model
                                                   .passwordretypedVisibility,
                                               decoration: InputDecoration(
@@ -683,11 +690,11 @@ class _SingupPageWidgetState extends State<SingupPageWidget> {
                           ),
                         ),
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),
