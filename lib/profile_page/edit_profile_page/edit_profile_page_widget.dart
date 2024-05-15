@@ -9,6 +9,7 @@ import '/base_structure/upload_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
+
 import 'edit_profile_page_model.dart';
 export 'edit_profile_page_model.dart';
 
@@ -99,8 +100,8 @@ class _EditProfilePageWidgetState extends State<EditProfilePageWidget> {
             backgroundColor: BaseTheme.of(context).primaryBackground,
             body: Center(
               child: SizedBox(
-                width: 50.0,
-                height: 50.0,
+                width: 50,
+                height: 50,
                 child: CircularProgressIndicator(
                   valueColor: AlwaysStoppedAnimation<Color>(
                     BaseTheme.of(context).primary,
@@ -110,7 +111,6 @@ class _EditProfilePageWidgetState extends State<EditProfilePageWidget> {
             ),
           );
         }
-        // List<UsersRecord> editProfilePageUsersRecordList = snapshot.data!;
         return GestureDetector(
           onTap: () => _model.unfocusNode.canRequestFocus
               ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -119,17 +119,17 @@ class _EditProfilePageWidgetState extends State<EditProfilePageWidget> {
             key: scaffoldKey,
             backgroundColor: BaseTheme.of(context).primaryBackground,
             body: Container(
-              width: MediaQuery.sizeOf(context).width * 1.0,
-              height: MediaQuery.sizeOf(context).height * 1.0,
+              width: MediaQuery.sizeOf(context).width,
+              height: MediaQuery.sizeOf(context).height * 1,
               decoration: BoxDecoration(
                 gradient: LinearGradient(
                   colors: [
                     BaseTheme.of(context).primary,
                     BaseTheme.of(context).secondary
                   ],
-                  stops: [0.0, 0.75],
-                  begin: AlignmentDirectional(0.0, -1.0),
-                  end: AlignmentDirectional(0, 1.0),
+                  stops: [0, 0.75],
+                  begin: AlignmentDirectional(0, -1),
+                  end: AlignmentDirectional(0, 1),
                 ),
               ),
               child: Stack(
@@ -140,8 +140,7 @@ class _EditProfilePageWidgetState extends State<EditProfilePageWidget> {
                     child: Stack(
                       children: [
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 40.0, 0.0, 0.0),
+                          padding: EdgeInsetsDirectional.fromSTEB(0, 40, 0, 0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -152,8 +151,8 @@ class _EditProfilePageWidgetState extends State<EditProfilePageWidget> {
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'Playfair Display',
-                                      fontSize: 32.0,
-                                      letterSpacing: 0.0,
+                                      fontSize: 32,
+                                      letterSpacing: 0,
                                       fontWeight: FontWeight.normal,
                                     ),
                               ),
@@ -164,8 +163,8 @@ class _EditProfilePageWidgetState extends State<EditProfilePageWidget> {
                           key: _model.formKey,
                           autovalidateMode: AutovalidateMode.disabled,
                           child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                16.0, 100.0, 16.0, 0.0),
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(16, 100, 16, 0),
                             child: Container(
                               decoration: BoxDecoration(),
                               child: Column(
@@ -174,25 +173,25 @@ class _EditProfilePageWidgetState extends State<EditProfilePageWidget> {
                                 children: [
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 0.0, 15.0),
+                                        0, 0, 0, 15),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       mainAxisAlignment:
                                           MainAxisAlignment.center,
                                       children: [
                                         Container(
-                                          width: 200.0,
-                                          height: 200.0,
+                                          width: 200,
+                                          height: 200,
                                           decoration: BoxDecoration(
                                             shape: BoxShape.circle,
                                           ),
                                           child: Stack(
                                             alignment:
-                                                AlignmentDirectional(0.0, 0.0),
+                                                AlignmentDirectional(0, 0),
                                             children: [
                                               Container(
-                                                width: 190.0,
-                                                height: 190.0,
+                                                width: 190,
+                                                height: 190,
                                                 clipBehavior: Clip.antiAlias,
                                                 decoration: BoxDecoration(
                                                   shape: BoxShape.circle,
@@ -202,27 +201,29 @@ class _EditProfilePageWidgetState extends State<EditProfilePageWidget> {
                                                   fit: BoxFit.cover,
                                                 ),
                                               ),
-                                              Container(
-                                                width: 150.0,
-                                                height: 150.0,
-                                                clipBehavior: Clip.antiAlias,
-                                                decoration: BoxDecoration(
-                                                  shape: BoxShape.circle,
-                                                ),
-                                                child: Image.network(
-                                                  _model.uploadedFileUrl != ''
-                                                      ? _model.uploadedFileUrl
-                                                      : FFAppState().ProfileImg,
-                                                  fit: BoxFit.cover,
+                                              AuthUserStreamWidget(
+                                                builder: (context) => Container(
+                                                  width: 150,
+                                                  height: 150,
+                                                  clipBehavior: Clip.antiAlias,
+                                                  decoration: BoxDecoration(
+                                                    shape: BoxShape.circle,
+                                                  ),
+                                                  child: Image.network(
+                                                    _model.uploadedFileUrl != ''
+                                                        ? _model.uploadedFileUrl
+                                                        : currentUserPhoto,
+                                                    fit: BoxFit.cover,
+                                                  ),
                                                 ),
                                               ),
                                               Align(
                                                 alignment: AlignmentDirectional(
                                                     0.6, 0.8),
                                                 child: BaseIconButton(
-                                                  borderRadius: 20.0,
-                                                  borderWidth: 1.0,
-                                                  buttonSize: 40.0,
+                                                  borderRadius: 20,
+                                                  borderWidth: 1,
+                                                  buttonSize: 40,
                                                   fillColor:
                                                       BaseTheme.of(
                                                               context)
@@ -232,7 +233,7 @@ class _EditProfilePageWidgetState extends State<EditProfilePageWidget> {
                                                     color: BaseTheme.of(
                                                             context)
                                                         .accent4,
-                                                    size: 20.0,
+                                                    size: 20,
                                                   ),
                                                   onPressed: () async {
                                                     final selectedMedia =
@@ -344,7 +345,7 @@ class _EditProfilePageWidgetState extends State<EditProfilePageWidget> {
                                   ),
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        15.0, 0.0, 0.0, 0.0),
+                                        15, 0, 0, 0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       mainAxisAlignment:
@@ -365,8 +366,8 @@ class _EditProfilePageWidgetState extends State<EditProfilePageWidget> {
                                                 .override(
                                                   fontFamily:
                                                       'Playfair Display',
-                                                  fontSize: 16.0,
-                                                  letterSpacing: 0.0,
+                                                  fontSize: 16,
+                                                  letterSpacing: 0,
                                                   fontWeight: FontWeight.bold,
                                                 ),
                                           ),
@@ -376,7 +377,7 @@ class _EditProfilePageWidgetState extends State<EditProfilePageWidget> {
                                             decoration: BoxDecoration(),
                                             child: Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0.0, 0.0, 8.0, 0.0),
+                                                  .fromSTEB(0, 0, 8, 0),
                                               child: AuthUserStreamWidget(
                                                 builder: (context) =>
                                                     TextFormField(
@@ -389,18 +390,19 @@ class _EditProfilePageWidgetState extends State<EditProfilePageWidget> {
                                                   decoration: InputDecoration(
                                                     alignLabelWithHint: false,
                                                     hintText: 'Anna John',
-                                                    hintStyle: BaseTheme
-                                                            .of(context)
-                                                        .labelMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              'Playfair Display',
-                                                          color: BaseTheme
-                                                                  .of(context)
-                                                              .primaryBackground,
-                                                          fontSize: 14.0,
-                                                          letterSpacing: 0.0,
-                                                        ),
+                                                    hintStyle:
+                                                        BaseTheme.of(
+                                                                context)
+                                                            .labelMedium
+                                                            .override(
+                                                              fontFamily:
+                                                                  'Playfair Display',
+                                                              color: BaseTheme
+                                                                      .of(context)
+                                                                  .primaryBackground,
+                                                              fontSize: 14,
+                                                              letterSpacing: 0,
+                                                            ),
                                                     enabledBorder:
                                                         UnderlineInputBorder(
                                                       borderSide: BorderSide(
@@ -408,11 +410,11 @@ class _EditProfilePageWidgetState extends State<EditProfilePageWidget> {
                                                             BaseTheme.of(
                                                                     context)
                                                                 .alternate,
-                                                        width: 1.0,
+                                                        width: 1,
                                                       ),
                                                       borderRadius:
                                                           BorderRadius.circular(
-                                                              0.0),
+                                                              0),
                                                     ),
                                                     focusedBorder:
                                                         UnderlineInputBorder(
@@ -421,11 +423,11 @@ class _EditProfilePageWidgetState extends State<EditProfilePageWidget> {
                                                             BaseTheme.of(
                                                                     context)
                                                                 .primary,
-                                                        width: 1.0,
+                                                        width: 1,
                                                       ),
                                                       borderRadius:
                                                           BorderRadius.circular(
-                                                              0.0),
+                                                              0),
                                                     ),
                                                     errorBorder:
                                                         UnderlineInputBorder(
@@ -434,11 +436,11 @@ class _EditProfilePageWidgetState extends State<EditProfilePageWidget> {
                                                             BaseTheme.of(
                                                                     context)
                                                                 .error,
-                                                        width: 1.0,
+                                                        width: 1,
                                                       ),
                                                       borderRadius:
                                                           BorderRadius.circular(
-                                                              0.0),
+                                                              0),
                                                     ),
                                                     focusedErrorBorder:
                                                         UnderlineInputBorder(
@@ -447,11 +449,11 @@ class _EditProfilePageWidgetState extends State<EditProfilePageWidget> {
                                                             BaseTheme.of(
                                                                     context)
                                                                 .error,
-                                                        width: 1.0,
+                                                        width: 1,
                                                       ),
                                                       borderRadius:
                                                           BorderRadius.circular(
-                                                              0.0),
+                                                              0),
                                                     ),
                                                   ),
                                                   style: BaseTheme.of(
@@ -460,8 +462,8 @@ class _EditProfilePageWidgetState extends State<EditProfilePageWidget> {
                                                       .override(
                                                         fontFamily:
                                                             'Playfair Display',
-                                                        fontSize: 16.0,
-                                                        letterSpacing: 0.0,
+                                                        fontSize: 16,
+                                                        letterSpacing: 0,
                                                         fontWeight:
                                                             FontWeight.w600,
                                                       ),
@@ -479,7 +481,7 @@ class _EditProfilePageWidgetState extends State<EditProfilePageWidget> {
                                   ),
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        15.0, 0.0, 0.0, 0.0),
+                                        15, 0, 0, 0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       mainAxisAlignment:
@@ -500,8 +502,8 @@ class _EditProfilePageWidgetState extends State<EditProfilePageWidget> {
                                                 .override(
                                                   fontFamily:
                                                       'Playfair Display',
-                                                  fontSize: 16.0,
-                                                  letterSpacing: 0.0,
+                                                  fontSize: 16,
+                                                  letterSpacing: 0,
                                                   fontWeight: FontWeight.bold,
                                                 ),
                                           ),
@@ -511,7 +513,7 @@ class _EditProfilePageWidgetState extends State<EditProfilePageWidget> {
                                             decoration: BoxDecoration(),
                                             child: Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0.0, 0.0, 8.0, 0.0),
+                                                  .fromSTEB(0, 0, 8, 0),
                                               child: AuthUserStreamWidget(
                                                 builder: (context) =>
                                                     TextFormField(
@@ -523,18 +525,19 @@ class _EditProfilePageWidgetState extends State<EditProfilePageWidget> {
                                                   obscureText: false,
                                                   decoration: InputDecoration(
                                                     hintText: 'anna_john',
-                                                    hintStyle: BaseTheme
-                                                            .of(context)
-                                                        .labelMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              'Playfair Display',
-                                                          color: BaseTheme
-                                                                  .of(context)
-                                                              .primaryBackground,
-                                                          fontSize: 14.0,
-                                                          letterSpacing: 0.0,
-                                                        ),
+                                                    hintStyle:
+                                                        BaseTheme.of(
+                                                                context)
+                                                            .labelMedium
+                                                            .override(
+                                                              fontFamily:
+                                                                  'Playfair Display',
+                                                              color: BaseTheme
+                                                                      .of(context)
+                                                                  .primaryBackground,
+                                                              fontSize: 14,
+                                                              letterSpacing: 0,
+                                                            ),
                                                     enabledBorder:
                                                         UnderlineInputBorder(
                                                       borderSide: BorderSide(
@@ -542,11 +545,11 @@ class _EditProfilePageWidgetState extends State<EditProfilePageWidget> {
                                                             BaseTheme.of(
                                                                     context)
                                                                 .alternate,
-                                                        width: 1.0,
+                                                        width: 1,
                                                       ),
                                                       borderRadius:
                                                           BorderRadius.circular(
-                                                              0.0),
+                                                              0),
                                                     ),
                                                     focusedBorder:
                                                         UnderlineInputBorder(
@@ -555,11 +558,11 @@ class _EditProfilePageWidgetState extends State<EditProfilePageWidget> {
                                                             BaseTheme.of(
                                                                     context)
                                                                 .primary,
-                                                        width: 1.0,
+                                                        width: 1,
                                                       ),
                                                       borderRadius:
                                                           BorderRadius.circular(
-                                                              0.0),
+                                                              0),
                                                     ),
                                                     errorBorder:
                                                         UnderlineInputBorder(
@@ -568,11 +571,11 @@ class _EditProfilePageWidgetState extends State<EditProfilePageWidget> {
                                                             BaseTheme.of(
                                                                     context)
                                                                 .error,
-                                                        width: 1.0,
+                                                        width: 1,
                                                       ),
                                                       borderRadius:
                                                           BorderRadius.circular(
-                                                              0.0),
+                                                              0),
                                                     ),
                                                     focusedErrorBorder:
                                                         UnderlineInputBorder(
@@ -581,11 +584,11 @@ class _EditProfilePageWidgetState extends State<EditProfilePageWidget> {
                                                             BaseTheme.of(
                                                                     context)
                                                                 .error,
-                                                        width: 1.0,
+                                                        width: 1,
                                                       ),
                                                       borderRadius:
                                                           BorderRadius.circular(
-                                                              0.0),
+                                                              0),
                                                     ),
                                                   ),
                                                   style: BaseTheme.of(
@@ -594,8 +597,8 @@ class _EditProfilePageWidgetState extends State<EditProfilePageWidget> {
                                                       .override(
                                                         fontFamily:
                                                             'Playfair Display',
-                                                        fontSize: 16.0,
-                                                        letterSpacing: 0.0,
+                                                        fontSize: 16,
+                                                        letterSpacing: 0,
                                                         fontWeight:
                                                             FontWeight.w600,
                                                       ),
@@ -613,7 +616,7 @@ class _EditProfilePageWidgetState extends State<EditProfilePageWidget> {
                                   ),
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        15.0, 0.0, 0.0, 0.0),
+                                        15, 0, 0, 0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       mainAxisAlignment:
@@ -634,8 +637,8 @@ class _EditProfilePageWidgetState extends State<EditProfilePageWidget> {
                                                 .override(
                                                   fontFamily:
                                                       'Playfair Display',
-                                                  fontSize: 16.0,
-                                                  letterSpacing: 0.0,
+                                                  fontSize: 16,
+                                                  letterSpacing: 0,
                                                   fontWeight: FontWeight.bold,
                                                 ),
                                           ),
@@ -645,7 +648,7 @@ class _EditProfilePageWidgetState extends State<EditProfilePageWidget> {
                                             decoration: BoxDecoration(),
                                             child: Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0.0, 0.0, 8.0, 0.0),
+                                                  .fromSTEB(0, 0, 8, 0),
                                               child: TextFormField(
                                                 controller:
                                                     _model.emailTextController,
@@ -666,8 +669,8 @@ class _EditProfilePageWidgetState extends State<EditProfilePageWidget> {
                                                             color: BaseTheme
                                                                     .of(context)
                                                                 .primaryBackground,
-                                                            fontSize: 13.0,
-                                                            letterSpacing: 0.0,
+                                                            fontSize: 13,
+                                                            letterSpacing: 0,
                                                           ),
                                                   enabledBorder:
                                                       UnderlineInputBorder(
@@ -676,11 +679,11 @@ class _EditProfilePageWidgetState extends State<EditProfilePageWidget> {
                                                           BaseTheme.of(
                                                                   context)
                                                               .alternate,
-                                                      width: 1.0,
+                                                      width: 1,
                                                     ),
                                                     borderRadius:
                                                         BorderRadius.circular(
-                                                            0.0),
+                                                            0),
                                                   ),
                                                   focusedBorder:
                                                       UnderlineInputBorder(
@@ -689,11 +692,11 @@ class _EditProfilePageWidgetState extends State<EditProfilePageWidget> {
                                                           BaseTheme.of(
                                                                   context)
                                                               .primary,
-                                                      width: 1.0,
+                                                      width: 1,
                                                     ),
                                                     borderRadius:
                                                         BorderRadius.circular(
-                                                            0.0),
+                                                            0),
                                                   ),
                                                   errorBorder:
                                                       UnderlineInputBorder(
@@ -702,11 +705,11 @@ class _EditProfilePageWidgetState extends State<EditProfilePageWidget> {
                                                           BaseTheme.of(
                                                                   context)
                                                               .error,
-                                                      width: 1.0,
+                                                      width: 1,
                                                     ),
                                                     borderRadius:
                                                         BorderRadius.circular(
-                                                            0.0),
+                                                            0),
                                                   ),
                                                   focusedErrorBorder:
                                                       UnderlineInputBorder(
@@ -715,11 +718,11 @@ class _EditProfilePageWidgetState extends State<EditProfilePageWidget> {
                                                           BaseTheme.of(
                                                                   context)
                                                               .error,
-                                                      width: 1.0,
+                                                      width: 1,
                                                     ),
                                                     borderRadius:
                                                         BorderRadius.circular(
-                                                            0.0),
+                                                            0),
                                                   ),
                                                 ),
                                                 style:
@@ -728,8 +731,8 @@ class _EditProfilePageWidgetState extends State<EditProfilePageWidget> {
                                                         .override(
                                                           fontFamily:
                                                               'Playfair Display',
-                                                          fontSize: 16.0,
-                                                          letterSpacing: 0.0,
+                                                          fontSize: 16,
+                                                          letterSpacing: 0,
                                                           fontWeight:
                                                               FontWeight.w600,
                                                         ),
@@ -746,7 +749,7 @@ class _EditProfilePageWidgetState extends State<EditProfilePageWidget> {
                                   ),
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        15.0, 0.0, 0.0, 0.0),
+                                        15, 0, 0, 0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       mainAxisAlignment:
@@ -767,8 +770,8 @@ class _EditProfilePageWidgetState extends State<EditProfilePageWidget> {
                                                 .override(
                                                   fontFamily:
                                                       'Playfair Display',
-                                                  fontSize: 16.0,
-                                                  letterSpacing: 0.0,
+                                                  fontSize: 16,
+                                                  letterSpacing: 0,
                                                   fontWeight: FontWeight.bold,
                                                 ),
                                           ),
@@ -778,7 +781,7 @@ class _EditProfilePageWidgetState extends State<EditProfilePageWidget> {
                                             decoration: BoxDecoration(),
                                             child: Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0.0, 0.0, 8.0, 0.0),
+                                                  .fromSTEB(0, 0, 8, 0),
                                               child: AuthUserStreamWidget(
                                                 builder: (context) =>
                                                     TextFormField(
@@ -790,18 +793,19 @@ class _EditProfilePageWidgetState extends State<EditProfilePageWidget> {
                                                   obscureText: false,
                                                   decoration: InputDecoration(
                                                     hintText: '0812345678',
-                                                    hintStyle: BaseTheme
-                                                            .of(context)
-                                                        .labelMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              'Playfair Display',
-                                                          color: BaseTheme
-                                                                  .of(context)
-                                                              .primaryBackground,
-                                                          fontSize: 14.0,
-                                                          letterSpacing: 0.0,
-                                                        ),
+                                                    hintStyle:
+                                                        BaseTheme.of(
+                                                                context)
+                                                            .labelMedium
+                                                            .override(
+                                                              fontFamily:
+                                                                  'Playfair Display',
+                                                              color: BaseTheme
+                                                                      .of(context)
+                                                                  .primaryBackground,
+                                                              fontSize: 14,
+                                                              letterSpacing: 0,
+                                                            ),
                                                     enabledBorder:
                                                         UnderlineInputBorder(
                                                       borderSide: BorderSide(
@@ -809,11 +813,11 @@ class _EditProfilePageWidgetState extends State<EditProfilePageWidget> {
                                                             BaseTheme.of(
                                                                     context)
                                                                 .alternate,
-                                                        width: 1.0,
+                                                        width: 1,
                                                       ),
                                                       borderRadius:
                                                           BorderRadius.circular(
-                                                              0.0),
+                                                              0),
                                                     ),
                                                     focusedBorder:
                                                         UnderlineInputBorder(
@@ -822,11 +826,11 @@ class _EditProfilePageWidgetState extends State<EditProfilePageWidget> {
                                                             BaseTheme.of(
                                                                     context)
                                                                 .primary,
-                                                        width: 1.0,
+                                                        width: 1,
                                                       ),
                                                       borderRadius:
                                                           BorderRadius.circular(
-                                                              0.0),
+                                                              0),
                                                     ),
                                                     errorBorder:
                                                         UnderlineInputBorder(
@@ -835,11 +839,11 @@ class _EditProfilePageWidgetState extends State<EditProfilePageWidget> {
                                                             BaseTheme.of(
                                                                     context)
                                                                 .error,
-                                                        width: 1.0,
+                                                        width: 1,
                                                       ),
                                                       borderRadius:
                                                           BorderRadius.circular(
-                                                              0.0),
+                                                              0),
                                                     ),
                                                     focusedErrorBorder:
                                                         UnderlineInputBorder(
@@ -848,11 +852,11 @@ class _EditProfilePageWidgetState extends State<EditProfilePageWidget> {
                                                             BaseTheme.of(
                                                                     context)
                                                                 .error,
-                                                        width: 1.0,
+                                                        width: 1,
                                                       ),
                                                       borderRadius:
                                                           BorderRadius.circular(
-                                                              0.0),
+                                                              0),
                                                     ),
                                                   ),
                                                   style: BaseTheme.of(
@@ -861,8 +865,8 @@ class _EditProfilePageWidgetState extends State<EditProfilePageWidget> {
                                                       .override(
                                                         fontFamily:
                                                             'Playfair Display',
-                                                        fontSize: 16.0,
-                                                        letterSpacing: 0.0,
+                                                        fontSize: 16,
+                                                        letterSpacing: 0,
                                                         fontWeight:
                                                             FontWeight.w600,
                                                       ),
@@ -885,7 +889,7 @@ class _EditProfilePageWidgetState extends State<EditProfilePageWidget> {
                                         child: Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 30.0, 0.0, 0.0),
+                                                  0, 30, 0, 0),
                                           child: FFButtonWidget(
                                             onPressed: () async {
                                               await currentUserReference!
@@ -904,12 +908,11 @@ class _EditProfilePageWidgetState extends State<EditProfilePageWidget> {
                                             },
                                             text: 'Save Profile',
                                             options: FFButtonOptions(
-                                              height: 40.0,
+                                              height: 40,
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      24.0, 0.0, 24.0, 0.0),
+                                                  .fromSTEB(24, 0, 24, 0),
                                               iconPadding: EdgeInsetsDirectional
-                                                  .fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                  .fromSTEB(0, 0, 0, 0),
                                               color:
                                                   BaseTheme.of(context)
                                                       .primaryBackground,
@@ -922,16 +925,16 @@ class _EditProfilePageWidgetState extends State<EditProfilePageWidget> {
                                                     color: BaseTheme.of(
                                                             context)
                                                         .secondary,
-                                                    letterSpacing: 0.0,
+                                                    letterSpacing: 0,
                                                     fontWeight: FontWeight.w600,
                                                   ),
-                                              elevation: 3.0,
+                                              elevation: 3,
                                               borderSide: BorderSide(
                                                 color: Colors.transparent,
-                                                width: 1.0,
+                                                width: 1,
                                               ),
                                               borderRadius:
-                                                  BorderRadius.circular(20.0),
+                                                  BorderRadius.circular(20),
                                             ),
                                           ),
                                         ),
@@ -944,8 +947,8 @@ class _EditProfilePageWidgetState extends State<EditProfilePageWidget> {
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              15.0, 55.0, 0.0, 10.0),
+                          padding:
+                              EdgeInsetsDirectional.fromSTEB(15, 55, 0, 10),
                           child: InkWell(
                             splashColor: Colors.transparent,
                             focusColor: Colors.transparent,
@@ -958,7 +961,7 @@ class _EditProfilePageWidgetState extends State<EditProfilePageWidget> {
                               Icons.arrow_back_ios,
                               color: BaseTheme.of(context)
                                   .primaryBackground,
-                              size: 24.0,
+                              size: 24,
                             ),
                           ),
                         ),
