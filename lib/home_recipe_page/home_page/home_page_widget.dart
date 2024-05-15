@@ -1,7 +1,7 @@
 import '/auth/base_auth_user_provider.dart';
 import '/components/confirm_logout_alert_widget.dart';
 import '/components/log_in_required_widget.dart';
-import '/base_structure/icon_button.dart';
+import '/base_structure/base_icon_button.dart';
 import '/base_structure/base_theme.dart';
 import '/base_structure/base_util.dart';
 import 'package:flutter/material.dart';
@@ -67,93 +67,85 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        if (responsiveVisibility(
-                          context: context,
-                          tablet: false,
-                          tabletLandscape: false,
-                          desktop: false,
-                        ))
-                          Row(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Container(
-                                width: MediaQuery.sizeOf(context).width * 1.0,
-                                constraints: BoxConstraints(
-                                  maxHeight: 180.0,
-                                ),
-                                decoration: BoxDecoration(),
-                                child: InkWell(
-                                  splashColor: Colors.transparent,
-                                  focusColor: Colors.transparent,
-                                  hoverColor: Colors.transparent,
-                                  highlightColor: Colors.transparent,
-                                  onTap: () async {
-                                    context.pushNamed(
-                                      'Trending_Page',
-                                      queryParameters: {
-                                        'selectedCategory': serializeParam(
-                                          'Trending',
-                                          ParamType.String,
+                        Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Container(
+                              width: MediaQuery.sizeOf(context).width * 1.0,
+                              constraints: BoxConstraints(
+                                maxHeight: 180.0,
+                              ),
+                              decoration: BoxDecoration(),
+                              child: InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  context.pushNamed(
+                                    'Trending_page',
+                                    queryParameters: {
+                                      'selectedCategory': serializeParam(
+                                        'Trending',
+                                        ParamType.String,
+                                      ),
+                                    }.withoutNulls,
+                                    extra: <String, dynamic>{
+                                      kTransitionInfoKey: TransitionInfo(
+                                        hasTransition: true,
+                                        transitionType: PageTransitionType.fade,
+                                        duration: Duration(milliseconds: 500),
+                                      ),
+                                    },
+                                  );
+                                },
+                                child: Stack(
+                                  children: [
+                                    Opacity(
+                                      opacity: 0.5,
+                                      child: Container(
+                                        width:
+                                            MediaQuery.sizeOf(context).width *
+                                                1.0,
+                                        decoration: BoxDecoration(
+                                          color: BaseTheme.of(context)
+                                              .secondary,
                                         ),
-                                      }.withoutNulls,
-                                      extra: <String, dynamic>{
-                                        kTransitionInfoKey: TransitionInfo(
-                                          hasTransition: true,
-                                          transitionType:
-                                              PageTransitionType.fade,
-                                          duration: Duration(milliseconds: 500),
-                                        ),
-                                      },
-                                    );
-                                  },
-                                  child: Stack(
-                                    children: [
-                                      Opacity(
-                                        opacity: 0.5,
-                                        child: Container(
-                                          width:
-                                              MediaQuery.sizeOf(context).width *
-                                                  1.0,
-                                          decoration: BoxDecoration(
-                                            color: BaseTheme.of(context)
-                                                .secondary,
+                                        child: ClipRRect(
+                                          borderRadius:
+                                              BorderRadius.circular(0.0),
+                                          child: Image.asset(
+                                            'assets/images/TrendingCategory.png',
+                                            width: MediaQuery.sizeOf(context)
+                                                    .width *
+                                                1.0,
+                                            height: 180.0,
+                                            fit: BoxFit.cover,
                                           ),
-                                          child: ClipRRect(
-                                            borderRadius:
-                                                BorderRadius.circular(0.0),
-                                            child: Image.asset(
-                                              'assets/images/TrendingCategory.png',
-                                              width: MediaQuery.sizeOf(context)
-                                                      .width *
-                                                  1.0,
-                                              height: 180.0,
-                                              fit: BoxFit.cover,
+                                        ),
+                                      ),
+                                    ),
+                                    Align(
+                                      alignment: AlignmentDirectional(0.0, 0.0),
+                                      child: Text(
+                                        'Trending',
+                                        style: BaseTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Italiana',
+                                              fontSize: 32.0,
+                                              letterSpacing: 10.0,
                                             ),
-                                          ),
-                                        ),
                                       ),
-                                      Align(
-                                        alignment:
-                                            AlignmentDirectional(0.0, 0.0),
-                                        child: Text(
-                                          'Trending',
-                                          style: BaseTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily: 'Italiana',
-                                                fontSize: 32.0,
-                                                letterSpacing: 10.0,
-                                              ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
+                                    ),
+                                  ],
                                 ),
                               ),
-                            ],
-                          ),
+                            ),
+                          ],
+                        ),
                         if (responsiveVisibility(
                           context: context,
                           tablet: false,
@@ -176,7 +168,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                   highlightColor: Colors.transparent,
                                   onTap: () async {
                                     context.pushNamed(
-                                      'Browse_Page',
+                                      'Browser_Page',
                                       queryParameters: {
                                         'selectedCategory': serializeParam(
                                           'Asian',
@@ -249,7 +241,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                   highlightColor: Colors.transparent,
                                   onTap: () async {
                                     context.pushNamed(
-                                      'Browse_Page',
+                                      'Browser_Page',
                                       queryParameters: {
                                         'selectedCategory': serializeParam(
                                           'Italian',
@@ -328,7 +320,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                 highlightColor: Colors.transparent,
                                 onTap: () async {
                                   context.pushNamed(
-                                    'Browse_Page',
+                                    'Browser_Page',
                                     queryParameters: {
                                       'selectedCategory': serializeParam(
                                         'Western',
@@ -396,7 +388,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                 highlightColor: Colors.transparent,
                                 onTap: () async {
                                   context.pushNamed(
-                                    'Browse_Page',
+                                    'Browser_Page',
                                     queryParameters: {
                                       'selectedCategory': serializeParam(
                                         'European',
@@ -468,7 +460,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                 highlightColor: Colors.transparent,
                                 onTap: () async {
                                   context.pushNamed(
-                                    'Browse_Page',
+                                    'Browser_Page',
                                     queryParameters: {
                                       'selectedCategory': serializeParam(
                                         'Soup',
@@ -535,7 +527,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                 highlightColor: Colors.transparent,
                                 onTap: () async {
                                   context.pushNamed(
-                                    'Browse_Page',
+                                    'Browser_Page',
                                     queryParameters: {
                                       'selectedCategory': serializeParam(
                                         'Desserts',
@@ -632,7 +624,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                     Builder(
                       builder: (context) => Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 15.0, 0.0),
                         child: BaseIconButton(
                           borderRadius: 20.0,
                           borderWidth: 1.0,
@@ -643,26 +635,49 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                             size: 24.0,
                           ),
                           onPressed: () async {
-                            await showDialog(
-                              context: context,
-                              builder: (dialogContext) {
-                                return Dialog(
-                                  elevation: 0,
-                                  insetPadding: EdgeInsets.zero,
-                                  backgroundColor: Colors.transparent,
-                                  alignment: AlignmentDirectional(0.0, 0.0)
-                                      .resolve(Directionality.of(context)),
-                                  child: GestureDetector(
-                                    onTap: () => _model
-                                            .unfocusNode.canRequestFocus
-                                        ? FocusScope.of(context)
-                                            .requestFocus(_model.unfocusNode)
-                                        : FocusScope.of(context).unfocus(),
-                                    child: ConfirmLogoutAlertWidget(),
-                                  ),
-                                );
-                              },
-                            ).then((value) => setState(() {}));
+                            if (loggedIn) {
+                              await showDialog(
+                                context: context,
+                                builder: (dialogContext) {
+                                  return Dialog(
+                                    elevation: 0,
+                                    insetPadding: EdgeInsets.zero,
+                                    backgroundColor: Colors.transparent,
+                                    alignment: AlignmentDirectional(0.0, 0.0)
+                                        .resolve(Directionality.of(context)),
+                                    child: GestureDetector(
+                                      onTap: () => _model
+                                              .unfocusNode.canRequestFocus
+                                          ? FocusScope.of(context)
+                                              .requestFocus(_model.unfocusNode)
+                                          : FocusScope.of(context).unfocus(),
+                                      child: ConfirmLogoutAlertWidget(),
+                                    ),
+                                  );
+                                },
+                              ).then((value) => setState(() {}));
+                            } else {
+                              await showDialog(
+                                context: context,
+                                builder: (dialogContext) {
+                                  return Dialog(
+                                    elevation: 0,
+                                    insetPadding: EdgeInsets.zero,
+                                    backgroundColor: Colors.transparent,
+                                    alignment: AlignmentDirectional(0.0, 0.0)
+                                        .resolve(Directionality.of(context)),
+                                    child: GestureDetector(
+                                      onTap: () => _model
+                                              .unfocusNode.canRequestFocus
+                                          ? FocusScope.of(context)
+                                              .requestFocus(_model.unfocusNode)
+                                          : FocusScope.of(context).unfocus(),
+                                      child: LogInRequiredWidget(),
+                                    ),
+                                  );
+                                },
+                              ).then((value) => setState(() {}));
+                            }
                           },
                         ),
                       ),
@@ -679,46 +694,53 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
-                      Column(
-                        mainAxisSize: MainAxisSize.min,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Builder(
-                            builder: (context) => InkWell(
-                              splashColor: Colors.transparent,
-                              focusColor: Colors.transparent,
-                              hoverColor: Colors.transparent,
-                              highlightColor: Colors.transparent,
-                              onTap: () async {
-                                if (!loggedIn) {
-                                  await showDialog(
-                                    context: context,
-                                    builder: (dialogContext) {
-                                      return Dialog(
-                                        elevation: 0,
-                                        insetPadding: EdgeInsets.zero,
-                                        backgroundColor: Colors.transparent,
-                                        alignment:
-                                            AlignmentDirectional(0.0, 0.0)
-                                                .resolve(
-                                                    Directionality.of(context)),
-                                        child: GestureDetector(
-                                          onTap: () => _model
-                                                  .unfocusNode.canRequestFocus
-                                              ? FocusScope.of(context)
-                                                  .requestFocus(
-                                                      _model.unfocusNode)
-                                              : FocusScope.of(context)
-                                                  .unfocus(),
-                                          child: LogInRequiredWidget(),
-                                        ),
-                                      );
-                                    },
-                                  ).then((value) => setState(() {}));
-                                }
-                              },
-                              child: ClipRRect(
+                      Builder(
+                        builder: (context) => InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            if (loggedIn) {
+                              context.pushNamed(
+                                'FeedPage',
+                                extra: <String, dynamic>{
+                                  kTransitionInfoKey: TransitionInfo(
+                                    hasTransition: true,
+                                    transitionType: PageTransitionType.fade,
+                                    duration: Duration(milliseconds: 300),
+                                  ),
+                                },
+                              );
+                            } else {
+                              await showDialog(
+                                context: context,
+                                builder: (dialogContext) {
+                                  return Dialog(
+                                    elevation: 0,
+                                    insetPadding: EdgeInsets.zero,
+                                    backgroundColor: Colors.transparent,
+                                    alignment: AlignmentDirectional(0.0, 0.0)
+                                        .resolve(Directionality.of(context)),
+                                    child: GestureDetector(
+                                      onTap: () => _model
+                                              .unfocusNode.canRequestFocus
+                                          ? FocusScope.of(context)
+                                              .requestFocus(_model.unfocusNode)
+                                          : FocusScope.of(context).unfocus(),
+                                      child: LogInRequiredWidget(),
+                                    ),
+                                  );
+                                },
+                              ).then((value) => setState(() {}));
+                            }
+                          },
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              ClipRRect(
                                 borderRadius: BorderRadius.circular(8.0),
                                 child: Image.asset(
                                   'assets/images/FeedIcon.png',
@@ -727,19 +749,19 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                   fit: BoxFit.cover,
                                 ),
                               ),
-                            ),
+                              Text(
+                                'Feed',
+                                style: BaseTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Playfair Display',
+                                      fontSize: 12.0,
+                                      letterSpacing: 0.0,
+                                    ),
+                              ),
+                            ],
                           ),
-                          Text(
-                            'Feed',
-                            style: BaseTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  fontFamily: 'Playfair Display',
-                                  fontSize: 12.0,
-                                  letterSpacing: 0.0,
-                                ),
-                          ),
-                        ],
+                        ),
                       ),
                       Align(
                         alignment: AlignmentDirectional(0.0, 1.0),
@@ -767,46 +789,53 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                           ],
                         ),
                       ),
-                      Column(
-                        mainAxisSize: MainAxisSize.min,
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        children: [
-                          Builder(
-                            builder: (context) => InkWell(
-                              splashColor: Colors.transparent,
-                              focusColor: Colors.transparent,
-                              hoverColor: Colors.transparent,
-                              highlightColor: Colors.transparent,
-                              onTap: () async {
-                                if (!loggedIn) {
-                                  await showDialog(
-                                    context: context,
-                                    builder: (dialogContext) {
-                                      return Dialog(
-                                        elevation: 0,
-                                        insetPadding: EdgeInsets.zero,
-                                        backgroundColor: Colors.transparent,
-                                        alignment:
-                                            AlignmentDirectional(0.0, 0.0)
-                                                .resolve(
-                                                    Directionality.of(context)),
-                                        child: GestureDetector(
-                                          onTap: () => _model
-                                                  .unfocusNode.canRequestFocus
-                                              ? FocusScope.of(context)
-                                                  .requestFocus(
-                                                      _model.unfocusNode)
-                                              : FocusScope.of(context)
-                                                  .unfocus(),
-                                          child: LogInRequiredWidget(),
-                                        ),
-                                      );
-                                    },
-                                  ).then((value) => setState(() {}));
-                                }
-                              },
-                              child: ClipRRect(
+                      Builder(
+                        builder: (context) => InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            if (loggedIn) {
+                              context.pushNamed(
+                                'ProfileRecipePage',
+                                extra: <String, dynamic>{
+                                  kTransitionInfoKey: TransitionInfo(
+                                    hasTransition: true,
+                                    transitionType: PageTransitionType.fade,
+                                    duration: Duration(milliseconds: 300),
+                                  ),
+                                },
+                              );
+                            } else {
+                              await showDialog(
+                                context: context,
+                                builder: (dialogContext) {
+                                  return Dialog(
+                                    elevation: 0,
+                                    insetPadding: EdgeInsets.zero,
+                                    backgroundColor: Colors.transparent,
+                                    alignment: AlignmentDirectional(0.0, 0.0)
+                                        .resolve(Directionality.of(context)),
+                                    child: GestureDetector(
+                                      onTap: () => _model
+                                              .unfocusNode.canRequestFocus
+                                          ? FocusScope.of(context)
+                                              .requestFocus(_model.unfocusNode)
+                                          : FocusScope.of(context).unfocus(),
+                                      child: LogInRequiredWidget(),
+                                    ),
+                                  );
+                                },
+                              ).then((value) => setState(() {}));
+                            }
+                          },
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            crossAxisAlignment: CrossAxisAlignment.end,
+                            children: [
+                              ClipRRect(
                                 borderRadius: BorderRadius.circular(8.0),
                                 child: Image.asset(
                                   'assets/images/ProfileIcon.png',
@@ -815,19 +844,19 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                   fit: BoxFit.cover,
                                 ),
                               ),
-                            ),
+                              Text(
+                                'Profile',
+                                style: BaseTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Playfair Display',
+                                      fontSize: 12.0,
+                                      letterSpacing: 0.0,
+                                    ),
+                              ),
+                            ],
                           ),
-                          Text(
-                            'Profile',
-                            style: BaseTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  fontFamily: 'Playfair Display',
-                                  fontSize: 12.0,
-                                  letterSpacing: 0.0,
-                                ),
-                          ),
-                        ],
+                        ),
                       ),
                     ],
                   ),

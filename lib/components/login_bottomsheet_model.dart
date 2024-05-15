@@ -1,6 +1,7 @@
 import '/base_structure/base_util.dart';
 import 'login_bottomsheet_widget.dart' show LoginBottomsheetWidget;
 import 'package:flutter/material.dart';
+
 class LoginBottomsheetModel extends BaseModel<LoginBottomsheetWidget> {
   ///  State fields for stateful widgets in this component.
 

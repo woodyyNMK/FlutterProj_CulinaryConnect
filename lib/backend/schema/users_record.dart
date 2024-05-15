@@ -46,6 +46,26 @@ class UsersRecord extends FirestoreRecord {
   String get phoneNumber => _phoneNumber ?? '';
   bool hasPhoneNumber() => _phoneNumber != null;
 
+  // "username" field.
+  String? _username;
+  String get username => _username ?? '';
+  bool hasUsername() => _username != null;
+
+  // "followers" field.
+  List<DocumentReference>? _followers;
+  List<DocumentReference> get followers => _followers ?? const [];
+  bool hasFollowers() => _followers != null;
+
+  // "followings" field.
+  List<DocumentReference>? _followings;
+  List<DocumentReference> get followings => _followings ?? const [];
+  bool hasFollowings() => _followings != null;
+
+  // "FavouriteRecipe" field.
+  List<DocumentReference>? _favouriteRecipe;
+  List<DocumentReference> get favouriteRecipe => _favouriteRecipe ?? const [];
+  bool hasFavouriteRecipe() => _favouriteRecipe != null;
+
   void _initializeFields() {
     _email = snapshotData['email'] as String?;
     _displayName = snapshotData['display_name'] as String?;
@@ -53,6 +73,10 @@ class UsersRecord extends FirestoreRecord {
     _uid = snapshotData['uid'] as String?;
     _createdTime = snapshotData['created_time'] as DateTime?;
     _phoneNumber = snapshotData['phone_number'] as String?;
+    _username = snapshotData['username'] as String?;
+    _followers = getDataList(snapshotData['followers']);
+    _followings = getDataList(snapshotData['followings']);
+    _favouriteRecipe = getDataList(snapshotData['FavouriteRecipe']);
   }
 
   static CollectionReference get collection =>
@@ -95,6 +119,7 @@ Map<String, dynamic> createUsersRecordData({
   String? uid,
   DateTime? createdTime,
   String? phoneNumber,
+  String? username,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -104,6 +129,7 @@ Map<String, dynamic> createUsersRecordData({
       'uid': uid,
       'created_time': createdTime,
       'phone_number': phoneNumber,
+      'username': username,
     }.withoutNulls,
   );
 
@@ -115,12 +141,17 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
 
   @override
   bool equals(UsersRecord? e1, UsersRecord? e2) {
+    const listEquality = ListEquality();
     return e1?.email == e2?.email &&
         e1?.displayName == e2?.displayName &&
         e1?.photoUrl == e2?.photoUrl &&
         e1?.uid == e2?.uid &&
         e1?.createdTime == e2?.createdTime &&
-        e1?.phoneNumber == e2?.phoneNumber;
+        e1?.phoneNumber == e2?.phoneNumber &&
+        e1?.username == e2?.username &&
+        listEquality.equals(e1?.followers, e2?.followers) &&
+        listEquality.equals(e1?.followings, e2?.followings) &&
+        listEquality.equals(e1?.favouriteRecipe, e2?.favouriteRecipe);
   }
 
   @override
@@ -130,7 +161,11 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e?.photoUrl,
         e?.uid,
         e?.createdTime,
-        e?.phoneNumber
+        e?.phoneNumber,
+        e?.username,
+        e?.followers,
+        e?.followings,
+        e?.favouriteRecipe
       ]);
 
   @override

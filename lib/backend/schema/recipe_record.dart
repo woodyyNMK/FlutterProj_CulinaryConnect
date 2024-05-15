@@ -36,11 +36,6 @@ class RecipeRecord extends FirestoreRecord {
   List<String> get instructions => _instructions ?? const [];
   bool hasInstructions() => _instructions != null;
 
-  // "creation_date" field.
-  String? _creationDate;
-  String get creationDate => _creationDate ?? '';
-  bool hasCreationDate() => _creationDate != null;
-
   // "user_id" field.
   DocumentReference? _userId;
   DocumentReference? get userId => _userId;
@@ -61,16 +56,45 @@ class RecipeRecord extends FirestoreRecord {
   List<String> get ingredients => _ingredients ?? const [];
   bool hasIngredients() => _ingredients != null;
 
+  // "created_date" field.
+  DateTime? _createdDate;
+  DateTime? get createdDate => _createdDate;
+  bool hasCreatedDate() => _createdDate != null;
+
+  // "UPvoteList" field.
+  List<DocumentReference>? _uPvoteList;
+  List<DocumentReference> get uPvoteList => _uPvoteList ?? const [];
+  bool hasUPvoteList() => _uPvoteList != null;
+
+  // "DOWNvoteList" field.
+  List<DocumentReference>? _dOWNvoteList;
+  List<DocumentReference> get dOWNvoteList => _dOWNvoteList ?? const [];
+  bool hasDOWNvoteList() => _dOWNvoteList != null;
+
+  // "commentList" field.
+  List<DocumentReference>? _commentList;
+  List<DocumentReference> get commentList => _commentList ?? const [];
+  bool hasCommentList() => _commentList != null;
+
+  // "UPvoteTotal" field.
+  int? _uPvoteTotal;
+  int get uPvoteTotal => _uPvoteTotal ?? 0;
+  bool hasUPvoteTotal() => _uPvoteTotal != null;
+
   void _initializeFields() {
     _recipeName = snapshotData['recipeName'] as String?;
     _photos = getDataList(snapshotData['photos']);
     _description = snapshotData['description'] as String?;
     _instructions = getDataList(snapshotData['instructions']);
-    _creationDate = snapshotData['creation_date'] as String?;
     _userId = snapshotData['user_id'] as DocumentReference?;
     _cuisineType = snapshotData['cuisineType'] as String?;
     _trending = snapshotData['Trending'] as bool?;
     _ingredients = getDataList(snapshotData['ingredients']);
+    _createdDate = snapshotData['created_date'] as DateTime?;
+    _uPvoteList = getDataList(snapshotData['UPvoteList']);
+    _dOWNvoteList = getDataList(snapshotData['DOWNvoteList']);
+    _commentList = getDataList(snapshotData['commentList']);
+    _uPvoteTotal = castToType<int>(snapshotData['UPvoteTotal']);
   }
 
   static CollectionReference get collection =>
@@ -109,19 +133,21 @@ class RecipeRecord extends FirestoreRecord {
 Map<String, dynamic> createRecipeRecordData({
   String? recipeName,
   String? description,
-  String? creationDate,
   DocumentReference? userId,
   String? cuisineType,
   bool? trending,
+  DateTime? createdDate,
+  int? uPvoteTotal,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
       'recipeName': recipeName,
       'description': description,
-      'creation_date': creationDate,
       'user_id': userId,
       'cuisineType': cuisineType,
       'Trending': trending,
+      'created_date': createdDate,
+      'UPvoteTotal': uPvoteTotal,
     }.withoutNulls,
   );
 
@@ -138,11 +164,15 @@ class RecipeRecordDocumentEquality implements Equality<RecipeRecord> {
         listEquality.equals(e1?.photos, e2?.photos) &&
         e1?.description == e2?.description &&
         listEquality.equals(e1?.instructions, e2?.instructions) &&
-        e1?.creationDate == e2?.creationDate &&
         e1?.userId == e2?.userId &&
         e1?.cuisineType == e2?.cuisineType &&
         e1?.trending == e2?.trending &&
-        listEquality.equals(e1?.ingredients, e2?.ingredients);
+        listEquality.equals(e1?.ingredients, e2?.ingredients) &&
+        e1?.createdDate == e2?.createdDate &&
+        listEquality.equals(e1?.uPvoteList, e2?.uPvoteList) &&
+        listEquality.equals(e1?.dOWNvoteList, e2?.dOWNvoteList) &&
+        listEquality.equals(e1?.commentList, e2?.commentList) &&
+        e1?.uPvoteTotal == e2?.uPvoteTotal;
   }
 
   @override
@@ -151,11 +181,15 @@ class RecipeRecordDocumentEquality implements Equality<RecipeRecord> {
         e?.photos,
         e?.description,
         e?.instructions,
-        e?.creationDate,
         e?.userId,
         e?.cuisineType,
         e?.trending,
-        e?.ingredients
+        e?.ingredients,
+        e?.createdDate,
+        e?.uPvoteList,
+        e?.dOWNvoteList,
+        e?.commentList,
+        e?.uPvoteTotal
       ]);
 
   @override

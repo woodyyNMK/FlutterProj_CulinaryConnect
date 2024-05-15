@@ -124,7 +124,7 @@ class _ConfirmLogoutAlertWidgetState extends State<ConfirmLogoutAlertWidget> {
                                 .labelLarge
                                 .override(
                                   fontFamily: 'Playfair Display',
-                                  color: BaseTheme.of(context).primary,
+                                  color: BaseTheme.of(context).error,
                                   fontSize: 13.0,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.w600,
@@ -133,6 +133,10 @@ class _ConfirmLogoutAlertWidgetState extends State<ConfirmLogoutAlertWidget> {
                             borderSide: BorderSide(
                               color: BaseTheme.of(context).secondary,
                             ),
+                            hoverBorderSide: BorderSide(
+                              color: BaseTheme.of(context).error,
+                            ),
+                            hoverTextColor: BaseTheme.of(context).error,
                           ),
                         ),
                       ),

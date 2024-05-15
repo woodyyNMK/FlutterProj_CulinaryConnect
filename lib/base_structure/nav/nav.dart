@@ -111,16 +111,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => HomePageWidget(),
         ),
         FFRoute(
-          name: 'Browse_Page',
-          path: '/browsePage',
-          builder: (context, params) => BrowsePageWidget(
-            selectedCategory: params.getParam(
-              'selectedCategory',
-              ParamType.String,
-            ),
-          ),
-        ),
-        FFRoute(
           name: 'ForgetPassword_Page',
           path: '/forgetPasswordPage',
           builder: (context, params) => ForgetPasswordPageWidget(),
@@ -145,12 +135,95 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               isList: false,
               collectionNamePath: ['recipe'],
             ),
+            upVoteValue: params.getParam(
+              'upVoteValue',
+              ParamType.bool,
+            ),
+            downVoteValue: params.getParam(
+              'downVoteValue',
+              ParamType.bool,
+            ),
+            savedPostValue: params.getParam(
+              'savedPostValue',
+              ParamType.bool,
+            ),
           ),
         ),
         FFRoute(
-          name: 'Trending_Page',
+          name: 'FriendListPage',
+          path: '/friendListPage',
+          builder: (context, params) => FriendListPageWidget(
+            authorRef: params.getParam(
+              'authorRef',
+              ParamType.DocumentReference,
+              isList: false,
+              collectionNamePath: ['users'],
+            ),
+          ),
+        ),
+        FFRoute(
+          name: 'AddRecipe_Page',
+          path: '/addRecipePage',
+          builder: (context, params) => AddRecipePageWidget(),
+        ),
+        FFRoute(
+          name: 'EditProfilePage',
+          path: '/editProfilePage',
+          builder: (context, params) => EditProfilePageWidget(),
+        ),
+        FFRoute(
+          name: 'Trending_page',
           path: '/trendingPage',
           builder: (context, params) => TrendingPageWidget(
+            selectedCategory: params.getParam(
+              'selectedCategory',
+              ParamType.String,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: 'ProfileRecipePage',
+          path: '/profileRecipePage',
+          builder: (context, params) => ProfileRecipePageWidget(),
+        ),
+        FFRoute(
+          name: 'FeedPage',
+          path: '/feedPage',
+          builder: (context, params) => FeedPageWidget(),
+        ),
+        FFRoute(
+          name: 'ProfileSavedPage',
+          path: '/profileSavedPage',
+          builder: (context, params) => ProfileSavedPageWidget(),
+        ),
+        FFRoute(
+          name: 'AuthorsProfilePage',
+          path: '/authorsProfilePage',
+          builder: (context, params) => AuthorsProfilePageWidget(
+            authorRef: params.getParam(
+              'authorRef',
+              ParamType.DocumentReference,
+              isList: false,
+              collectionNamePath: ['users'],
+            ),
+          ),
+        ),
+        FFRoute(
+          name: 'EditRecipe_Page',
+          path: '/editRecipePage',
+          builder: (context, params) => EditRecipePageWidget(
+            editRecipeRef: params.getParam(
+              'editRecipeRef',
+              ParamType.DocumentReference,
+              isList: false,
+              collectionNamePath: ['recipe'],
+            ),
+          ),
+        ),
+        FFRoute(
+          name: 'Browser_Page',
+          path: '/browserPage',
+          builder: (context, params) => BrowserPageWidget(
             selectedCategory: params.getParam(
               'selectedCategory',
               ParamType.String,
@@ -414,4 +487,14 @@ class RootPageContext {
         value: RootPageContext(true, errorRoute),
         child: child,
       );
+}
+
+extension GoRouterLocationExtension on GoRouter {
+  String getCurrentLocation() {
+    final RouteMatch lastMatch = routerDelegate.currentConfiguration.last;
+    final RouteMatchList matchList = lastMatch is ImperativeRouteMatch
+        ? lastMatch.matches
+        : routerDelegate.currentConfiguration;
+    return matchList.uri.toString();
+  }
 }

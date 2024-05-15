@@ -1,9 +1,8 @@
-import '/base_structure/icon_button.dart';
+import '/base_structure/base_icon_button.dart';
 import '/base_structure/base_theme.dart';
 import '/base_structure/base_util.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-
 import 'on_boarding1_model.dart';
 export 'on_boarding1_model.dart';
 
