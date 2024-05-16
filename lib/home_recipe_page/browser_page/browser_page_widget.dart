@@ -255,10 +255,20 @@ class _BrowserPageWidgetState extends State<BrowserPageWidget> {
                                                             .toList();
                                                     ;
                                                   });
-                                                  setState(() {
-                                                    _model.isShowFullList =
-                                                        true;
-                                                  });
+                                                  if (_model
+                                                          .searchRecipeTextController
+                                                          .text ==
+                                                      '') {
+                                                    setState(() {
+                                                      _model.isShowFullList =
+                                                          false;
+                                                    });
+                                                  } else {
+                                                    setState(() {
+                                                      _model.isShowFullList =
+                                                          true;
+                                                    });
+                                                  }
                                                 },
                                               ),
                                               autofocus: false,
@@ -368,339 +378,319 @@ class _BrowserPageWidgetState extends State<BrowserPageWidget> {
                                                         EdgeInsetsDirectional
                                                             .fromSTEB(
                                                                 15, 0, 15, 0),
-                                                    child: InkWell(
-                                                      splashColor:
-                                                          Colors.transparent,
-                                                      focusColor:
-                                                          Colors.transparent,
-                                                      hoverColor:
-                                                          Colors.transparent,
-                                                      highlightColor:
-                                                          Colors.transparent,
-                                                      onTap: () async {
-                                                        context.pushNamed(
-                                                          'Recipe_Page',
-                                                          queryParameters: {
-                                                            'recipeRef':
-                                                                serializeParam(
-                                                              trendingListFromRecipeItem
-                                                                  .reference,
-                                                              ParamType
-                                                                  .DocumentReference,
+                                                    child: StreamBuilder<
+                                                        List<UsersRecord>>(
+                                                      stream: queryUsersRecord(
+                                                        singleRecord: true,
+                                                      ),
+                                                      builder:
+                                                          (context, snapshot) {
+                                                        // Customize what your widget looks like when it's loading.
+                                                        if (!snapshot.hasData) {
+                                                          return Center(
+                                                            child: SizedBox(
+                                                              width: 50,
+                                                              height: 50,
+                                                              child:
+                                                                  CircularProgressIndicator(
+                                                                valueColor:
+                                                                    AlwaysStoppedAnimation<
+                                                                        Color>(
+                                                                  BaseTheme.of(
+                                                                          context)
+                                                                      .primary,
+                                                                ),
+                                                              ),
                                                             ),
-                                                            'upVoteValue':
-                                                                serializeParam(
-                                                              trendingListFromRecipeItem
-                                                                      .uPvoteList
-                                                                      .contains(
-                                                                          currentUserReference)
-                                                                  ? true
-                                                                  : false,
-                                                              ParamType.bool,
-                                                            ),
-                                                            'downVoteValue':
-                                                                serializeParam(
-                                                              trendingListFromRecipeItem
-                                                                      .dOWNvoteList
-                                                                      .contains(
-                                                                          currentUserReference)
-                                                                  ? true
-                                                                  : false,
-                                                              ParamType.bool,
-                                                            ),
-                                                            'savedPostValue':
-                                                                serializeParam(
-                                                              (currentUserDocument
-                                                                              ?.favouriteRecipe
-                                                                              ?.toList() ??
-                                                                          [])
-                                                                      .contains(
-                                                                          trendingListFromRecipeItem
-                                                                              .reference)
-                                                                  ? true
-                                                                  : false,
-                                                              ParamType.bool,
-                                                            ),
-                                                          }.withoutNulls,
-                                                          extra: <String,
-                                                              dynamic>{
-                                                            kTransitionInfoKey:
-                                                                TransitionInfo(
-                                                              hasTransition:
-                                                                  true,
-                                                              transitionType:
-                                                                  PageTransitionType
-                                                                      .fade,
-                                                              duration: Duration(
-                                                                  milliseconds:
-                                                                      500),
-                                                            ),
+                                                          );
+                                                        }
+                                                        List<UsersRecord>
+                                                            stackUsersRecordList =
+                                                            snapshot.data!;
+                                                        // Return an empty Container when the item does not exist.
+                                                        if (snapshot
+                                                            .data!.isEmpty) {
+                                                          return Container();
+                                                        }
+                                                        final stackUsersRecord =
+                                                            stackUsersRecordList
+                                                                    .isNotEmpty
+                                                                ? stackUsersRecordList
+                                                                    .first
+                                                                : null;
+                                                        return InkWell(
+                                                          splashColor: Colors
+                                                              .transparent,
+                                                          focusColor: Colors
+                                                              .transparent,
+                                                          hoverColor: Colors
+                                                              .transparent,
+                                                          highlightColor: Colors
+                                                              .transparent,
+                                                          onTap: () async {
+                                                            context.pushNamed(
+                                                              'Recipe_Page',
+                                                              queryParameters: {
+                                                                'recipeRef':
+                                                                    serializeParam(
+                                                                  trendingListFromRecipeItem
+                                                                      .reference,
+                                                                  ParamType
+                                                                      .DocumentReference,
+                                                                ),
+                                                                'upVoteValue':
+                                                                    serializeParam(
+                                                                  trendingListFromRecipeItem
+                                                                          .uPvoteList
+                                                                          .contains(
+                                                                              currentUserReference)
+                                                                      ? true
+                                                                      : false,
+                                                                  ParamType
+                                                                      .bool,
+                                                                ),
+                                                                'downVoteValue':
+                                                                    serializeParam(
+                                                                  trendingListFromRecipeItem
+                                                                          .dOWNvoteList
+                                                                          .contains(
+                                                                              currentUserReference)
+                                                                      ? true
+                                                                      : false,
+                                                                  ParamType
+                                                                      .bool,
+                                                                ),
+                                                                'savedPostValue':
+                                                                    serializeParam(
+                                                                  (currentUserDocument?.favouriteRecipe?.toList() ??
+                                                                              [])
+                                                                          .contains(
+                                                                              trendingListFromRecipeItem.reference)
+                                                                      ? true
+                                                                      : false,
+                                                                  ParamType
+                                                                      .bool,
+                                                                ),
+                                                              }.withoutNulls,
+                                                              extra: <String,
+                                                                  dynamic>{
+                                                                kTransitionInfoKey:
+                                                                    TransitionInfo(
+                                                                  hasTransition:
+                                                                      true,
+                                                                  transitionType:
+                                                                      PageTransitionType
+                                                                          .fade,
+                                                                  duration: Duration(
+                                                                      milliseconds:
+                                                                          500),
+                                                                ),
+                                                              },
+                                                            );
                                                           },
+                                                          child: Stack(
+                                                            children: [
+                                                              Container(
+                                                                width: double
+                                                                    .infinity,
+                                                                height: 170,
+                                                                decoration:
+                                                                    BoxDecoration(
+                                                                  color: Color(
+                                                                      0xFFA0A5BA),
+                                                                  image:
+                                                                      DecorationImage(
+                                                                    fit: BoxFit
+                                                                        .cover,
+                                                                    image: Image
+                                                                        .network(
+                                                                      trendingListFromRecipeItem
+                                                                          .photos
+                                                                          .first,
+                                                                    ).image,
+                                                                  ),
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              20),
+                                                                ),
+                                                              ),
+                                                              Opacity(
+                                                                opacity: 0.5,
+                                                                child:
+                                                                    Container(
+                                                                  width: double
+                                                                      .infinity,
+                                                                  height: 170,
+                                                                  decoration:
+                                                                      BoxDecoration(
+                                                                    color: BaseTheme.of(
+                                                                            context)
+                                                                        .secondary,
+                                                                    borderRadius:
+                                                                        BorderRadius.circular(
+                                                                            20),
+                                                                  ),
+                                                                ),
+                                                              ),
+                                                              Padding(
+                                                                padding:
+                                                                    EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            20,
+                                                                            76,
+                                                                            20,
+                                                                            0),
+                                                                child: StreamBuilder<
+                                                                    UsersRecord>(
+                                                                  stream: UsersRecord
+                                                                      .getDocument(
+                                                                          trendingListFromRecipeItem
+                                                                              .userId!),
+                                                                  builder: (context,
+                                                                      snapshot) {
+                                                                    // Customize what your widget looks like when it's loading.
+                                                                    if (!snapshot
+                                                                        .hasData) {
+                                                                      return Center(
+                                                                        child:
+                                                                            SizedBox(
+                                                                          width:
+                                                                              50,
+                                                                          height:
+                                                                              50,
+                                                                          child:
+                                                                              CircularProgressIndicator(
+                                                                            valueColor:
+                                                                                AlwaysStoppedAnimation<Color>(
+                                                                              BaseTheme.of(context).primary,
+                                                                            ),
+                                                                          ),
+                                                                        ),
+                                                                      );
+                                                                    }
+                                                                    final columnUsersRecord =
+                                                                        snapshot
+                                                                            .data!;
+                                                                    return Column(
+                                                                      mainAxisSize:
+                                                                          MainAxisSize
+                                                                              .max,
+                                                                      crossAxisAlignment:
+                                                                          CrossAxisAlignment
+                                                                              .start,
+                                                                      children: [
+                                                                        Row(
+                                                                          mainAxisSize:
+                                                                              MainAxisSize.max,
+                                                                          children: [
+                                                                            Text(
+                                                                              trendingListFromRecipeItem.recipeName,
+                                                                              style: BaseTheme.of(context).bodyMedium.override(
+                                                                                    fontFamily: 'Playfair Display',
+                                                                                    fontSize: 24,
+                                                                                    letterSpacing: 0,
+                                                                                    fontWeight: FontWeight.w600,
+                                                                                  ),
+                                                                            ),
+                                                                          ],
+                                                                        ),
+                                                                        Padding(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
+                                                                              0,
+                                                                              5,
+                                                                              0,
+                                                                              0),
+                                                                          child:
+                                                                              Row(
+                                                                            mainAxisSize:
+                                                                                MainAxisSize.max,
+                                                                            children: [
+                                                                              Text(
+                                                                                columnUsersRecord.displayName,
+                                                                                style: BaseTheme.of(context).bodyMedium.override(
+                                                                                      fontFamily: 'Playfair Display',
+                                                                                      fontSize: 16,
+                                                                                      letterSpacing: 0,
+                                                                                    ),
+                                                                              ),
+                                                                            ],
+                                                                          ),
+                                                                        ),
+                                                                        Row(
+                                                                          mainAxisSize:
+                                                                              MainAxisSize.max,
+                                                                          mainAxisAlignment:
+                                                                              MainAxisAlignment.end,
+                                                                          children: [
+                                                                            Transform.scale(
+                                                                              scaleX: -1,
+                                                                              scaleY: 1,
+                                                                              origin: Offset(0, 0),
+                                                                              child: Padding(
+                                                                                padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
+                                                                                child: FaIcon(
+                                                                                  FontAwesomeIcons.levelUpAlt,
+                                                                                  color: Color(0xFF00C308),
+                                                                                  size: 15,
+                                                                                ),
+                                                                              ),
+                                                                            ),
+                                                                            Padding(
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(5, 0, 0, 0),
+                                                                              child: Text(
+                                                                                valueOrDefault<String>(
+                                                                                  trendingListFromRecipeItem.uPvoteList.length.toString(),
+                                                                                  '0',
+                                                                                ),
+                                                                                style: BaseTheme.of(context).bodyMedium.override(
+                                                                                      fontFamily: 'Playfair Display',
+                                                                                      fontSize: 14,
+                                                                                      letterSpacing: 0,
+                                                                                    ),
+                                                                              ),
+                                                                            ),
+                                                                            Padding(
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
+                                                                              child: Transform.scale(
+                                                                                scaleX: 1,
+                                                                                scaleY: -1,
+                                                                                origin: Offset(0, 0),
+                                                                                child: Padding(
+                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 5),
+                                                                                  child: FaIcon(
+                                                                                    FontAwesomeIcons.levelUpAlt,
+                                                                                    color: Color(0xFFFF0000),
+                                                                                    size: 15,
+                                                                                  ),
+                                                                                ),
+                                                                              ),
+                                                                            ),
+                                                                            Padding(
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(5, 0, 10, 0),
+                                                                              child: Text(
+                                                                                valueOrDefault<String>(
+                                                                                  trendingListFromRecipeItem.dOWNvoteList.length.toString(),
+                                                                                  '0',
+                                                                                ),
+                                                                                style: BaseTheme.of(context).bodyMedium.override(
+                                                                                      fontFamily: 'Playfair Display',
+                                                                                      fontSize: 14,
+                                                                                      letterSpacing: 0,
+                                                                                    ),
+                                                                              ),
+                                                                            ),
+                                                                          ],
+                                                                        ),
+                                                                      ],
+                                                                    );
+                                                                  },
+                                                                ),
+                                                              ),
+                                                            ],
+                                                          ),
                                                         );
                                                       },
-                                                      child: Stack(
-                                                        children: [
-                                                          Container(
-                                                            width:
-                                                                double.infinity,
-                                                            height: 170,
-                                                            decoration:
-                                                                BoxDecoration(
-                                                              color: Color(
-                                                                  0xFFA0A5BA),
-                                                              image:
-                                                                  DecorationImage(
-                                                                fit: BoxFit
-                                                                    .cover,
-                                                                image: Image
-                                                                    .network(
-                                                                  trendingListFromRecipeItem
-                                                                      .photos
-                                                                      .first,
-                                                                ).image,
-                                                              ),
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          20),
-                                                            ),
-                                                          ),
-                                                          Opacity(
-                                                            opacity: 0.5,
-                                                            child: Container(
-                                                              width: double
-                                                                  .infinity,
-                                                              height: 170,
-                                                              decoration:
-                                                                  BoxDecoration(
-                                                                color: BaseTheme.of(
-                                                                        context)
-                                                                    .secondary,
-                                                                borderRadius:
-                                                                    BorderRadius
-                                                                        .circular(
-                                                                            20),
-                                                              ),
-                                                            ),
-                                                          ),
-                                                          Padding(
-                                                            padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        20,
-                                                                        76,
-                                                                        20,
-                                                                        0),
-                                                            child: StreamBuilder<
-                                                                List<
-                                                                    UsersRecord>>(
-                                                              stream:
-                                                                  queryUsersRecord(
-                                                                queryBuilder:
-                                                                    (usersRecord) =>
-                                                                        usersRecord
-                                                                            .where(
-                                                                  'uid',
-                                                                  isEqualTo:
-                                                                      trendingListFromRecipeItem
-                                                                          .userId
-                                                                          ?.id,
-                                                                ),
-                                                                singleRecord:
-                                                                    true,
-                                                              ),
-                                                              builder: (context,
-                                                                  snapshot) {
-                                                                // Customize what your widget looks like when it's loading.
-                                                                if (!snapshot
-                                                                    .hasData) {
-                                                                  return Center(
-                                                                    child:
-                                                                        SizedBox(
-                                                                      width: 50,
-                                                                      height:
-                                                                          50,
-                                                                      child:
-                                                                          CircularProgressIndicator(
-                                                                        valueColor:
-                                                                            AlwaysStoppedAnimation<Color>(
-                                                                          BaseTheme.of(context)
-                                                                              .primary,
-                                                                        ),
-                                                                      ),
-                                                                    ),
-                                                                  );
-                                                                }
-                                                                List<UsersRecord>
-                                                                    columnUsersRecordList =
-                                                                    snapshot
-                                                                        .data!;
-                                                                // Return an empty Container when the item does not exist.
-                                                                if (snapshot
-                                                                    .data!
-                                                                    .isEmpty) {
-                                                                  return Container();
-                                                                }
-                                                                final columnUsersRecord =
-                                                                    columnUsersRecordList
-                                                                            .isNotEmpty
-                                                                        ? columnUsersRecordList
-                                                                            .first
-                                                                        : null;
-                                                                return Column(
-                                                                  mainAxisSize:
-                                                                      MainAxisSize
-                                                                          .max,
-                                                                  crossAxisAlignment:
-                                                                      CrossAxisAlignment
-                                                                          .start,
-                                                                  children: [
-                                                                    Row(
-                                                                      mainAxisSize:
-                                                                          MainAxisSize
-                                                                              .max,
-                                                                      children: [
-                                                                        Text(
-                                                                          trendingListFromRecipeItem
-                                                                              .recipeName,
-                                                                          style: BaseTheme.of(context)
-                                                                              .bodyMedium
-                                                                              .override(
-                                                                                fontFamily: 'Playfair Display',
-                                                                                fontSize: 24,
-                                                                                letterSpacing: 0,
-                                                                                fontWeight: FontWeight.w600,
-                                                                              ),
-                                                                        ),
-                                                                      ],
-                                                                    ),
-                                                                    Padding(
-                                                                      padding: EdgeInsetsDirectional
-                                                                          .fromSTEB(
-                                                                              0,
-                                                                              5,
-                                                                              0,
-                                                                              0),
-                                                                      child:
-                                                                          Row(
-                                                                        mainAxisSize:
-                                                                            MainAxisSize.max,
-                                                                        children: [
-                                                                          Text(
-                                                                            columnUsersRecord!.displayName,
-                                                                            style: BaseTheme.of(context).bodyMedium.override(
-                                                                                  fontFamily: 'Playfair Display',
-                                                                                  fontSize: 16,
-                                                                                  letterSpacing: 0,
-                                                                                ),
-                                                                          ),
-                                                                        ],
-                                                                      ),
-                                                                    ),
-                                                                    Row(
-                                                                      mainAxisSize:
-                                                                          MainAxisSize
-                                                                              .max,
-                                                                      mainAxisAlignment:
-                                                                          MainAxisAlignment
-                                                                              .end,
-                                                                      children: [
-                                                                        Transform
-                                                                            .scale(
-                                                                          scaleX:
-                                                                              -1,
-                                                                          scaleY:
-                                                                              1,
-                                                                          origin: Offset(
-                                                                              0,
-                                                                              0),
-                                                                          child:
-                                                                              Padding(
-                                                                            padding: EdgeInsetsDirectional.fromSTEB(
-                                                                                0,
-                                                                                5,
-                                                                                0,
-                                                                                0),
-                                                                            child:
-                                                                                FaIcon(
-                                                                              FontAwesomeIcons.levelUpAlt,
-                                                                              color: Color(0xFF00C308),
-                                                                              size: 15,
-                                                                            ),
-                                                                          ),
-                                                                        ),
-                                                                        Padding(
-                                                                          padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              5,
-                                                                              0,
-                                                                              0,
-                                                                              0),
-                                                                          child:
-                                                                              Text(
-                                                                            valueOrDefault<String>(
-                                                                              trendingListFromRecipeItem.uPvoteList.length.toString(),
-                                                                              '0',
-                                                                            ),
-                                                                            style: BaseTheme.of(context).bodyMedium.override(
-                                                                                  fontFamily: 'Playfair Display',
-                                                                                  fontSize: 14,
-                                                                                  letterSpacing: 0,
-                                                                                ),
-                                                                          ),
-                                                                        ),
-                                                                        Padding(
-                                                                          padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              10,
-                                                                              0,
-                                                                              0,
-                                                                              0),
-                                                                          child:
-                                                                              Transform.scale(
-                                                                            scaleX:
-                                                                                1,
-                                                                            scaleY:
-                                                                                -1,
-                                                                            origin:
-                                                                                Offset(0, 0),
-                                                                            child:
-                                                                                Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 5),
-                                                                              child: FaIcon(
-                                                                                FontAwesomeIcons.levelUpAlt,
-                                                                                color: Color(0xFFFF0000),
-                                                                                size: 15,
-                                                                              ),
-                                                                            ),
-                                                                          ),
-                                                                        ),
-                                                                        Padding(
-                                                                          padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              5,
-                                                                              0,
-                                                                              10,
-                                                                              0),
-                                                                          child:
-                                                                              Text(
-                                                                            valueOrDefault<String>(
-                                                                              trendingListFromRecipeItem.dOWNvoteList.length.toString(),
-                                                                              '0',
-                                                                            ),
-                                                                            style: BaseTheme.of(context).bodyMedium.override(
-                                                                                  fontFamily: 'Playfair Display',
-                                                                                  fontSize: 14,
-                                                                                  letterSpacing: 0,
-                                                                                ),
-                                                                          ),
-                                                                        ),
-                                                                      ],
-                                                                    ),
-                                                                  ],
-                                                                );
-                                                              },
-                                                            ),
-                                                          ),
-                                                        ],
-                                                      ),
                                                     ),
                                                   ),
                                                 ),
@@ -748,329 +738,319 @@ class _BrowserPageWidgetState extends State<BrowserPageWidget> {
                                                         EdgeInsetsDirectional
                                                             .fromSTEB(
                                                                 15, 0, 15, 0),
-                                                    child: InkWell(
-                                                      splashColor:
-                                                          Colors.transparent,
-                                                      focusColor:
-                                                          Colors.transparent,
-                                                      hoverColor:
-                                                          Colors.transparent,
-                                                      highlightColor:
-                                                          Colors.transparent,
-                                                      onTap: () async {
-                                                        context.pushNamed(
-                                                          'Recipe_Page',
-                                                          queryParameters: {
-                                                            'recipeRef':
-                                                                serializeParam(
-                                                              trendingListFromRecipeItem
-                                                                  .reference,
-                                                              ParamType
-                                                                  .DocumentReference,
+                                                    child: StreamBuilder<
+                                                        List<UsersRecord>>(
+                                                      stream: queryUsersRecord(
+                                                        singleRecord: true,
+                                                      ),
+                                                      builder:
+                                                          (context, snapshot) {
+                                                        // Customize what your widget looks like when it's loading.
+                                                        if (!snapshot.hasData) {
+                                                          return Center(
+                                                            child: SizedBox(
+                                                              width: 50,
+                                                              height: 50,
+                                                              child:
+                                                                  CircularProgressIndicator(
+                                                                valueColor:
+                                                                    AlwaysStoppedAnimation<
+                                                                        Color>(
+                                                                  BaseTheme.of(
+                                                                          context)
+                                                                      .primary,
+                                                                ),
+                                                              ),
                                                             ),
-                                                            'upVoteValue':
-                                                                serializeParam(
-                                                              trendingListFromRecipeItem
-                                                                      .uPvoteList
-                                                                      .contains(
-                                                                          currentUserReference)
-                                                                  ? true
-                                                                  : false,
-                                                              ParamType.bool,
-                                                            ),
-                                                            'downVoteValue':
-                                                                serializeParam(
-                                                              trendingListFromRecipeItem
-                                                                      .dOWNvoteList
-                                                                      .contains(
-                                                                          currentUserReference)
-                                                                  ? true
-                                                                  : false,
-                                                              ParamType.bool,
-                                                            ),
-                                                            'savedPostValue':
-                                                                serializeParam(
-                                                              (currentUserDocument
-                                                                              ?.favouriteRecipe
-                                                                              ?.toList() ??
-                                                                          [])
-                                                                      .contains(
-                                                                          trendingListFromRecipeItem
-                                                                              .reference)
-                                                                  ? true
-                                                                  : false,
-                                                              ParamType.bool,
-                                                            ),
-                                                          }.withoutNulls,
-                                                          extra: <String,
-                                                              dynamic>{
-                                                            kTransitionInfoKey:
-                                                                TransitionInfo(
-                                                              hasTransition:
-                                                                  true,
-                                                              transitionType:
-                                                                  PageTransitionType
-                                                                      .fade,
-                                                              duration: Duration(
-                                                                  milliseconds:
-                                                                      500),
-                                                            ),
+                                                          );
+                                                        }
+                                                        List<UsersRecord>
+                                                            stackUsersRecordList =
+                                                            snapshot.data!;
+                                                        // Return an empty Container when the item does not exist.
+                                                        if (snapshot
+                                                            .data!.isEmpty) {
+                                                          return Container();
+                                                        }
+                                                        final stackUsersRecord =
+                                                            stackUsersRecordList
+                                                                    .isNotEmpty
+                                                                ? stackUsersRecordList
+                                                                    .first
+                                                                : null;
+                                                        return InkWell(
+                                                          splashColor: Colors
+                                                              .transparent,
+                                                          focusColor: Colors
+                                                              .transparent,
+                                                          hoverColor: Colors
+                                                              .transparent,
+                                                          highlightColor: Colors
+                                                              .transparent,
+                                                          onTap: () async {
+                                                            context.pushNamed(
+                                                              'Recipe_Page',
+                                                              queryParameters: {
+                                                                'recipeRef':
+                                                                    serializeParam(
+                                                                  trendingListFromRecipeItem
+                                                                      .reference,
+                                                                  ParamType
+                                                                      .DocumentReference,
+                                                                ),
+                                                                'upVoteValue':
+                                                                    serializeParam(
+                                                                  trendingListFromRecipeItem
+                                                                          .uPvoteList
+                                                                          .contains(
+                                                                              currentUserReference)
+                                                                      ? true
+                                                                      : false,
+                                                                  ParamType
+                                                                      .bool,
+                                                                ),
+                                                                'downVoteValue':
+                                                                    serializeParam(
+                                                                  trendingListFromRecipeItem
+                                                                          .dOWNvoteList
+                                                                          .contains(
+                                                                              currentUserReference)
+                                                                      ? true
+                                                                      : false,
+                                                                  ParamType
+                                                                      .bool,
+                                                                ),
+                                                                'savedPostValue':
+                                                                    serializeParam(
+                                                                  (currentUserDocument?.favouriteRecipe?.toList() ??
+                                                                              [])
+                                                                          .contains(
+                                                                              trendingListFromRecipeItem.reference)
+                                                                      ? true
+                                                                      : false,
+                                                                  ParamType
+                                                                      .bool,
+                                                                ),
+                                                              }.withoutNulls,
+                                                              extra: <String,
+                                                                  dynamic>{
+                                                                kTransitionInfoKey:
+                                                                    TransitionInfo(
+                                                                  hasTransition:
+                                                                      true,
+                                                                  transitionType:
+                                                                      PageTransitionType
+                                                                          .fade,
+                                                                  duration: Duration(
+                                                                      milliseconds:
+                                                                          500),
+                                                                ),
+                                                              },
+                                                            );
                                                           },
+                                                          child: Stack(
+                                                            children: [
+                                                              Container(
+                                                                width: double
+                                                                    .infinity,
+                                                                height: 170,
+                                                                decoration:
+                                                                    BoxDecoration(
+                                                                  color: Color(
+                                                                      0xFFA0A5BA),
+                                                                  image:
+                                                                      DecorationImage(
+                                                                    fit: BoxFit
+                                                                        .cover,
+                                                                    image: Image
+                                                                        .network(
+                                                                      trendingListFromRecipeItem
+                                                                          .photos
+                                                                          .first,
+                                                                    ).image,
+                                                                  ),
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              20),
+                                                                ),
+                                                              ),
+                                                              Opacity(
+                                                                opacity: 0.5,
+                                                                child:
+                                                                    Container(
+                                                                  width: double
+                                                                      .infinity,
+                                                                  height: 170,
+                                                                  decoration:
+                                                                      BoxDecoration(
+                                                                    color: BaseTheme.of(
+                                                                            context)
+                                                                        .secondary,
+                                                                    borderRadius:
+                                                                        BorderRadius.circular(
+                                                                            20),
+                                                                  ),
+                                                                ),
+                                                              ),
+                                                              Padding(
+                                                                padding:
+                                                                    EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            20,
+                                                                            76,
+                                                                            20,
+                                                                            0),
+                                                                child: StreamBuilder<
+                                                                    UsersRecord>(
+                                                                  stream: UsersRecord
+                                                                      .getDocument(
+                                                                          trendingListFromRecipeItem
+                                                                              .userId!),
+                                                                  builder: (context,
+                                                                      snapshot) {
+                                                                    // Customize what your widget looks like when it's loading.
+                                                                    if (!snapshot
+                                                                        .hasData) {
+                                                                      return Center(
+                                                                        child:
+                                                                            SizedBox(
+                                                                          width:
+                                                                              50,
+                                                                          height:
+                                                                              50,
+                                                                          child:
+                                                                              CircularProgressIndicator(
+                                                                            valueColor:
+                                                                                AlwaysStoppedAnimation<Color>(
+                                                                              BaseTheme.of(context).primary,
+                                                                            ),
+                                                                          ),
+                                                                        ),
+                                                                      );
+                                                                    }
+                                                                    final columnUsersRecord =
+                                                                        snapshot
+                                                                            .data!;
+                                                                    return Column(
+                                                                      mainAxisSize:
+                                                                          MainAxisSize
+                                                                              .max,
+                                                                      crossAxisAlignment:
+                                                                          CrossAxisAlignment
+                                                                              .start,
+                                                                      children: [
+                                                                        Row(
+                                                                          mainAxisSize:
+                                                                              MainAxisSize.max,
+                                                                          children: [
+                                                                            Text(
+                                                                              trendingListFromRecipeItem.recipeName,
+                                                                              style: BaseTheme.of(context).bodyMedium.override(
+                                                                                    fontFamily: 'Playfair Display',
+                                                                                    fontSize: 24,
+                                                                                    letterSpacing: 0,
+                                                                                    fontWeight: FontWeight.w600,
+                                                                                  ),
+                                                                            ),
+                                                                          ],
+                                                                        ),
+                                                                        Padding(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
+                                                                              0,
+                                                                              5,
+                                                                              0,
+                                                                              0),
+                                                                          child:
+                                                                              Row(
+                                                                            mainAxisSize:
+                                                                                MainAxisSize.max,
+                                                                            children: [
+                                                                              Text(
+                                                                                columnUsersRecord.displayName,
+                                                                                style: BaseTheme.of(context).bodyMedium.override(
+                                                                                      fontFamily: 'Playfair Display',
+                                                                                      fontSize: 16,
+                                                                                      letterSpacing: 0,
+                                                                                    ),
+                                                                              ),
+                                                                            ],
+                                                                          ),
+                                                                        ),
+                                                                        Row(
+                                                                          mainAxisSize:
+                                                                              MainAxisSize.max,
+                                                                          mainAxisAlignment:
+                                                                              MainAxisAlignment.end,
+                                                                          children: [
+                                                                            Transform.scale(
+                                                                              scaleX: -1,
+                                                                              scaleY: 1,
+                                                                              origin: Offset(0, 0),
+                                                                              child: Padding(
+                                                                                padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
+                                                                                child: FaIcon(
+                                                                                  FontAwesomeIcons.levelUpAlt,
+                                                                                  color: Color(0xFF00C308),
+                                                                                  size: 15,
+                                                                                ),
+                                                                              ),
+                                                                            ),
+                                                                            Padding(
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(5, 0, 0, 0),
+                                                                              child: Text(
+                                                                                valueOrDefault<String>(
+                                                                                  trendingListFromRecipeItem.uPvoteList.length.toString(),
+                                                                                  '0',
+                                                                                ),
+                                                                                style: BaseTheme.of(context).bodyMedium.override(
+                                                                                      fontFamily: 'Playfair Display',
+                                                                                      fontSize: 14,
+                                                                                      letterSpacing: 0,
+                                                                                    ),
+                                                                              ),
+                                                                            ),
+                                                                            Padding(
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
+                                                                              child: Transform.scale(
+                                                                                scaleX: 1,
+                                                                                scaleY: -1,
+                                                                                origin: Offset(0, 0),
+                                                                                child: Padding(
+                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 5),
+                                                                                  child: FaIcon(
+                                                                                    FontAwesomeIcons.levelUpAlt,
+                                                                                    color: Color(0xFFFF0000),
+                                                                                    size: 15,
+                                                                                  ),
+                                                                                ),
+                                                                              ),
+                                                                            ),
+                                                                            Padding(
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(5, 0, 10, 0),
+                                                                              child: Text(
+                                                                                valueOrDefault<String>(
+                                                                                  trendingListFromRecipeItem.dOWNvoteList.length.toString(),
+                                                                                  '0',
+                                                                                ),
+                                                                                style: BaseTheme.of(context).bodyMedium.override(
+                                                                                      fontFamily: 'Playfair Display',
+                                                                                      fontSize: 14,
+                                                                                      letterSpacing: 0,
+                                                                                    ),
+                                                                              ),
+                                                                            ),
+                                                                          ],
+                                                                        ),
+                                                                      ],
+                                                                    );
+                                                                  },
+                                                                ),
+                                                              ),
+                                                            ],
+                                                          ),
                                                         );
                                                       },
-                                                      child: Stack(
-                                                        children: [
-                                                          Container(
-                                                            width:
-                                                                double.infinity,
-                                                            height: 170,
-                                                            decoration:
-                                                                BoxDecoration(
-                                                              color: Color(
-                                                                  0xFFA0A5BA),
-                                                              image:
-                                                                  DecorationImage(
-                                                                fit: BoxFit
-                                                                    .cover,
-                                                                image: Image
-                                                                    .network(
-                                                                  trendingListFromRecipeItem
-                                                                      .photos
-                                                                      .first,
-                                                                ).image,
-                                                              ),
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          20),
-                                                            ),
-                                                          ),
-                                                          Opacity(
-                                                            opacity: 0.5,
-                                                            child: Container(
-                                                              width: double
-                                                                  .infinity,
-                                                              height: 170,
-                                                              decoration:
-                                                                  BoxDecoration(
-                                                                color: BaseTheme.of(
-                                                                        context)
-                                                                    .secondary,
-                                                                borderRadius:
-                                                                    BorderRadius
-                                                                        .circular(
-                                                                            20),
-                                                              ),
-                                                            ),
-                                                          ),
-                                                          Padding(
-                                                            padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        20,
-                                                                        76,
-                                                                        20,
-                                                                        0),
-                                                            child: StreamBuilder<
-                                                                List<
-                                                                    UsersRecord>>(
-                                                              stream:
-                                                                  queryUsersRecord(
-                                                                singleRecord:
-                                                                    true,
-                                                              ),
-                                                              builder: (context,
-                                                                  snapshot) {
-                                                                // Customize what your widget looks like when it's loading.
-                                                                if (!snapshot
-                                                                    .hasData) {
-                                                                  return Center(
-                                                                    child:
-                                                                        SizedBox(
-                                                                      width: 50,
-                                                                      height:
-                                                                          50,
-                                                                      child:
-                                                                          CircularProgressIndicator(
-                                                                        valueColor:
-                                                                            AlwaysStoppedAnimation<Color>(
-                                                                          BaseTheme.of(context)
-                                                                              .primary,
-                                                                        ),
-                                                                      ),
-                                                                    ),
-                                                                  );
-                                                                }
-                                                                List<UsersRecord>
-                                                                    columnUsersRecordList =
-                                                                    snapshot
-                                                                        .data!;
-                                                                // Return an empty Container when the item does not exist.
-                                                                if (snapshot
-                                                                    .data!
-                                                                    .isEmpty) {
-                                                                  return Container();
-                                                                }
-                                                                final columnUsersRecord =
-                                                                    columnUsersRecordList
-                                                                            .isNotEmpty
-                                                                        ? columnUsersRecordList
-                                                                            .first
-                                                                        : null;
-                                                                return Column(
-                                                                  mainAxisSize:
-                                                                      MainAxisSize
-                                                                          .max,
-                                                                  crossAxisAlignment:
-                                                                      CrossAxisAlignment
-                                                                          .start,
-                                                                  children: [
-                                                                    Row(
-                                                                      mainAxisSize:
-                                                                          MainAxisSize
-                                                                              .max,
-                                                                      children: [
-                                                                        Text(
-                                                                          trendingListFromRecipeItem
-                                                                              .recipeName,
-                                                                          style: BaseTheme.of(context)
-                                                                              .bodyMedium
-                                                                              .override(
-                                                                                fontFamily: 'Playfair Display',
-                                                                                fontSize: 24,
-                                                                                letterSpacing: 0,
-                                                                                fontWeight: FontWeight.w600,
-                                                                              ),
-                                                                        ),
-                                                                      ],
-                                                                    ),
-                                                                    Padding(
-                                                                      padding: EdgeInsetsDirectional
-                                                                          .fromSTEB(
-                                                                              0,
-                                                                              5,
-                                                                              0,
-                                                                              0),
-                                                                      child:
-                                                                          Row(
-                                                                        mainAxisSize:
-                                                                            MainAxisSize.max,
-                                                                        children: [
-                                                                          Text(
-                                                                            columnUsersRecord!.displayName,
-                                                                            style: BaseTheme.of(context).bodyMedium.override(
-                                                                                  fontFamily: 'Playfair Display',
-                                                                                  fontSize: 16,
-                                                                                  letterSpacing: 0,
-                                                                                ),
-                                                                          ),
-                                                                        ],
-                                                                      ),
-                                                                    ),
-                                                                    Row(
-                                                                      mainAxisSize:
-                                                                          MainAxisSize
-                                                                              .max,
-                                                                      mainAxisAlignment:
-                                                                          MainAxisAlignment
-                                                                              .end,
-                                                                      children: [
-                                                                        Transform
-                                                                            .scale(
-                                                                          scaleX:
-                                                                              -1,
-                                                                          scaleY:
-                                                                              1,
-                                                                          origin: Offset(
-                                                                              0,
-                                                                              0),
-                                                                          child:
-                                                                              Padding(
-                                                                            padding: EdgeInsetsDirectional.fromSTEB(
-                                                                                0,
-                                                                                5,
-                                                                                0,
-                                                                                0),
-                                                                            child:
-                                                                                FaIcon(
-                                                                              FontAwesomeIcons.levelUpAlt,
-                                                                              color: Color(0xFF00C308),
-                                                                              size: 15,
-                                                                            ),
-                                                                          ),
-                                                                        ),
-                                                                        Padding(
-                                                                          padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              5,
-                                                                              0,
-                                                                              0,
-                                                                              0),
-                                                                          child:
-                                                                              Text(
-                                                                            valueOrDefault<String>(
-                                                                              trendingListFromRecipeItem.uPvoteList.length.toString(),
-                                                                              '0',
-                                                                            ),
-                                                                            style: BaseTheme.of(context).bodyMedium.override(
-                                                                                  fontFamily: 'Playfair Display',
-                                                                                  fontSize: 14,
-                                                                                  letterSpacing: 0,
-                                                                                ),
-                                                                          ),
-                                                                        ),
-                                                                        Padding(
-                                                                          padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              10,
-                                                                              0,
-                                                                              0,
-                                                                              0),
-                                                                          child:
-                                                                              Transform.scale(
-                                                                            scaleX:
-                                                                                1,
-                                                                            scaleY:
-                                                                                -1,
-                                                                            origin:
-                                                                                Offset(0, 0),
-                                                                            child:
-                                                                                Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 5),
-                                                                              child: FaIcon(
-                                                                                FontAwesomeIcons.levelUpAlt,
-                                                                                color: Color(0xFFFF0000),
-                                                                                size: 15,
-                                                                              ),
-                                                                            ),
-                                                                          ),
-                                                                        ),
-                                                                        Padding(
-                                                                          padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              5,
-                                                                              0,
-                                                                              10,
-                                                                              0),
-                                                                          child:
-                                                                              Text(
-                                                                            valueOrDefault<String>(
-                                                                              trendingListFromRecipeItem.dOWNvoteList.length.toString(),
-                                                                              '0',
-                                                                            ),
-                                                                            style: BaseTheme.of(context).bodyMedium.override(
-                                                                                  fontFamily: 'Playfair Display',
-                                                                                  fontSize: 14,
-                                                                                  letterSpacing: 0,
-                                                                                ),
-                                                                          ),
-                                                                        ),
-                                                                      ],
-                                                                    ),
-                                                                  ],
-                                                                );
-                                                              },
-                                                            ),
-                                                          ),
-                                                        ],
-                                                      ),
                                                     ),
                                                   ),
                                                 ),

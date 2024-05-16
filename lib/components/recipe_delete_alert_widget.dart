@@ -1,12 +1,18 @@
 import '/base_structure/base_theme.dart';
 import '/base_structure/base_util.dart';
 import '/base_structure/base_widgets.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'recipe_delete_alert_model.dart';
 export 'recipe_delete_alert_model.dart';
 
 class RecipeDeleteAlertWidget extends StatefulWidget {
-  const RecipeDeleteAlertWidget({super.key});
+  const RecipeDeleteAlertWidget({
+    super.key,
+    required this.recipeRefToDelete,
+  });
+
+  final DocumentReference? recipeRefToDelete;
 
   @override
   State<RecipeDeleteAlertWidget> createState() =>
@@ -45,19 +51,19 @@ class _RecipeDeleteAlertWidgetState extends State<RecipeDeleteAlertWidget> {
       ),
       child: Material(
         color: Colors.transparent,
-        elevation: 4.0,
+        elevation: 4,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(12.0),
+          borderRadius: BorderRadius.circular(12),
         ),
         child: Container(
-          width: 325.0,
-          height: 130.0,
+          width: 325,
+          height: 130,
           decoration: BoxDecoration(
             color: BaseTheme.of(context).secondaryBackground,
-            borderRadius: BorderRadius.circular(12.0),
+            borderRadius: BorderRadius.circular(12),
           ),
           child: Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 10.0),
+            padding: EdgeInsetsDirectional.fromSTEB(16, 16, 16, 10),
             child: Column(
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.center,
@@ -72,9 +78,9 @@ class _RecipeDeleteAlertWidgetState extends State<RecipeDeleteAlertWidget> {
                       textAlign: TextAlign.center,
                       style: BaseTheme.of(context).titleMedium.override(
                             fontFamily: 'Playfair Display',
-                            color: BaseTheme.of(context).primary,
-                            fontSize: 20.0,
-                            letterSpacing: 0.0,
+                            color: BaseTheme.of(context).error,
+                            fontSize: 20,
+                            letterSpacing: 0,
                             fontWeight: FontWeight.bold,
                           ),
                     ),
@@ -85,14 +91,13 @@ class _RecipeDeleteAlertWidgetState extends State<RecipeDeleteAlertWidget> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
+                      padding: EdgeInsetsDirectional.fromSTEB(8, 0, 8, 0),
                       child: Text(
                         'Are you sure you want to DELETE the recipe?',
                         style: BaseTheme.of(context).bodyMedium.override(
                               fontFamily: 'Playfair Display',
                               color: BaseTheme.of(context).secondaryText,
-                              letterSpacing: 0.0,
+                              letterSpacing: 0,
                               fontWeight: FontWeight.normal,
                             ),
                       ),
@@ -111,12 +116,11 @@ class _RecipeDeleteAlertWidgetState extends State<RecipeDeleteAlertWidget> {
                           },
                           text: 'No, Cancel',
                           options: FFButtonOptions(
-                            width: 114.0,
-                            height: 44.0,
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 0.0, 0.0),
-                            iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 0.0, 0.0),
+                            width: 114,
+                            height: 44,
+                            padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                            iconPadding:
+                                EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                             color:
                                 BaseTheme.of(context).primaryBackground,
                             textStyle: BaseTheme.of(context)
@@ -124,11 +128,11 @@ class _RecipeDeleteAlertWidgetState extends State<RecipeDeleteAlertWidget> {
                                 .override(
                                   fontFamily: 'Playfair Display',
                                   color: BaseTheme.of(context).error,
-                                  fontSize: 13.0,
-                                  letterSpacing: 0.0,
+                                  fontSize: 13,
+                                  letterSpacing: 0,
                                   fontWeight: FontWeight.w600,
                                 ),
-                            elevation: 2.0,
+                            elevation: 2,
                             borderSide: BorderSide(
                               color: BaseTheme.of(context).secondary,
                             ),
@@ -142,30 +146,27 @@ class _RecipeDeleteAlertWidgetState extends State<RecipeDeleteAlertWidget> {
                       Flexible(
                         child: FFButtonWidget(
                           onPressed: () async {
+                            await widget.recipeRefToDelete!.delete();
                             Navigator.pop(context);
-                            setState(() {
-                              FFAppState().TempIngredientAppState = [];
-                              FFAppState().TempInstructionAppState = [];
-                            });
-                            setState(() {
-                              FFAppState().ASIAN = false;
-                              FFAppState().ITALIAN = false;
-                              FFAppState().WESTERN = false;
-                              FFAppState().EUROPEAN = false;
-                              FFAppState().SOUP = false;
-                              FFAppState().DESSERTS = false;
-                              FFAppState().TempImgAppState = [];
-                            });
-                            context.safePop();
+
+                            context.pushNamed(
+                              'Home_Page',
+                              extra: <String, dynamic>{
+                                kTransitionInfoKey: TransitionInfo(
+                                  hasTransition: true,
+                                  transitionType: PageTransitionType.fade,
+                                  duration: Duration(milliseconds: 300),
+                                ),
+                              },
+                            );
                           },
                           text: 'Yes, Confirm',
                           options: FFButtonOptions(
-                            width: 114.0,
-                            height: 44.0,
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 0.0, 0.0),
-                            iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 0.0, 0.0),
+                            width: 114,
+                            height: 44,
+                            padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                            iconPadding:
+                                EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                             color: BaseTheme.of(context).primary,
                             textStyle: BaseTheme.of(context)
                                 .labelLarge
@@ -173,18 +174,18 @@ class _RecipeDeleteAlertWidgetState extends State<RecipeDeleteAlertWidget> {
                                   fontFamily: 'Playfair Display',
                                   color:
                                       BaseTheme.of(context).primaryText,
-                                  fontSize: 13.0,
-                                  letterSpacing: 0.0,
+                                  fontSize: 13,
+                                  letterSpacing: 0,
                                   fontWeight: FontWeight.normal,
                                 ),
-                            elevation: 2.0,
+                            elevation: 2,
                             borderSide: BorderSide(
                               color: BaseTheme.of(context).secondary,
                             ),
                           ),
                         ),
                       ),
-                    ].divide(SizedBox(width: 15.0)),
+                    ].divide(SizedBox(width: 15)),
                   ),
                 ),
               ],
