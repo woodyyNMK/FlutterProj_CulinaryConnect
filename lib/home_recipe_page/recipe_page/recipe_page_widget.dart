@@ -1,6 +1,7 @@
 import '/auth/base_auth_user_provider.dart';
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
+import '/components/log_in_required_widget.dart';
 import '/base_structure/base_icon_button.dart';
 import '/base_structure/base_theme.dart';
 import '/base_structure/base_toggle_icon.dart';
@@ -80,8 +81,8 @@ class _RecipePageWidgetState extends State<RecipePageWidget>
             backgroundColor: BaseTheme.of(context).primaryBackground,
             body: Center(
               child: SizedBox(
-                width: 50.0,
-                height: 50.0,
+                width: 50,
+                height: 50,
                 child: CircularProgressIndicator(
                   valueColor: AlwaysStoppedAnimation<Color>(
                     BaseTheme.of(context).primary,
@@ -106,31 +107,30 @@ class _RecipePageWidgetState extends State<RecipePageWidget>
                     BaseTheme.of(context).primary,
                     BaseTheme.of(context).secondary
                   ],
-                  stops: [0.0, 0.75],
-                  begin: AlignmentDirectional(0.0, -1.0),
-                  end: AlignmentDirectional(0, 1.0),
+                  stops: [0, 0.75],
+                  begin: AlignmentDirectional(0, -1),
+                  end: AlignmentDirectional(0, 1),
                 ),
               ),
               child: Stack(
                 children: [
                   Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 40.0, 0.0, 0.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(0, 40, 0, 0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              110.0, 0.0, 100.0, 0.0),
+                          padding:
+                              EdgeInsetsDirectional.fromSTEB(110, 0, 100, 0),
                           child: Text(
                             'Recipe',
                             style: BaseTheme.of(context)
                                 .bodyMedium
                                 .override(
                                   fontFamily: 'Playfair Display',
-                                  fontSize: 32.0,
-                                  letterSpacing: 0.0,
+                                  fontSize: 32,
+                                  letterSpacing: 0,
                                   fontWeight: FontWeight.normal,
                                 ),
                           ),
@@ -144,8 +144,7 @@ class _RecipePageWidgetState extends State<RecipePageWidget>
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            15.0, 55.0, 0.0, 10.0),
+                        padding: EdgeInsetsDirectional.fromSTEB(15, 55, 0, 10),
                         child: InkWell(
                           splashColor: Colors.transparent,
                           focusColor: Colors.transparent,
@@ -166,17 +165,16 @@ class _RecipePageWidgetState extends State<RecipePageWidget>
                             Icons.arrow_back_ios,
                             color:
                                 BaseTheme.of(context).primaryBackground,
-                            size: 24.0,
+                            size: 24,
                           ),
                         ),
                       ),
                       Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 5.0, 5.0),
+                        padding: EdgeInsetsDirectional.fromSTEB(0, 0, 5, 5),
                         child: Transform.scale(
-                          scaleX: -1.0,
-                          scaleY: 1.0,
-                          origin: Offset(0.0, 0),
+                          scaleX: -1,
+                          scaleY: 1,
+                          origin: Offset(0, 0),
                           child: Visibility(
                             visible: loggedIn,
                             child: ToggleIcon(
@@ -218,12 +216,12 @@ class _RecipePageWidgetState extends State<RecipePageWidget>
                                 Icons.bookmark,
                                 color: BaseTheme.of(context)
                                     .primaryBackground,
-                                size: 30.0,
+                                size: 30,
                               ),
                               offIcon: Icon(
                                 Icons.bookmark_border,
                                 color: Color(0xFF6E6C68),
-                                size: 30.0,
+                                size: 30,
                               ),
                             ),
                           ),
@@ -232,8 +230,7 @@ class _RecipePageWidgetState extends State<RecipePageWidget>
                     ],
                   ),
                   Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 90.0, 0.0, 0.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(0, 90, 0, 0),
                     child: SingleChildScrollView(
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
@@ -250,14 +247,13 @@ class _RecipePageWidgetState extends State<RecipePageWidget>
                                         AlignmentDirectional(-1.41, -0.38),
                                     child: Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 350.0, 0.0, 0.0),
+                                          0, 350, 0, 0),
                                       child: ClipRRect(
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
+                                        borderRadius: BorderRadius.circular(8),
                                         child: Image.asset(
                                           'assets/images/Ellipse_9.png',
-                                          width: 145.0,
-                                          height: 145.0,
+                                          width: 145,
+                                          height: 145,
                                           fit: BoxFit.contain,
                                         ),
                                       ),
@@ -268,13 +264,13 @@ class _RecipePageWidgetState extends State<RecipePageWidget>
                                   opacity: 0.6,
                                   child: Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        100.0, 260.0, 0.0, 0.0),
+                                        100, 260, 0, 0),
                                     child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(8.0),
+                                      borderRadius: BorderRadius.circular(8),
                                       child: Image.asset(
                                         'assets/images/Ellipse_9.png',
-                                        width: 145.0,
-                                        height: 145.0,
+                                        width: 145,
+                                        height: 145,
                                         fit: BoxFit.contain,
                                       ),
                                     ),
@@ -284,13 +280,13 @@ class _RecipePageWidgetState extends State<RecipePageWidget>
                                   opacity: 0.6,
                                   child: Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        200.0, 660.0, 0.0, 0.0),
+                                        200, 660, 0, 0),
                                     child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(8.0),
+                                      borderRadius: BorderRadius.circular(8),
                                       child: Image.asset(
                                         'assets/images/Ellipse_9.png',
-                                        width: 50.0,
-                                        height: 50.0,
+                                        width: 50,
+                                        height: 50,
                                         fit: BoxFit.contain,
                                       ),
                                     ),
@@ -300,13 +296,13 @@ class _RecipePageWidgetState extends State<RecipePageWidget>
                                   opacity: 0.6,
                                   child: Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        200.0, 450.0, 0.0, 0.0),
+                                        200, 450, 0, 0),
                                     child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(8.0),
+                                      borderRadius: BorderRadius.circular(8),
                                       child: Image.asset(
                                         'assets/images/Ellipse_9.png',
-                                        width: 130.0,
-                                        height: 130.0,
+                                        width: 130,
+                                        height: 130,
                                         fit: BoxFit.contain,
                                       ),
                                     ),
@@ -316,13 +312,13 @@ class _RecipePageWidgetState extends State<RecipePageWidget>
                                   opacity: 0.6,
                                   child: Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        100.0, 580.0, 0.0, 0.0),
+                                        100, 580, 0, 0),
                                     child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(8.0),
+                                      borderRadius: BorderRadius.circular(8),
                                       child: Image.asset(
                                         'assets/images/Ellipse_9.png',
-                                        width: 90.0,
-                                        height: 90.0,
+                                        width: 90,
+                                        height: 90,
                                         fit: BoxFit.contain,
                                       ),
                                     ),
@@ -330,21 +326,21 @@ class _RecipePageWidgetState extends State<RecipePageWidget>
                                 ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      200.0, 50.0, 0.0, 0.0),
+                                      200, 50, 0, 0),
                                   child: ClipRRect(
-                                    borderRadius: BorderRadius.circular(8.0),
+                                    borderRadius: BorderRadius.circular(8),
                                     child: Image.asset(
                                       'assets/images/Ellipse_10_(1).png',
-                                      width: 175.0,
-                                      height: 190.0,
+                                      width: 175,
+                                      height: 190,
                                       fit: BoxFit.contain,
                                     ),
                                   ),
                                 ),
                                 Align(
-                                  alignment: AlignmentDirectional(-1.7, -1.0),
+                                  alignment: AlignmentDirectional(-1.7, -1),
                                   child: ClipRRect(
-                                    borderRadius: BorderRadius.circular(8.0),
+                                    borderRadius: BorderRadius.circular(8),
                                     child: Image.asset(
                                       'assets/images/bg_recope.png',
                                       width: MediaQuery.sizeOf(context).width *
@@ -353,7 +349,7 @@ class _RecipePageWidgetState extends State<RecipePageWidget>
                                           MediaQuery.sizeOf(context).height *
                                               0.43,
                                       fit: BoxFit.cover,
-                                      alignment: Alignment(2.0, 0.0),
+                                      alignment: Alignment(2, 0),
                                     ),
                                   ),
                                 ),
@@ -362,7 +358,7 @@ class _RecipePageWidgetState extends State<RecipePageWidget>
                                   children: [
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          15.0, 20.0, 0.0, 0.0),
+                                          15, 20, 0, 0),
                                       child: Text(
                                         recipePageRecipeRecord.recipeName,
                                         style: BaseTheme.of(context)
@@ -372,8 +368,8 @@ class _RecipePageWidgetState extends State<RecipePageWidget>
                                               color:
                                                   BaseTheme.of(context)
                                                       .secondary,
-                                              fontSize: 28.0,
-                                              letterSpacing: 0.0,
+                                              fontSize: 28,
+                                              letterSpacing: 0,
                                               fontWeight: FontWeight.w600,
                                             ),
                                       ),
@@ -388,7 +384,7 @@ class _RecipePageWidgetState extends State<RecipePageWidget>
                                     Expanded(
                                       child: Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 395.0, 0.0, 0.0),
+                                            0, 395, 0, 0),
                                         child: StreamBuilder<UsersRecord>(
                                           stream: UsersRecord.getDocument(
                                               recipePageRecipeRecord.userId!),
@@ -397,8 +393,8 @@ class _RecipePageWidgetState extends State<RecipePageWidget>
                                             if (!snapshot.hasData) {
                                               return Center(
                                                 child: SizedBox(
-                                                  width: 50.0,
-                                                  height: 50.0,
+                                                  width: 50,
+                                                  height: 50,
                                                   child:
                                                       CircularProgressIndicator(
                                                     valueColor:
@@ -423,11 +419,11 @@ class _RecipePageWidgetState extends State<RecipePageWidget>
                                                   CrossAxisAlignment.center,
                                               children: [
                                                 Container(
-                                                  height: 50.0,
+                                                  height: 50,
                                                   decoration: BoxDecoration(),
                                                   alignment:
                                                       AlignmentDirectional(
-                                                          0.0, -1.0),
+                                                          0, -1),
                                                   child: Row(
                                                     mainAxisSize:
                                                         MainAxisSize.max,
@@ -441,11 +437,8 @@ class _RecipePageWidgetState extends State<RecipePageWidget>
                                                       Padding(
                                                         padding:
                                                             EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    15.0,
-                                                                    0.0,
-                                                                    0.0,
-                                                                    0.0),
+                                                                .fromSTEB(15, 0,
+                                                                    0, 0),
                                                         child: InkWell(
                                                           splashColor: Colors
                                                               .transparent,
@@ -493,8 +486,8 @@ class _RecipePageWidgetState extends State<RecipePageWidget>
                                                             }
                                                           },
                                                           child: Container(
-                                                            width: 42.0,
-                                                            height: 42.0,
+                                                            width: 42,
+                                                            height: 42,
                                                             clipBehavior:
                                                                 Clip.antiAlias,
                                                             decoration:
@@ -514,11 +507,8 @@ class _RecipePageWidgetState extends State<RecipePageWidget>
                                                       Padding(
                                                         padding:
                                                             EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    10.0,
-                                                                    0.0,
-                                                                    0.0,
-                                                                    0.0),
+                                                                .fromSTEB(10, 0,
+                                                                    0, 0),
                                                         child: InkWell(
                                                           splashColor: Colors
                                                               .transparent,
@@ -574,10 +564,9 @@ class _RecipePageWidgetState extends State<RecipePageWidget>
                                                                 .override(
                                                                   fontFamily:
                                                                       'Spline Sans',
-                                                                  fontSize:
-                                                                      16.0,
+                                                                  fontSize: 16,
                                                                   letterSpacing:
-                                                                      0.0,
+                                                                      0,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .normal,
@@ -588,11 +577,8 @@ class _RecipePageWidgetState extends State<RecipePageWidget>
                                                       Padding(
                                                         padding:
                                                             EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    15.0,
-                                                                    0.0,
-                                                                    0.0,
-                                                                    0.0),
+                                                                .fromSTEB(15, 0,
+                                                                    0, 0),
                                                         child: Row(
                                                           mainAxisSize:
                                                               MainAxisSize.max,
@@ -616,8 +602,7 @@ class _RecipePageWidgetState extends State<RecipePageWidget>
                                                                   );
                                                                 } else {
                                                                   return Container(
-                                                                    height:
-                                                                        30.0,
+                                                                    height: 30,
                                                                     decoration:
                                                                         BoxDecoration(),
                                                                     child:
@@ -627,7 +612,7 @@ class _RecipePageWidgetState extends State<RecipePageWidget>
                                                                             true)
                                                                           Align(
                                                                             alignment:
-                                                                                AlignmentDirectional(-2.7, 0.0),
+                                                                                AlignmentDirectional(-2.7, 0),
                                                                             child:
                                                                                 AuthUserStreamWidget(
                                                                               builder: (context) => FFButtonWidget(
@@ -654,24 +639,24 @@ class _RecipePageWidgetState extends State<RecipePageWidget>
                                                                                 },
                                                                                 text: 'Following',
                                                                                 options: FFButtonOptions(
-                                                                                  width: 100.0,
-                                                                                  height: 30.0,
-                                                                                  padding: EdgeInsetsDirectional.fromSTEB(18.0, 0.0, 18.0, 0.0),
-                                                                                  iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                  width: 100,
+                                                                                  height: 30,
+                                                                                  padding: EdgeInsetsDirectional.fromSTEB(18, 0, 18, 0),
+                                                                                  iconPadding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                                                                                   color: Color(0x06FFFFFF),
                                                                                   textStyle: BaseTheme.of(context).titleSmall.override(
                                                                                         fontFamily: 'Playfair Display',
                                                                                         color: BaseTheme.of(context).success,
-                                                                                        fontSize: 12.0,
-                                                                                        letterSpacing: 0.0,
+                                                                                        fontSize: 12,
+                                                                                        letterSpacing: 0,
                                                                                         fontWeight: FontWeight.normal,
                                                                                       ),
-                                                                                  elevation: 3.0,
+                                                                                  elevation: 3,
                                                                                   borderSide: BorderSide(
                                                                                     color: BaseTheme.of(context).primaryBackground,
-                                                                                    width: 1.0,
+                                                                                    width: 1,
                                                                                   ),
-                                                                                  borderRadius: BorderRadius.circular(8.0),
+                                                                                  borderRadius: BorderRadius.circular(8),
                                                                                 ),
                                                                               ),
                                                                             ),
@@ -704,24 +689,24 @@ class _RecipePageWidgetState extends State<RecipePageWidget>
                                                                               },
                                                                               text: '             Follow            ',
                                                                               options: FFButtonOptions(
-                                                                                width: 100.0,
-                                                                                height: 30.0,
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                                                                iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                width: 100,
+                                                                                height: 30,
+                                                                                padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                                                                                iconPadding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                                                                                 color: BaseTheme.of(context).primaryBackground,
                                                                                 textStyle: BaseTheme.of(context).titleSmall.override(
                                                                                       fontFamily: 'Spline Sans',
                                                                                       color: BaseTheme.of(context).secondaryText,
-                                                                                      fontSize: 12.0,
-                                                                                      letterSpacing: 0.0,
+                                                                                      fontSize: 12,
+                                                                                      letterSpacing: 0,
                                                                                       fontWeight: FontWeight.normal,
                                                                                     ),
-                                                                                elevation: 2.0,
+                                                                                elevation: 2,
                                                                                 borderSide: BorderSide(
                                                                                   color: BaseTheme.of(context).secondaryText,
-                                                                                  width: 1.0,
+                                                                                  width: 1,
                                                                                 ),
-                                                                                borderRadius: BorderRadius.circular(8.0),
+                                                                                borderRadius: BorderRadius.circular(8),
                                                                               ),
                                                                             ),
                                                                           ),
@@ -744,8 +729,8 @@ class _RecipePageWidgetState extends State<RecipePageWidget>
                                                   Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 10.0,
-                                                                15.0, 0.0),
+                                                            .fromSTEB(
+                                                                0, 10, 15, 0),
                                                     child: InkWell(
                                                       splashColor:
                                                           Colors.transparent,
@@ -815,7 +800,7 @@ class _RecipePageWidgetState extends State<RecipePageWidget>
                                                         color: BaseTheme
                                                                 .of(context)
                                                             .primaryBackground,
-                                                        size: 24.0,
+                                                        size: 24,
                                                       ),
                                                     ),
                                                   ),
@@ -829,18 +814,18 @@ class _RecipePageWidgetState extends State<RecipePageWidget>
                                 ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 450.0, 0.0, 0.0),
+                                      0, 450, 0, 0),
                                   child: Container(
                                     decoration: BoxDecoration(
                                       color: Color(0x16F2EBDF),
                                     ),
                                     child: Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          15.0, 0.0, 15.0, 0.0),
+                                          15, 0, 15, 0),
                                       child: Column(
                                         children: [
                                           Align(
-                                            alignment: Alignment(-1.0, 0),
+                                            alignment: Alignment(-1, 0),
                                             child: TabBar(
                                               isScrollable: true,
                                               labelColor:
@@ -854,8 +839,8 @@ class _RecipePageWidgetState extends State<RecipePageWidget>
                                                       .override(
                                                         fontFamily:
                                                             'Spline Sans',
-                                                        fontSize: 16.0,
-                                                        letterSpacing: 0.0,
+                                                        fontSize: 16,
+                                                        letterSpacing: 0,
                                                       ),
                                               unselectedLabelStyle: TextStyle(),
                                               indicatorColor:
@@ -898,12 +883,13 @@ class _RecipePageWidgetState extends State<RecipePageWidget>
                                                           children: [
                                                             Flexible(
                                                               child: Padding(
-                                                                padding: EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        12.0,
-                                                                        15.0,
-                                                                        12.0,
-                                                                        0.0),
+                                                                padding:
+                                                                    EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            12,
+                                                                            15,
+                                                                            12,
+                                                                            0),
                                                                 child: Text(
                                                                   valueOrDefault<
                                                                       String>(
@@ -918,9 +904,9 @@ class _RecipePageWidgetState extends State<RecipePageWidget>
                                                                         fontFamily:
                                                                             'Spline Sans',
                                                                         fontSize:
-                                                                            16.0,
+                                                                            16,
                                                                         letterSpacing:
-                                                                            0.0,
+                                                                            0,
                                                                         fontWeight:
                                                                             FontWeight.w300,
                                                                       ),
@@ -937,10 +923,10 @@ class _RecipePageWidgetState extends State<RecipePageWidget>
                                                               padding:
                                                                   EdgeInsetsDirectional
                                                                       .fromSTEB(
-                                                                          12.0,
-                                                                          15.0,
-                                                                          0.0,
-                                                                          0.0),
+                                                                          12,
+                                                                          15,
+                                                                          0,
+                                                                          0),
                                                               child: Column(
                                                                 mainAxisSize:
                                                                     MainAxisSize
@@ -958,17 +944,16 @@ class _RecipePageWidgetState extends State<RecipePageWidget>
                                                                           fontFamily:
                                                                               'Spline Sans',
                                                                           fontSize:
-                                                                              18.0,
+                                                                              18,
                                                                           letterSpacing:
-                                                                              0.0,
+                                                                              0,
                                                                           fontWeight:
                                                                               FontWeight.normal,
                                                                         ),
                                                                   ),
                                                                   Container(
-                                                                    width:
-                                                                        100.0,
-                                                                    height: 2.0,
+                                                                    width: 100,
+                                                                    height: 2,
                                                                     decoration:
                                                                         BoxDecoration(
                                                                       color: BaseTheme.of(
@@ -980,7 +965,7 @@ class _RecipePageWidgetState extends State<RecipePageWidget>
                                                                         color: BaseTheme.of(context)
                                                                             .primaryBackground,
                                                                         width:
-                                                                            1.0,
+                                                                            1,
                                                                       ),
                                                                     ),
                                                                   ),
@@ -993,10 +978,10 @@ class _RecipePageWidgetState extends State<RecipePageWidget>
                                                           padding:
                                                               EdgeInsetsDirectional
                                                                   .fromSTEB(
-                                                                      12.0,
-                                                                      15.0,
-                                                                      12.0,
-                                                                      0.0),
+                                                                      12,
+                                                                      15,
+                                                                      12,
+                                                                      0),
                                                           child: Builder(
                                                             builder: (context) {
                                                               final ingredientName =
@@ -1004,9 +989,8 @@ class _RecipePageWidgetState extends State<RecipePageWidget>
                                                                       .ingredients
                                                                       .toList();
                                                               return Wrap(
-                                                                spacing: 10.0,
-                                                                runSpacing:
-                                                                    10.0,
+                                                                spacing: 10,
+                                                                runSpacing: 10,
                                                                 alignment:
                                                                     WrapAlignment
                                                                         .start,
@@ -1038,44 +1022,44 @@ class _RecipePageWidgetState extends State<RecipePageWidget>
                                                                       color: Colors
                                                                           .transparent,
                                                                       elevation:
-                                                                          3.0,
+                                                                          3,
                                                                       shape:
                                                                           RoundedRectangleBorder(
                                                                         borderRadius:
-                                                                            BorderRadius.circular(16.0),
+                                                                            BorderRadius.circular(16),
                                                                       ),
                                                                       child:
                                                                           Container(
                                                                         height:
-                                                                            30.0,
+                                                                            30,
                                                                         decoration:
                                                                             BoxDecoration(
                                                                           color:
                                                                               Color(0xFF4A656B),
                                                                           borderRadius:
-                                                                              BorderRadius.circular(16.0),
+                                                                              BorderRadius.circular(16),
                                                                           border:
                                                                               Border.all(
                                                                             color:
                                                                                 BaseTheme.of(context).primaryBackground,
                                                                             width:
-                                                                                1.0,
+                                                                                1,
                                                                           ),
                                                                         ),
                                                                         child:
                                                                             Padding(
                                                                           padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              10.0,
-                                                                              5.0,
-                                                                              10.0,
-                                                                              5.0),
+                                                                              10,
+                                                                              5,
+                                                                              10,
+                                                                              5),
                                                                           child:
                                                                               Text(
                                                                             ingredientNameItem,
                                                                             style: BaseTheme.of(context).bodyMedium.override(
                                                                                   fontFamily: 'Playfair Display',
                                                                                   color: BaseTheme.of(context).primaryText,
-                                                                                  letterSpacing: 0.0,
+                                                                                  letterSpacing: 0,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -1095,10 +1079,10 @@ class _RecipePageWidgetState extends State<RecipePageWidget>
                                                               padding:
                                                                   EdgeInsetsDirectional
                                                                       .fromSTEB(
-                                                                          12.0,
-                                                                          15.0,
-                                                                          0.0,
-                                                                          0.0),
+                                                                          12,
+                                                                          15,
+                                                                          0,
+                                                                          0),
                                                               child: Column(
                                                                 mainAxisSize:
                                                                     MainAxisSize
@@ -1116,16 +1100,16 @@ class _RecipePageWidgetState extends State<RecipePageWidget>
                                                                           fontFamily:
                                                                               'Spline Sans',
                                                                           fontSize:
-                                                                              18.0,
+                                                                              18,
                                                                           letterSpacing:
-                                                                              0.0,
+                                                                              0,
                                                                           fontWeight:
                                                                               FontWeight.normal,
                                                                         ),
                                                                   ),
                                                                   Container(
-                                                                    width: 50.0,
-                                                                    height: 2.0,
+                                                                    width: 50,
+                                                                    height: 2,
                                                                     decoration:
                                                                         BoxDecoration(
                                                                       color: BaseTheme.of(
@@ -1137,7 +1121,7 @@ class _RecipePageWidgetState extends State<RecipePageWidget>
                                                                         color: BaseTheme.of(context)
                                                                             .primaryBackground,
                                                                         width:
-                                                                            1.0,
+                                                                            1,
                                                                       ),
                                                                     ),
                                                                   ),
@@ -1179,10 +1163,10 @@ class _RecipePageWidgetState extends State<RecipePageWidget>
                                                                       Padding(
                                                                     padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            25.0,
-                                                                            10.0,
-                                                                            12.0,
-                                                                            0.0),
+                                                                            25,
+                                                                            10,
+                                                                            12,
+                                                                            0),
                                                                     child: Row(
                                                                       mainAxisSize:
                                                                           MainAxisSize
@@ -1200,7 +1184,7 @@ class _RecipePageWidgetState extends State<RecipePageWidget>
                                                                               .bodyMedium
                                                                               .override(
                                                                                 fontFamily: 'Playfair Display',
-                                                                                letterSpacing: 0.0,
+                                                                                letterSpacing: 0,
                                                                               ),
                                                                         ),
                                                                         Flexible(
@@ -1209,8 +1193,8 @@ class _RecipePageWidgetState extends State<RecipePageWidget>
                                                                             instructionItem,
                                                                             style: BaseTheme.of(context).bodyMedium.override(
                                                                                   fontFamily: 'Playfair Display',
-                                                                                  fontSize: 16.0,
-                                                                                  letterSpacing: 0.0,
+                                                                                  fontSize: 16,
+                                                                                  letterSpacing: 0,
                                                                                   fontWeight: FontWeight.w300,
                                                                                 ),
                                                                           ),
@@ -1224,9 +1208,9 @@ class _RecipePageWidgetState extends State<RecipePageWidget>
                                                           },
                                                         ),
                                                         Opacity(
-                                                          opacity: 0.0,
+                                                          opacity: 0,
                                                           child: Container(
-                                                            height: 20.0,
+                                                            height: 20,
                                                             decoration:
                                                                 BoxDecoration(
                                                               color: BaseTheme
@@ -1259,10 +1243,10 @@ class _RecipePageWidgetState extends State<RecipePageWidget>
                                                                 padding:
                                                                     EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0.0,
-                                                                            10.0,
-                                                                            0.0,
-                                                                            0.0),
+                                                                            0,
+                                                                            10,
+                                                                            0,
+                                                                            0),
                                                                 child: Row(
                                                                   mainAxisSize:
                                                                       MainAxisSize
@@ -1278,10 +1262,10 @@ class _RecipePageWidgetState extends State<RecipePageWidget>
                                                                       child:
                                                                           Padding(
                                                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            8.0,
-                                                                            0.0,
-                                                                            8.0,
-                                                                            0.0),
+                                                                            8,
+                                                                            0,
+                                                                            8,
+                                                                            0),
                                                                         child:
                                                                             TextFormField(
                                                                           controller:
@@ -1300,19 +1284,19 @@ class _RecipePageWidgetState extends State<RecipePageWidget>
                                                                               InputDecoration(
                                                                             labelStyle: BaseTheme.of(context).labelMedium.override(
                                                                                   fontFamily: 'Playfair Display',
-                                                                                  letterSpacing: 0.0,
+                                                                                  letterSpacing: 0,
                                                                                 ),
                                                                             hintText:
                                                                                 'Give a Comment here ...',
                                                                             hintStyle: BaseTheme.of(context).labelMedium.override(
                                                                                   fontFamily: 'Spline Sans',
                                                                                   color: BaseTheme.of(context).tertiary,
-                                                                                  letterSpacing: 0.0,
+                                                                                  letterSpacing: 0,
                                                                                 ),
                                                                             errorStyle: BaseTheme.of(context).bodyMedium.override(
                                                                                   fontFamily: 'Playfair Display',
                                                                                   color: BaseTheme.of(context).error,
-                                                                                  letterSpacing: 0.0,
+                                                                                  letterSpacing: 0,
                                                                                 ),
                                                                             enabledBorder:
                                                                                 InputBorder.none,
@@ -1327,13 +1311,13 @@ class _RecipePageWidgetState extends State<RecipePageWidget>
                                                                             fillColor:
                                                                                 Color(0x40D0CDC8),
                                                                             contentPadding:
-                                                                                EdgeInsets.all(20.0),
+                                                                                EdgeInsets.all(20),
                                                                           ),
                                                                           style: BaseTheme.of(context)
                                                                               .bodyMedium
                                                                               .override(
                                                                                 fontFamily: 'Playfair Display',
-                                                                                letterSpacing: 0.0,
+                                                                                letterSpacing: 0,
                                                                               ),
                                                                           validator: _model
                                                                               .textControllerValidator
@@ -1342,21 +1326,22 @@ class _RecipePageWidgetState extends State<RecipePageWidget>
                                                                       ),
                                                                     ),
                                                                     Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          5.0),
+                                                                      padding: EdgeInsetsDirectional
+                                                                          .fromSTEB(
+                                                                              0,
+                                                                              0,
+                                                                              0,
+                                                                              5),
                                                                       child:
                                                                           BaseIconButton(
                                                                         borderColor:
                                                                             BaseTheme.of(context).primary,
                                                                         borderRadius:
-                                                                            20.0,
+                                                                            20,
                                                                         borderWidth:
-                                                                            1.0,
+                                                                            1,
                                                                         buttonSize:
-                                                                            40.0,
+                                                                            40,
                                                                         fillColor:
                                                                             BaseTheme.of(context).accent1,
                                                                         icon:
@@ -1366,7 +1351,7 @@ class _RecipePageWidgetState extends State<RecipePageWidget>
                                                                           color:
                                                                               BaseTheme.of(context).primaryText,
                                                                           size:
-                                                                              24.0,
+                                                                              24,
                                                                         ),
                                                                         onPressed:
                                                                             () async {
@@ -1435,9 +1420,9 @@ class _RecipePageWidgetState extends State<RecipePageWidget>
                                                                       child:
                                                                           SizedBox(
                                                                         width:
-                                                                            50.0,
+                                                                            50,
                                                                         height:
-                                                                            50.0,
+                                                                            50,
                                                                         child:
                                                                             CircularProgressIndicator(
                                                                           valueColor:
@@ -1486,7 +1471,7 @@ class _RecipePageWidgetState extends State<RecipePageWidget>
                                                                           itemCount:
                                                                               cmtList.length,
                                                                           separatorBuilder: (_, __) =>
-                                                                              SizedBox(height: 11.0),
+                                                                              SizedBox(height: 11),
                                                                           itemBuilder:
                                                                               (context, cmtListIndex) {
                                                                             final cmtListItem =
@@ -1498,8 +1483,8 @@ class _RecipePageWidgetState extends State<RecipePageWidget>
                                                                                 if (!snapshot.hasData) {
                                                                                   return Center(
                                                                                     child: SizedBox(
-                                                                                      width: 50.0,
-                                                                                      height: 50.0,
+                                                                                      width: 50,
+                                                                                      height: 50,
                                                                                       child: CircularProgressIndicator(
                                                                                         valueColor: AlwaysStoppedAnimation<Color>(
                                                                                           BaseTheme.of(context).primary,
@@ -1521,8 +1506,8 @@ class _RecipePageWidgetState extends State<RecipePageWidget>
                                                                                           if (!snapshot.hasData) {
                                                                                             return Center(
                                                                                               child: SizedBox(
-                                                                                                width: 50.0,
-                                                                                                height: 50.0,
+                                                                                                width: 50,
+                                                                                                height: 50,
                                                                                                 child: CircularProgressIndicator(
                                                                                                   valueColor: AlwaysStoppedAnimation<Color>(
                                                                                                     BaseTheme.of(context).primary,
@@ -1560,8 +1545,8 @@ class _RecipePageWidgetState extends State<RecipePageWidget>
                                                                                                   );
                                                                                                 },
                                                                                                 child: Container(
-                                                                                                  width: 45.0,
-                                                                                                  height: 45.0,
+                                                                                                  width: 45,
+                                                                                                  height: 45,
                                                                                                   clipBehavior: Clip.antiAlias,
                                                                                                   decoration: BoxDecoration(
                                                                                                     shape: BoxShape.circle,
@@ -1582,34 +1567,34 @@ class _RecipePageWidgetState extends State<RecipePageWidget>
                                                                                                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                                                                                       children: [
                                                                                                         Padding(
-                                                                                                          padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                                                                                                          padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
                                                                                                           child: Text(
                                                                                                             rowUsersRecord.displayName,
                                                                                                             style: BaseTheme.of(context).bodyMedium.override(
                                                                                                                   fontFamily: 'Spline Sans',
-                                                                                                                  letterSpacing: 0.0,
+                                                                                                                  letterSpacing: 0,
                                                                                                                 ),
                                                                                                           ),
                                                                                                         ),
                                                                                                         Padding(
-                                                                                                          padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                                                                                                          padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
                                                                                                           child: Text(
                                                                                                             dateTimeFormat('relative', commetnRowCommentsRecord.createdAt!),
                                                                                                             style: BaseTheme.of(context).bodyMedium.override(
                                                                                                                   fontFamily: 'Playfair Display',
-                                                                                                                  letterSpacing: 0.0,
+                                                                                                                  letterSpacing: 0,
                                                                                                                 ),
                                                                                                           ),
                                                                                                         ),
                                                                                                       ],
                                                                                                     ),
                                                                                                     Padding(
-                                                                                                      padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                                                                                                      padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
                                                                                                       child: Text(
                                                                                                         commetnRowCommentsRecord.commentText,
                                                                                                         style: BaseTheme.of(context).bodyMedium.override(
                                                                                                               fontFamily: 'Spline Sans',
-                                                                                                              letterSpacing: 0.0,
+                                                                                                              letterSpacing: 0,
                                                                                                               fontWeight: FontWeight.w300,
                                                                                                             ),
                                                                                                       ),
@@ -1617,7 +1602,7 @@ class _RecipePageWidgetState extends State<RecipePageWidget>
                                                                                                   ],
                                                                                                 ),
                                                                                               ),
-                                                                                            ].divide(SizedBox(width: 16.0)),
+                                                                                            ].divide(SizedBox(width: 16)),
                                                                                           );
                                                                                         },
                                                                                       ),
@@ -1634,16 +1619,16 @@ class _RecipePageWidgetState extends State<RecipePageWidget>
                                                                 },
                                                               ),
                                                               Opacity(
-                                                                opacity: 0.0,
+                                                                opacity: 0,
                                                                 child:
                                                                     Container(
-                                                                  width: 1.0,
+                                                                  width: 1,
                                                                   decoration:
                                                                       BoxDecoration(),
                                                                 ),
                                                               ),
                                                             ].divide(SizedBox(
-                                                                height: 16.0)),
+                                                                height: 16)),
                                                           ),
                                                         );
                                                       } else {
@@ -1680,9 +1665,9 @@ class _RecipePageWidgetState extends State<RecipePageWidget>
                                                                       child:
                                                                           SizedBox(
                                                                         width:
-                                                                            50.0,
+                                                                            50,
                                                                         height:
-                                                                            50.0,
+                                                                            50,
                                                                         child:
                                                                             CircularProgressIndicator(
                                                                           valueColor:
@@ -1731,7 +1716,7 @@ class _RecipePageWidgetState extends State<RecipePageWidget>
                                                                           itemCount:
                                                                               cmtList.length,
                                                                           separatorBuilder: (_, __) =>
-                                                                              SizedBox(height: 11.0),
+                                                                              SizedBox(height: 11),
                                                                           itemBuilder:
                                                                               (context, cmtListIndex) {
                                                                             final cmtListItem =
@@ -1743,8 +1728,8 @@ class _RecipePageWidgetState extends State<RecipePageWidget>
                                                                                 if (!snapshot.hasData) {
                                                                                   return Center(
                                                                                     child: SizedBox(
-                                                                                      width: 50.0,
-                                                                                      height: 50.0,
+                                                                                      width: 50,
+                                                                                      height: 50,
                                                                                       child: CircularProgressIndicator(
                                                                                         valueColor: AlwaysStoppedAnimation<Color>(
                                                                                           BaseTheme.of(context).primary,
@@ -1766,8 +1751,8 @@ class _RecipePageWidgetState extends State<RecipePageWidget>
                                                                                           if (!snapshot.hasData) {
                                                                                             return Center(
                                                                                               child: SizedBox(
-                                                                                                width: 50.0,
-                                                                                                height: 50.0,
+                                                                                                width: 50,
+                                                                                                height: 50,
                                                                                                 child: CircularProgressIndicator(
                                                                                                   valueColor: AlwaysStoppedAnimation<Color>(
                                                                                                     BaseTheme.of(context).primary,
@@ -1782,8 +1767,8 @@ class _RecipePageWidgetState extends State<RecipePageWidget>
                                                                                             crossAxisAlignment: CrossAxisAlignment.start,
                                                                                             children: [
                                                                                               Container(
-                                                                                                width: 45.0,
-                                                                                                height: 45.0,
+                                                                                                width: 45,
+                                                                                                height: 45,
                                                                                                 clipBehavior: Clip.antiAlias,
                                                                                                 decoration: BoxDecoration(
                                                                                                   shape: BoxShape.circle,
@@ -1803,34 +1788,34 @@ class _RecipePageWidgetState extends State<RecipePageWidget>
                                                                                                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                                                                                       children: [
                                                                                                         Padding(
-                                                                                                          padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                                                                                                          padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
                                                                                                           child: Text(
                                                                                                             rowUsersRecord.displayName,
                                                                                                             style: BaseTheme.of(context).bodyMedium.override(
                                                                                                                   fontFamily: 'Spline Sans',
-                                                                                                                  letterSpacing: 0.0,
+                                                                                                                  letterSpacing: 0,
                                                                                                                 ),
                                                                                                           ),
                                                                                                         ),
                                                                                                         Padding(
-                                                                                                          padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                                                                                                          padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
                                                                                                           child: Text(
                                                                                                             dateTimeFormat('relative', commetnRowCommentsRecord.createdAt!),
                                                                                                             style: BaseTheme.of(context).bodyMedium.override(
                                                                                                                   fontFamily: 'Playfair Display',
-                                                                                                                  letterSpacing: 0.0,
+                                                                                                                  letterSpacing: 0,
                                                                                                                 ),
                                                                                                           ),
                                                                                                         ),
                                                                                                       ],
                                                                                                     ),
                                                                                                     Padding(
-                                                                                                      padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                                                                                                      padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
                                                                                                       child: Text(
                                                                                                         commetnRowCommentsRecord.commentText,
                                                                                                         style: BaseTheme.of(context).bodyMedium.override(
                                                                                                               fontFamily: 'Spline Sans',
-                                                                                                              letterSpacing: 0.0,
+                                                                                                              letterSpacing: 0,
                                                                                                               fontWeight: FontWeight.w300,
                                                                                                             ),
                                                                                                       ),
@@ -1838,7 +1823,7 @@ class _RecipePageWidgetState extends State<RecipePageWidget>
                                                                                                   ],
                                                                                                 ),
                                                                                               ),
-                                                                                            ].divide(SizedBox(width: 16.0)),
+                                                                                            ].divide(SizedBox(width: 16)),
                                                                                           );
                                                                                         },
                                                                                       ),
@@ -1855,16 +1840,16 @@ class _RecipePageWidgetState extends State<RecipePageWidget>
                                                                 },
                                                               ),
                                                               Opacity(
-                                                                opacity: 0.0,
+                                                                opacity: 0,
                                                                 child:
                                                                     Container(
-                                                                  width: 1.0,
+                                                                  width: 1,
                                                                   decoration:
                                                                       BoxDecoration(),
                                                                 ),
                                                               ),
                                                             ].divide(SizedBox(
-                                                                height: 16.0)),
+                                                                height: 16)),
                                                           ),
                                                         );
                                                       }
@@ -1881,11 +1866,11 @@ class _RecipePageWidgetState extends State<RecipePageWidget>
                                 ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 70.0, 0.0, 0.0),
+                                      0, 70, 0, 0),
                                   child: Container(
-                                    height: 300.0,
+                                    height: 300,
                                     decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(0.0),
+                                      borderRadius: BorderRadius.circular(0),
                                     ),
                                     child: Builder(
                                       builder: (context) {
@@ -1898,8 +1883,7 @@ class _RecipePageWidgetState extends State<RecipePageWidget>
                                             children: [
                                               Padding(
                                                 padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        0.0, 0.0, 0.0, 40.0),
+                                                    .fromSTEB(0, 0, 0, 40),
                                                 child: PageView.builder(
                                                   controller: _model
                                                           .pageViewController ??=
@@ -1934,8 +1918,8 @@ class _RecipePageWidgetState extends State<RecipePageWidget>
                                                 ),
                                               ),
                                               Align(
-                                                alignment: AlignmentDirectional(
-                                                    0.0, 1.0),
+                                                alignment:
+                                                    AlignmentDirectional(0, 1),
                                                 child: smooth_page_indicator
                                                     .SmoothPageIndicator(
                                                   controller: _model
@@ -1964,11 +1948,11 @@ class _RecipePageWidgetState extends State<RecipePageWidget>
                                                   },
                                                   effect: smooth_page_indicator
                                                       .ExpandingDotsEffect(
-                                                    expansionFactor: 3.0,
-                                                    spacing: 8.0,
-                                                    radius: 16.0,
-                                                    dotWidth: 16.0,
-                                                    dotHeight: 8.0,
+                                                    expansionFactor: 3,
+                                                    spacing: 8,
+                                                    radius: 16,
+                                                    dotWidth: 16,
+                                                    dotHeight: 8,
                                                     dotColor:
                                                         BaseTheme.of(
                                                                 context)
@@ -1991,7 +1975,7 @@ class _RecipePageWidgetState extends State<RecipePageWidget>
                                 ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 460.0, 0.0, 0.0),
+                                      0, 460, 0, 0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     mainAxisAlignment: MainAxisAlignment.end,
@@ -2000,9 +1984,9 @@ class _RecipePageWidgetState extends State<RecipePageWidget>
                                         builder: (context) {
                                           if (loggedIn == true) {
                                             return Transform.scale(
-                                              scaleX: -1.0,
-                                              scaleY: 1.0,
-                                              origin: Offset(0.0, 0),
+                                              scaleX: -1,
+                                              scaleY: 1,
+                                              origin: Offset(0, 0),
                                               child: ToggleIcon(
                                                 onPressed: () async {
                                                   setState(() => _model
@@ -2067,23 +2051,68 @@ class _RecipePageWidgetState extends State<RecipePageWidget>
                                                   color: BaseTheme.of(
                                                           context)
                                                       .success,
-                                                  size: 22.0,
+                                                  size: 22,
                                                 ),
                                                 offIcon: FaIcon(
                                                   FontAwesomeIcons.levelUpAlt,
                                                   color: Color(0xFF6E6C68),
-                                                  size: 22.0,
+                                                  size: 22,
                                                 ),
                                               ),
                                             );
                                           } else {
-                                            return Transform.scale(
-                                              scaleX: -1.0,
-                                              scaleY: 1.0,
-                                              child: FaIcon(
-                                                FontAwesomeIcons.levelUpAlt,
-                                                color: Color(0xFF6E6C68),
-                                                size: 26.0,
+                                            return Builder(
+                                              builder: (context) => InkWell(
+                                                splashColor: Colors.transparent,
+                                                focusColor: Colors.transparent,
+                                                hoverColor: Colors.transparent,
+                                                highlightColor:
+                                                    Colors.transparent,
+                                                onTap: () async {
+                                                  await showDialog(
+                                                    context: context,
+                                                    builder: (dialogContext) {
+                                                      return Dialog(
+                                                        elevation: 0,
+                                                        insetPadding:
+                                                            EdgeInsets.zero,
+                                                        backgroundColor:
+                                                            Colors.transparent,
+                                                        alignment:
+                                                            AlignmentDirectional(
+                                                                    0, 0)
+                                                                .resolve(
+                                                                    Directionality.of(
+                                                                        context)),
+                                                        child: GestureDetector(
+                                                          onTap: () => _model
+                                                                  .unfocusNode
+                                                                  .canRequestFocus
+                                                              ? FocusScope.of(
+                                                                      context)
+                                                                  .requestFocus(
+                                                                      _model
+                                                                          .unfocusNode)
+                                                              : FocusScope.of(
+                                                                      context)
+                                                                  .unfocus(),
+                                                          child:
+                                                              LogInRequiredWidget(),
+                                                        ),
+                                                      );
+                                                    },
+                                                  ).then((value) =>
+                                                      setState(() {}));
+                                                },
+                                                child: Transform.scale(
+                                                  scaleX: -1,
+                                                  scaleY: 1,
+                                                  child: FaIcon(
+                                                    FontAwesomeIcons.levelUpAlt,
+                                                    color: Color(0xFF6E6C68),
+                                                    size: 26,
+                                                  ),
+                                                ),
                                               ),
                                             );
                                           }
@@ -2091,7 +2120,7 @@ class _RecipePageWidgetState extends State<RecipePageWidget>
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            5.0, 0.0, 0.0, 0.0),
+                                            5, 0, 0, 0),
                                         child: Text(
                                           valueOrDefault<String>(
                                             recipePageRecipeRecord
@@ -2104,8 +2133,8 @@ class _RecipePageWidgetState extends State<RecipePageWidget>
                                               .bodyMedium
                                               .override(
                                                 fontFamily: 'Playfair Display',
-                                                fontSize: 16.0,
-                                                letterSpacing: 0.0,
+                                                fontSize: 16,
+                                                letterSpacing: 0,
                                               ),
                                         ),
                                       ),
@@ -2115,19 +2144,19 @@ class _RecipePageWidgetState extends State<RecipePageWidget>
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    5.0, 0.0, 5.0, 0.0),
+                                                    5, 0, 5, 0),
                                             child: Builder(
                                               builder: (context) {
                                                 if (loggedIn == true) {
                                                   return Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 8.0,
-                                                                0.0, 0.0),
+                                                            .fromSTEB(
+                                                                0, 8, 0, 0),
                                                     child: Transform.scale(
-                                                      scaleX: 1.0,
-                                                      scaleY: -1.0,
-                                                      origin: Offset(0.0, 0),
+                                                      scaleX: 1,
+                                                      scaleY: -1,
+                                                      origin: Offset(0, 0),
                                                       child: ToggleIcon(
                                                         onPressed: () async {
                                                           setState(() => _model
@@ -2196,24 +2225,76 @@ class _RecipePageWidgetState extends State<RecipePageWidget>
                                                               .levelUpAlt,
                                                           color:
                                                               Color(0xFFFF0010),
-                                                          size: 22.0,
+                                                          size: 22,
                                                         ),
                                                         offIcon: FaIcon(
                                                           FontAwesomeIcons
                                                               .levelUpAlt,
                                                           color:
                                                               Color(0xFF6E6C68),
-                                                          size: 22.0,
+                                                          size: 22,
                                                         ),
                                                       ),
                                                     ),
                                                   );
                                                 } else {
-                                                  return FaIcon(
-                                                    FontAwesomeIcons
-                                                        .levelDownAlt,
-                                                    color: Color(0xFF6E6C68),
-                                                    size: 26.0,
+                                                  return Builder(
+                                                    builder: (context) =>
+                                                        InkWell(
+                                                      splashColor:
+                                                          Colors.transparent,
+                                                      focusColor:
+                                                          Colors.transparent,
+                                                      hoverColor:
+                                                          Colors.transparent,
+                                                      highlightColor:
+                                                          Colors.transparent,
+                                                      onTap: () async {
+                                                        await showDialog(
+                                                          context: context,
+                                                          builder:
+                                                              (dialogContext) {
+                                                            return Dialog(
+                                                              elevation: 0,
+                                                              insetPadding:
+                                                                  EdgeInsets
+                                                                      .zero,
+                                                              backgroundColor:
+                                                                  Colors
+                                                                      .transparent,
+                                                              alignment: AlignmentDirectional(
+                                                                      0, 0)
+                                                                  .resolve(
+                                                                      Directionality.of(
+                                                                          context)),
+                                                              child:
+                                                                  GestureDetector(
+                                                                onTap: () => _model
+                                                                        .unfocusNode
+                                                                        .canRequestFocus
+                                                                    ? FocusScope.of(
+                                                                            context)
+                                                                        .requestFocus(_model
+                                                                            .unfocusNode)
+                                                                    : FocusScope.of(
+                                                                            context)
+                                                                        .unfocus(),
+                                                                child:
+                                                                    LogInRequiredWidget(),
+                                                              ),
+                                                            );
+                                                          },
+                                                        ).then((value) =>
+                                                            setState(() {}));
+                                                      },
+                                                      child: FaIcon(
+                                                        FontAwesomeIcons
+                                                            .levelDownAlt,
+                                                        color:
+                                                            Color(0xFF6E6C68),
+                                                        size: 26,
+                                                      ),
+                                                    ),
                                                   );
                                                 }
                                               },
@@ -2223,7 +2304,7 @@ class _RecipePageWidgetState extends State<RecipePageWidget>
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 0.0, 10.0, 0.0),
+                                            0, 0, 10, 0),
                                         child: Text(
                                           valueOrDefault<String>(
                                             recipePageRecipeRecord
@@ -2235,8 +2316,8 @@ class _RecipePageWidgetState extends State<RecipePageWidget>
                                               .bodyMedium
                                               .override(
                                                 fontFamily: 'Playfair Display',
-                                                fontSize: 16.0,
-                                                letterSpacing: 0.0,
+                                                fontSize: 16,
+                                                letterSpacing: 0,
                                               ),
                                         ),
                                       ),
