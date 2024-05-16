@@ -93,7 +93,7 @@ class _RecipeDeleteAlertWidgetState extends State<RecipeDeleteAlertWidget> {
                     Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(8, 0, 8, 0),
                       child: Text(
-                        'Are you sure you want to DELETE the recipe?',
+                        'Are you sure to DELETE the recipe?',
                         style: BaseTheme.of(context).bodyMedium.override(
                               fontFamily: 'Playfair Display',
                               color: BaseTheme.of(context).secondaryText,
