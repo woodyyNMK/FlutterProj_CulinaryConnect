@@ -48,19 +48,19 @@ class _AddInstructionAlertWidgetState extends State<AddInstructionAlertWidget> {
       ),
       child: Material(
         color: Colors.transparent,
-        elevation: 4.0,
+        elevation: 4,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(12.0),
+          borderRadius: BorderRadius.circular(12),
         ),
         child: Container(
-          width: 325.0,
-          height: 410.0,
+          width: 325,
+          height: 410,
           decoration: BoxDecoration(
             color: BaseTheme.of(context).secondaryBackground,
-            borderRadius: BorderRadius.circular(12.0),
+            borderRadius: BorderRadius.circular(12),
           ),
           child: Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 10.0),
+            padding: EdgeInsetsDirectional.fromSTEB(16, 16, 16, 10),
             child: Column(
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.start,
@@ -77,15 +77,15 @@ class _AddInstructionAlertWidgetState extends State<AddInstructionAlertWidget> {
                       style: BaseTheme.of(context).titleMedium.override(
                             fontFamily: 'Playfair Display',
                             color: BaseTheme.of(context).primary,
-                            fontSize: 20.0,
-                            letterSpacing: 0.0,
+                            fontSize: 20,
+                            letterSpacing: 0,
                             fontWeight: FontWeight.bold,
                           ),
                     ),
                   ],
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     children: [
@@ -100,7 +100,7 @@ class _AddInstructionAlertWidgetState extends State<AddInstructionAlertWidget> {
                                 .labelMedium
                                 .override(
                                   fontFamily: 'Playfair Display',
-                                  letterSpacing: 0.0,
+                                  letterSpacing: 0,
                                 ),
                             hintText: 'Add One by one instruction...',
                             hintStyle: BaseTheme.of(context)
@@ -108,35 +108,35 @@ class _AddInstructionAlertWidgetState extends State<AddInstructionAlertWidget> {
                                 .override(
                                   fontFamily: 'Playfair Display',
                                   color: BaseTheme.of(context).tertiary,
-                                  letterSpacing: 0.0,
+                                  letterSpacing: 0,
                                 ),
                             enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(
                                 color: BaseTheme.of(context).tertiary,
-                                width: 1.0,
+                                width: 1,
                               ),
-                              borderRadius: BorderRadius.circular(14.0),
+                              borderRadius: BorderRadius.circular(14),
                             ),
                             focusedBorder: OutlineInputBorder(
                               borderSide: BorderSide(
                                 color: BaseTheme.of(context).primary,
-                                width: 1.0,
+                                width: 1,
                               ),
-                              borderRadius: BorderRadius.circular(14.0),
+                              borderRadius: BorderRadius.circular(14),
                             ),
                             errorBorder: OutlineInputBorder(
                               borderSide: BorderSide(
                                 color: BaseTheme.of(context).error,
-                                width: 1.0,
+                                width: 1,
                               ),
-                              borderRadius: BorderRadius.circular(14.0),
+                              borderRadius: BorderRadius.circular(14),
                             ),
                             focusedErrorBorder: OutlineInputBorder(
                               borderSide: BorderSide(
                                 color: BaseTheme.of(context).error,
-                                width: 1.0,
+                                width: 1,
                               ),
-                              borderRadius: BorderRadius.circular(14.0),
+                              borderRadius: BorderRadius.circular(14),
                             ),
                             filled: true,
                             fillColor: Color(0x4BD0CDC8),
@@ -147,7 +147,7 @@ class _AddInstructionAlertWidgetState extends State<AddInstructionAlertWidget> {
                                 fontFamily: 'Playfair Display',
                                 color:
                                     BaseTheme.of(context).secondaryText,
-                                letterSpacing: 0.0,
+                                letterSpacing: 0,
                               ),
                           maxLines: 13,
                           validator: _model.textControllerValidator
@@ -159,8 +159,7 @@ class _AddInstructionAlertWidgetState extends State<AddInstructionAlertWidget> {
                 ),
                 Flexible(
                   child: Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(0, 15, 0, 0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -172,12 +171,12 @@ class _AddInstructionAlertWidgetState extends State<AddInstructionAlertWidget> {
                             },
                             text: 'CANCEL',
                             options: FFButtonOptions(
-                              width: 114.0,
-                              height: 44.0,
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 0.0),
-                              iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 0.0),
+                              width: 114,
+                              height: 44,
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                              iconPadding:
+                                  EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                               color: BaseTheme.of(context)
                                   .primaryBackground,
                               textStyle: BaseTheme.of(context)
@@ -185,11 +184,11 @@ class _AddInstructionAlertWidgetState extends State<AddInstructionAlertWidget> {
                                   .override(
                                     fontFamily: 'Playfair Display',
                                     color: BaseTheme.of(context).error,
-                                    fontSize: 13.0,
-                                    letterSpacing: 0.0,
+                                    fontSize: 13,
+                                    letterSpacing: 0,
                                     fontWeight: FontWeight.w600,
                                   ),
-                              elevation: 2.0,
+                              elevation: 2,
                               borderSide: BorderSide(
                                 color: BaseTheme.of(context).secondary,
                               ),
@@ -204,20 +203,22 @@ class _AddInstructionAlertWidgetState extends State<AddInstructionAlertWidget> {
                         Flexible(
                           child: FFButtonWidget(
                             onPressed: () async {
-                              setState(() {
-                                FFAppState().addToTempInstructionAppState(
-                                    _model.textController.text);
-                              });
-                              Navigator.pop(context);
+                              if (_model.textController.text != '') {
+                                setState(() {
+                                  FFAppState().addToTempInstructionAppState(
+                                      _model.textController.text);
+                                });
+                                Navigator.pop(context);
+                              }
                             },
                             text: 'ADD',
                             options: FFButtonOptions(
-                              width: 114.0,
-                              height: 44.0,
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 0.0),
-                              iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 0.0),
+                              width: 114,
+                              height: 44,
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                              iconPadding:
+                                  EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                               color: BaseTheme.of(context).primary,
                               textStyle: BaseTheme.of(context)
                                   .labelLarge
@@ -225,18 +226,18 @@ class _AddInstructionAlertWidgetState extends State<AddInstructionAlertWidget> {
                                     fontFamily: 'Playfair Display',
                                     color: BaseTheme.of(context)
                                         .primaryText,
-                                    fontSize: 13.0,
-                                    letterSpacing: 0.0,
+                                    fontSize: 13,
+                                    letterSpacing: 0,
                                     fontWeight: FontWeight.normal,
                                   ),
-                              elevation: 2.0,
+                              elevation: 2,
                               borderSide: BorderSide(
                                 color: BaseTheme.of(context).secondary,
                               ),
                             ),
                           ),
                         ),
-                      ].divide(SizedBox(width: 15.0)),
+                      ].divide(SizedBox(width: 15)),
                     ),
                   ),
                 ),

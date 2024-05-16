@@ -82,8 +82,8 @@ class _EditRecipePageWidgetState extends State<EditRecipePageWidget> {
             backgroundColor: BaseTheme.of(context).primaryBackground,
             body: Center(
               child: SizedBox(
-                width: 50.0,
-                height: 50.0,
+                width: 50,
+                height: 50,
                 child: CircularProgressIndicator(
                   valueColor: AlwaysStoppedAnimation<Color>(
                     BaseTheme.of(context).primary,
@@ -109,13 +109,13 @@ class _EditRecipePageWidgetState extends State<EditRecipePageWidget> {
                     BaseTheme.of(context).primary,
                     BaseTheme.of(context).secondary
                   ],
-                  stops: [0.0, 0.75],
-                  begin: AlignmentDirectional(0.0, -1.0),
-                  end: AlignmentDirectional(0, 1.0),
+                  stops: [0, 0.75],
+                  begin: AlignmentDirectional(0, -1),
+                  end: AlignmentDirectional(0, 1),
                 ),
               ),
               child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 15.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(15, 0, 15, 0),
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -123,23 +123,22 @@ class _EditRecipePageWidgetState extends State<EditRecipePageWidget> {
                     Stack(
                       children: [
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 40.0, 0.0, 0.0),
+                          padding: EdgeInsetsDirectional.fromSTEB(0, 40, 0, 0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 10.0, 0.0, 0.0),
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
                                 child: Text(
                                   'Edit Recipe',
                                   style: BaseTheme.of(context)
                                       .bodyMedium
                                       .override(
                                         fontFamily: 'Playfair Display',
-                                        fontSize: 28.0,
-                                        letterSpacing: 0.0,
+                                        fontSize: 28,
+                                        letterSpacing: 0,
                                         fontWeight: FontWeight.normal,
                                       ),
                                 ),
@@ -155,7 +154,7 @@ class _EditRecipePageWidgetState extends State<EditRecipePageWidget> {
                             Builder(
                               builder: (context) => Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 55.0, 0.0, 10.0),
+                                    0, 55, 0, 10),
                                 child: InkWell(
                                   splashColor: Colors.transparent,
                                   focusColor: Colors.transparent,
@@ -169,8 +168,7 @@ class _EditRecipePageWidgetState extends State<EditRecipePageWidget> {
                                           elevation: 0,
                                           insetPadding: EdgeInsets.zero,
                                           backgroundColor: Colors.transparent,
-                                          alignment: AlignmentDirectional(
-                                                  0.0, 0.0)
+                                          alignment: AlignmentDirectional(0, 0)
                                               .resolve(
                                                   Directionality.of(context)),
                                           child: GestureDetector(
@@ -191,20 +189,20 @@ class _EditRecipePageWidgetState extends State<EditRecipePageWidget> {
                                     Icons.arrow_back_ios,
                                     color: BaseTheme.of(context)
                                         .primaryBackground,
-                                    size: 24.0,
+                                    size: 24,
                                   ),
                                 ),
                               ),
                             ),
                             Builder(
                               builder: (context) => BaseIconButton(
-                                borderRadius: 20.0,
-                                borderWidth: 1.0,
-                                buttonSize: 40.0,
+                                borderRadius: 20,
+                                borderWidth: 1,
+                                buttonSize: 40,
                                 icon: Icon(
                                   Icons.delete_forever_outlined,
                                   color: Color(0xFFFB6D3A),
-                                  size: 24.0,
+                                  size: 24,
                                 ),
                                 onPressed: () async {
                                   await showDialog(
@@ -214,10 +212,9 @@ class _EditRecipePageWidgetState extends State<EditRecipePageWidget> {
                                         elevation: 0,
                                         insetPadding: EdgeInsets.zero,
                                         backgroundColor: Colors.transparent,
-                                        alignment:
-                                            AlignmentDirectional(0.0, 0.0)
-                                                .resolve(
-                                                    Directionality.of(context)),
+                                        alignment: AlignmentDirectional(0, 0)
+                                            .resolve(
+                                                Directionality.of(context)),
                                         child: GestureDetector(
                                           onTap: () => _model
                                                   .unfocusNode.canRequestFocus
@@ -226,7 +223,10 @@ class _EditRecipePageWidgetState extends State<EditRecipePageWidget> {
                                                       _model.unfocusNode)
                                               : FocusScope.of(context)
                                                   .unfocus(),
-                                          child: RecipeDeleteAlertWidget(),
+                                          child: RecipeDeleteAlertWidget(
+                                            recipeRefToDelete:
+                                                widget.editRecipeRef!,
+                                          ),
                                         ),
                                       );
                                     },
@@ -240,8 +240,7 @@ class _EditRecipePageWidgetState extends State<EditRecipePageWidget> {
                     ),
                     Flexible(
                       child: Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
+                        padding: EdgeInsetsDirectional.fromSTEB(0, 15, 0, 0),
                         child: SingleChildScrollView(
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
@@ -262,8 +261,8 @@ class _EditRecipePageWidgetState extends State<EditRecipePageWidget> {
                                               .bodyMedium
                                               .override(
                                                 fontFamily: 'Spline Sans',
-                                                fontSize: 16.0,
-                                                letterSpacing: 0.0,
+                                                fontSize: 16,
+                                                letterSpacing: 0,
                                               ),
                                         ),
                                         Container(
@@ -272,7 +271,7 @@ class _EditRecipePageWidgetState extends State<EditRecipePageWidget> {
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    2.0, 0.0, 2.0, 0.0),
+                                                    2, 0, 2, 0),
                                             child: Container(
                                               width: double.infinity,
                                               child: TextFormField(
@@ -296,7 +295,7 @@ class _EditRecipePageWidgetState extends State<EditRecipePageWidget> {
                                                           .override(
                                                             fontFamily:
                                                                 'Playfair Display',
-                                                            letterSpacing: 0.0,
+                                                            letterSpacing: 0,
                                                           ),
                                                   hintText: 'Pepparoni Pizza',
                                                   hintStyle: BaseTheme
@@ -307,17 +306,17 @@ class _EditRecipePageWidgetState extends State<EditRecipePageWidget> {
                                                             'Playfair Display',
                                                         color:
                                                             Color(0xCCC3B3B3),
-                                                        letterSpacing: 0.0,
+                                                        letterSpacing: 0,
                                                       ),
                                                   enabledBorder:
                                                       OutlineInputBorder(
                                                     borderSide: BorderSide(
                                                       color: Color(0x01000000),
-                                                      width: 2.0,
+                                                      width: 2,
                                                     ),
                                                     borderRadius:
                                                         BorderRadius.circular(
-                                                            8.0),
+                                                            8),
                                                   ),
                                                   focusedBorder:
                                                       OutlineInputBorder(
@@ -326,11 +325,11 @@ class _EditRecipePageWidgetState extends State<EditRecipePageWidget> {
                                                           BaseTheme.of(
                                                                   context)
                                                               .primary,
-                                                      width: 2.0,
+                                                      width: 2,
                                                     ),
                                                     borderRadius:
                                                         BorderRadius.circular(
-                                                            8.0),
+                                                            8),
                                                   ),
                                                   errorBorder:
                                                       OutlineInputBorder(
@@ -339,11 +338,11 @@ class _EditRecipePageWidgetState extends State<EditRecipePageWidget> {
                                                           BaseTheme.of(
                                                                   context)
                                                               .error,
-                                                      width: 2.0,
+                                                      width: 2,
                                                     ),
                                                     borderRadius:
                                                         BorderRadius.circular(
-                                                            8.0),
+                                                            8),
                                                   ),
                                                   focusedErrorBorder:
                                                       OutlineInputBorder(
@@ -352,11 +351,11 @@ class _EditRecipePageWidgetState extends State<EditRecipePageWidget> {
                                                           BaseTheme.of(
                                                                   context)
                                                               .error,
-                                                      width: 2.0,
+                                                      width: 2,
                                                     ),
                                                     borderRadius:
                                                         BorderRadius.circular(
-                                                            8.0),
+                                                            8),
                                                   ),
                                                   filled: true,
                                                   fillColor: Color(0x34D0CDC8),
@@ -367,7 +366,7 @@ class _EditRecipePageWidgetState extends State<EditRecipePageWidget> {
                                                         .override(
                                                           fontFamily:
                                                               'Playfair Display',
-                                                          letterSpacing: 0.0,
+                                                          letterSpacing: 0,
                                                         ),
                                                 validator: _model
                                                     .recipeNameTextFieldTextController1Validator
@@ -376,7 +375,7 @@ class _EditRecipePageWidgetState extends State<EditRecipePageWidget> {
                                             ),
                                           ),
                                         ),
-                                      ].divide(SizedBox(height: 8.0)),
+                                      ].divide(SizedBox(height: 8)),
                                     ),
                                   ),
                                 ],
@@ -396,8 +395,8 @@ class _EditRecipePageWidgetState extends State<EditRecipePageWidget> {
                                               .bodyMedium
                                               .override(
                                                 fontFamily: 'Spline Sans',
-                                                fontSize: 16.0,
-                                                letterSpacing: 0.0,
+                                                fontSize: 16,
+                                                letterSpacing: 0,
                                               ),
                                         ),
                                         Row(
@@ -420,8 +419,8 @@ class _EditRecipePageWidgetState extends State<EditRecipePageWidget> {
                                                                 .TempImgAppState
                                                                 .toList();
                                                         return Wrap(
-                                                          spacing: 0.0,
-                                                          runSpacing: 0.0,
+                                                          spacing: 0,
+                                                          runSpacing: 0,
                                                           alignment:
                                                               WrapAlignment
                                                                   .start,
@@ -446,15 +445,14 @@ class _EditRecipePageWidgetState extends State<EditRecipePageWidget> {
                                                                 imgAddPostPage[
                                                                     imgAddPostPageIndex];
                                                             return Container(
-                                                              width: 150.0,
-                                                              height: 120.0,
+                                                              width: 150,
+                                                              height: 120,
                                                               decoration:
                                                                   BoxDecoration(),
                                                               child: Align(
                                                                 alignment:
                                                                     AlignmentDirectional(
-                                                                        0.0,
-                                                                        0.0),
+                                                                        0, 0),
                                                                 child: Stack(
                                                                   alignment:
                                                                       AlignmentDirectional(
@@ -464,14 +462,14 @@ class _EditRecipePageWidgetState extends State<EditRecipePageWidget> {
                                                                     ClipRRect(
                                                                       borderRadius:
                                                                           BorderRadius.circular(
-                                                                              15.0),
+                                                                              15),
                                                                       child: Image
                                                                           .network(
                                                                         imgAddPostPageItem,
                                                                         width:
-                                                                            140.0,
+                                                                            140,
                                                                         height:
-                                                                            110.0,
+                                                                            110,
                                                                         fit: BoxFit
                                                                             .cover,
                                                                       ),
@@ -481,11 +479,11 @@ class _EditRecipePageWidgetState extends State<EditRecipePageWidget> {
                                                                           BaseTheme.of(context)
                                                                               .primary,
                                                                       borderRadius:
-                                                                          20.0,
+                                                                          20,
                                                                       borderWidth:
-                                                                          1.0,
+                                                                          1,
                                                                       buttonSize:
-                                                                          28.0,
+                                                                          28,
                                                                       fillColor:
                                                                           Color(
                                                                               0xFFFB6D3A),
@@ -496,7 +494,7 @@ class _EditRecipePageWidgetState extends State<EditRecipePageWidget> {
                                                                         color: BaseTheme.of(context)
                                                                             .primaryText,
                                                                         size:
-                                                                            12.0,
+                                                                            12,
                                                                       ),
                                                                       onPressed:
                                                                           () async {
@@ -516,14 +514,14 @@ class _EditRecipePageWidgetState extends State<EditRecipePageWidget> {
                                                       },
                                                     ),
                                                     Container(
-                                                      width: 140.0,
-                                                      height: 120.0,
+                                                      width: 140,
+                                                      height: 120,
                                                       decoration: BoxDecoration(
                                                         color:
                                                             Color(0x1F98A8B8),
                                                         borderRadius:
                                                             BorderRadius
-                                                                .circular(15.0),
+                                                                .circular(15),
                                                       ),
                                                       child: Column(
                                                         mainAxisSize:
@@ -535,9 +533,9 @@ class _EditRecipePageWidgetState extends State<EditRecipePageWidget> {
                                                           BaseIconButton(
                                                             borderColor: Colors
                                                                 .transparent,
-                                                            borderRadius: 25.0,
-                                                            borderWidth: 1.0,
-                                                            buttonSize: 50.0,
+                                                            borderRadius: 25,
+                                                            borderWidth: 1,
+                                                            buttonSize: 50,
                                                             fillColor: Color(
                                                                 0x1998A8B8),
                                                             icon: Icon(
@@ -545,7 +543,7 @@ class _EditRecipePageWidgetState extends State<EditRecipePageWidget> {
                                                                   .cloud_upload_outlined,
                                                               color: Color(
                                                                   0x7FFFFFFF),
-                                                              size: 30.0,
+                                                              size: 30,
                                                             ),
                                                             onPressed:
                                                                 () async {
@@ -645,7 +643,7 @@ class _EditRecipePageWidgetState extends State<EditRecipePageWidget> {
                                                                           context)
                                                                       .accent4,
                                                                   letterSpacing:
-                                                                      0.0,
+                                                                      0,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .normal,
@@ -656,17 +654,17 @@ class _EditRecipePageWidgetState extends State<EditRecipePageWidget> {
                                                     ),
                                                   ]
                                                       .divide(
-                                                          SizedBox(width: 10.0))
+                                                          SizedBox(width: 10))
                                                       .addToStart(
-                                                          SizedBox(width: 10.0))
-                                                      .addToEnd(SizedBox(
-                                                          width: 10.0)),
+                                                          SizedBox(width: 10))
+                                                      .addToEnd(
+                                                          SizedBox(width: 10)),
                                                 ),
                                               ),
                                             ),
-                                          ].divide(SizedBox(width: 20.0)),
+                                          ].divide(SizedBox(width: 20)),
                                         ),
-                                      ].divide(SizedBox(height: 8.0)),
+                                      ].divide(SizedBox(height: 8)),
                                     ),
                                   ),
                                 ],
@@ -686,8 +684,8 @@ class _EditRecipePageWidgetState extends State<EditRecipePageWidget> {
                                               .bodyMedium
                                               .override(
                                                 fontFamily: 'Spline Sans',
-                                                fontSize: 16.0,
-                                                letterSpacing: 0.0,
+                                                fontSize: 16,
+                                                letterSpacing: 0,
                                               ),
                                         ),
                                         Container(
@@ -696,7 +694,7 @@ class _EditRecipePageWidgetState extends State<EditRecipePageWidget> {
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    2.0, 0.0, 2.0, 0.0),
+                                                    2, 0, 2, 0),
                                             child: Container(
                                               width: double.infinity,
                                               child: TextFormField(
@@ -722,7 +720,7 @@ class _EditRecipePageWidgetState extends State<EditRecipePageWidget> {
                                                           .override(
                                                             fontFamily:
                                                                 'Playfair Display',
-                                                            letterSpacing: 0.0,
+                                                            letterSpacing: 0,
                                                           ),
                                                   hintText:
                                                       'Share a little more about this dish. Share a little more about this dish.  Share a little more about this dish. Share a little more about this dish. \n',
@@ -734,17 +732,17 @@ class _EditRecipePageWidgetState extends State<EditRecipePageWidget> {
                                                             'Playfair Display',
                                                         color:
                                                             Color(0xCCC3B3B3),
-                                                        letterSpacing: 0.0,
+                                                        letterSpacing: 0,
                                                       ),
                                                   enabledBorder:
                                                       OutlineInputBorder(
                                                     borderSide: BorderSide(
                                                       color: Color(0x01000000),
-                                                      width: 2.0,
+                                                      width: 2,
                                                     ),
                                                     borderRadius:
                                                         BorderRadius.circular(
-                                                            11.0),
+                                                            11),
                                                   ),
                                                   focusedBorder:
                                                       OutlineInputBorder(
@@ -753,11 +751,11 @@ class _EditRecipePageWidgetState extends State<EditRecipePageWidget> {
                                                           BaseTheme.of(
                                                                   context)
                                                               .primary,
-                                                      width: 2.0,
+                                                      width: 2,
                                                     ),
                                                     borderRadius:
                                                         BorderRadius.circular(
-                                                            11.0),
+                                                            11),
                                                   ),
                                                   errorBorder:
                                                       OutlineInputBorder(
@@ -766,11 +764,11 @@ class _EditRecipePageWidgetState extends State<EditRecipePageWidget> {
                                                           BaseTheme.of(
                                                                   context)
                                                               .error,
-                                                      width: 2.0,
+                                                      width: 2,
                                                     ),
                                                     borderRadius:
                                                         BorderRadius.circular(
-                                                            11.0),
+                                                            11),
                                                   ),
                                                   focusedErrorBorder:
                                                       OutlineInputBorder(
@@ -779,11 +777,11 @@ class _EditRecipePageWidgetState extends State<EditRecipePageWidget> {
                                                           BaseTheme.of(
                                                                   context)
                                                               .error,
-                                                      width: 2.0,
+                                                      width: 2,
                                                     ),
                                                     borderRadius:
                                                         BorderRadius.circular(
-                                                            11.0),
+                                                            11),
                                                   ),
                                                   filled: true,
                                                   fillColor: Color(0x34D0CDC8),
@@ -794,7 +792,7 @@ class _EditRecipePageWidgetState extends State<EditRecipePageWidget> {
                                                         .override(
                                                           fontFamily:
                                                               'Playfair Display',
-                                                          letterSpacing: 0.0,
+                                                          letterSpacing: 0,
                                                         ),
                                                 maxLines: 5,
                                                 validator: _model
@@ -804,7 +802,7 @@ class _EditRecipePageWidgetState extends State<EditRecipePageWidget> {
                                             ),
                                           ),
                                         ),
-                                      ].divide(SizedBox(height: 8.0)),
+                                      ].divide(SizedBox(height: 8)),
                                     ),
                                   ),
                                 ],
@@ -824,8 +822,8 @@ class _EditRecipePageWidgetState extends State<EditRecipePageWidget> {
                                               .bodyMedium
                                               .override(
                                                 fontFamily: 'Spline Sans',
-                                                fontSize: 16.0,
-                                                letterSpacing: 0.0,
+                                                fontSize: 16,
+                                                letterSpacing: 0,
                                               ),
                                         ),
                                         Row(
@@ -833,8 +831,8 @@ class _EditRecipePageWidgetState extends State<EditRecipePageWidget> {
                                           children: [
                                             Expanded(
                                               child: Wrap(
-                                                spacing: 22.0,
-                                                runSpacing: 13.0,
+                                                spacing: 22,
+                                                runSpacing: 13,
                                                 alignment: WrapAlignment.start,
                                                 crossAxisAlignment:
                                                     WrapCrossAlignment.start,
@@ -890,35 +888,34 @@ class _EditRecipePageWidgetState extends State<EditRecipePageWidget> {
                                                             child: Material(
                                                               color: Colors
                                                                   .transparent,
-                                                              elevation: 3.0,
+                                                              elevation: 3,
                                                               shape:
                                                                   RoundedRectangleBorder(
                                                                 borderRadius:
                                                                     BorderRadius
                                                                         .circular(
-                                                                            16.0),
+                                                                            16),
                                                               ),
                                                               child: Container(
-                                                                width: 100.0,
-                                                                height: 30.0,
+                                                                width: 100,
+                                                                height: 30,
                                                                 decoration:
                                                                     BoxDecoration(
                                                                   borderRadius:
                                                                       BorderRadius
                                                                           .circular(
-                                                                              16.0),
+                                                                              16),
                                                                   border: Border
                                                                       .all(
                                                                     color: BaseTheme.of(
                                                                             context)
                                                                         .primaryBackground,
-                                                                    width: 1.0,
+                                                                    width: 1,
                                                                   ),
                                                                 ),
                                                                 alignment:
                                                                     AlignmentDirectional(
-                                                                        0.0,
-                                                                        0.0),
+                                                                        0, 0),
                                                                 child: Text(
                                                                   'Asian',
                                                                   style: BaseTheme.of(
@@ -930,7 +927,7 @@ class _EditRecipePageWidgetState extends State<EditRecipePageWidget> {
                                                                         color: BaseTheme.of(context)
                                                                             .primaryText,
                                                                         letterSpacing:
-                                                                            0.0,
+                                                                            0,
                                                                       ),
                                                                 ),
                                                               ),
@@ -965,34 +962,33 @@ class _EditRecipePageWidgetState extends State<EditRecipePageWidget> {
                                                             child: Material(
                                                               color: Colors
                                                                   .transparent,
-                                                              elevation: 3.0,
+                                                              elevation: 3,
                                                               shape:
                                                                   RoundedRectangleBorder(
                                                                 borderRadius:
                                                                     BorderRadius
                                                                         .circular(
-                                                                            16.0),
+                                                                            16),
                                                               ),
                                                               child: Container(
-                                                                width: 100.0,
-                                                                height: 30.0,
+                                                                width: 100,
+                                                                height: 30,
                                                                 decoration:
                                                                     BoxDecoration(
                                                                   borderRadius:
                                                                       BorderRadius
                                                                           .circular(
-                                                                              16.0),
+                                                                              16),
                                                                   border: Border
                                                                       .all(
                                                                     color: Color(
                                                                         0xFFFB6D3A),
-                                                                    width: 2.0,
+                                                                    width: 2,
                                                                   ),
                                                                 ),
                                                                 alignment:
                                                                     AlignmentDirectional(
-                                                                        0.0,
-                                                                        0.0),
+                                                                        0, 0),
                                                                 child: Text(
                                                                   'Asian',
                                                                   style: BaseTheme.of(
@@ -1004,7 +1000,7 @@ class _EditRecipePageWidgetState extends State<EditRecipePageWidget> {
                                                                         color: BaseTheme.of(context)
                                                                             .primaryBackground,
                                                                         letterSpacing:
-                                                                            0.0,
+                                                                            0,
                                                                         fontWeight:
                                                                             FontWeight.normal,
                                                                       ),
@@ -1061,35 +1057,34 @@ class _EditRecipePageWidgetState extends State<EditRecipePageWidget> {
                                                             child: Material(
                                                               color: Colors
                                                                   .transparent,
-                                                              elevation: 3.0,
+                                                              elevation: 3,
                                                               shape:
                                                                   RoundedRectangleBorder(
                                                                 borderRadius:
                                                                     BorderRadius
                                                                         .circular(
-                                                                            16.0),
+                                                                            16),
                                                               ),
                                                               child: Container(
-                                                                width: 100.0,
-                                                                height: 30.0,
+                                                                width: 100,
+                                                                height: 30,
                                                                 decoration:
                                                                     BoxDecoration(
                                                                   borderRadius:
                                                                       BorderRadius
                                                                           .circular(
-                                                                              16.0),
+                                                                              16),
                                                                   border: Border
                                                                       .all(
                                                                     color: BaseTheme.of(
                                                                             context)
                                                                         .primaryBackground,
-                                                                    width: 1.0,
+                                                                    width: 1,
                                                                   ),
                                                                 ),
                                                                 alignment:
                                                                     AlignmentDirectional(
-                                                                        0.0,
-                                                                        0.0),
+                                                                        0, 0),
                                                                 child: Text(
                                                                   'Italian',
                                                                   style: BaseTheme.of(
@@ -1101,7 +1096,7 @@ class _EditRecipePageWidgetState extends State<EditRecipePageWidget> {
                                                                         color: BaseTheme.of(context)
                                                                             .primaryText,
                                                                         letterSpacing:
-                                                                            0.0,
+                                                                            0,
                                                                       ),
                                                                 ),
                                                               ),
@@ -1133,34 +1128,33 @@ class _EditRecipePageWidgetState extends State<EditRecipePageWidget> {
                                                             child: Material(
                                                               color: Colors
                                                                   .transparent,
-                                                              elevation: 3.0,
+                                                              elevation: 3,
                                                               shape:
                                                                   RoundedRectangleBorder(
                                                                 borderRadius:
                                                                     BorderRadius
                                                                         .circular(
-                                                                            16.0),
+                                                                            16),
                                                               ),
                                                               child: Container(
-                                                                width: 100.0,
-                                                                height: 30.0,
+                                                                width: 100,
+                                                                height: 30,
                                                                 decoration:
                                                                     BoxDecoration(
                                                                   borderRadius:
                                                                       BorderRadius
                                                                           .circular(
-                                                                              16.0),
+                                                                              16),
                                                                   border: Border
                                                                       .all(
                                                                     color: Color(
                                                                         0xFFFB6D3A),
-                                                                    width: 2.0,
+                                                                    width: 2,
                                                                   ),
                                                                 ),
                                                                 alignment:
                                                                     AlignmentDirectional(
-                                                                        0.0,
-                                                                        0.0),
+                                                                        0, 0),
                                                                 child: Text(
                                                                   'Italian',
                                                                   style: BaseTheme.of(
@@ -1172,7 +1166,7 @@ class _EditRecipePageWidgetState extends State<EditRecipePageWidget> {
                                                                         color: BaseTheme.of(context)
                                                                             .primaryBackground,
                                                                         letterSpacing:
-                                                                            0.0,
+                                                                            0,
                                                                         fontWeight:
                                                                             FontWeight.normal,
                                                                       ),
@@ -1229,35 +1223,34 @@ class _EditRecipePageWidgetState extends State<EditRecipePageWidget> {
                                                             child: Material(
                                                               color: Colors
                                                                   .transparent,
-                                                              elevation: 3.0,
+                                                              elevation: 3,
                                                               shape:
                                                                   RoundedRectangleBorder(
                                                                 borderRadius:
                                                                     BorderRadius
                                                                         .circular(
-                                                                            16.0),
+                                                                            16),
                                                               ),
                                                               child: Container(
-                                                                width: 100.0,
-                                                                height: 30.0,
+                                                                width: 100,
+                                                                height: 30,
                                                                 decoration:
                                                                     BoxDecoration(
                                                                   borderRadius:
                                                                       BorderRadius
                                                                           .circular(
-                                                                              16.0),
+                                                                              16),
                                                                   border: Border
                                                                       .all(
                                                                     color: BaseTheme.of(
                                                                             context)
                                                                         .primaryBackground,
-                                                                    width: 1.0,
+                                                                    width: 1,
                                                                   ),
                                                                 ),
                                                                 alignment:
                                                                     AlignmentDirectional(
-                                                                        0.0,
-                                                                        0.0),
+                                                                        0, 0),
                                                                 child: Text(
                                                                   'Western',
                                                                   style: BaseTheme.of(
@@ -1269,7 +1262,7 @@ class _EditRecipePageWidgetState extends State<EditRecipePageWidget> {
                                                                         color: BaseTheme.of(context)
                                                                             .primaryText,
                                                                         letterSpacing:
-                                                                            0.0,
+                                                                            0,
                                                                       ),
                                                                 ),
                                                               ),
@@ -1301,34 +1294,33 @@ class _EditRecipePageWidgetState extends State<EditRecipePageWidget> {
                                                             child: Material(
                                                               color: Colors
                                                                   .transparent,
-                                                              elevation: 3.0,
+                                                              elevation: 3,
                                                               shape:
                                                                   RoundedRectangleBorder(
                                                                 borderRadius:
                                                                     BorderRadius
                                                                         .circular(
-                                                                            16.0),
+                                                                            16),
                                                               ),
                                                               child: Container(
-                                                                width: 100.0,
-                                                                height: 30.0,
+                                                                width: 100,
+                                                                height: 30,
                                                                 decoration:
                                                                     BoxDecoration(
                                                                   borderRadius:
                                                                       BorderRadius
                                                                           .circular(
-                                                                              16.0),
+                                                                              16),
                                                                   border: Border
                                                                       .all(
                                                                     color: Color(
                                                                         0xFFFB6D3A),
-                                                                    width: 2.0,
+                                                                    width: 2,
                                                                   ),
                                                                 ),
                                                                 alignment:
                                                                     AlignmentDirectional(
-                                                                        0.0,
-                                                                        0.0),
+                                                                        0, 0),
                                                                 child: Text(
                                                                   'Western',
                                                                   style: BaseTheme.of(
@@ -1340,7 +1332,7 @@ class _EditRecipePageWidgetState extends State<EditRecipePageWidget> {
                                                                         color: BaseTheme.of(context)
                                                                             .primaryBackground,
                                                                         letterSpacing:
-                                                                            0.0,
+                                                                            0,
                                                                         fontWeight:
                                                                             FontWeight.normal,
                                                                       ),
@@ -1397,35 +1389,34 @@ class _EditRecipePageWidgetState extends State<EditRecipePageWidget> {
                                                             child: Material(
                                                               color: Colors
                                                                   .transparent,
-                                                              elevation: 3.0,
+                                                              elevation: 3,
                                                               shape:
                                                                   RoundedRectangleBorder(
                                                                 borderRadius:
                                                                     BorderRadius
                                                                         .circular(
-                                                                            16.0),
+                                                                            16),
                                                               ),
                                                               child: Container(
-                                                                width: 100.0,
-                                                                height: 30.0,
+                                                                width: 100,
+                                                                height: 30,
                                                                 decoration:
                                                                     BoxDecoration(
                                                                   borderRadius:
                                                                       BorderRadius
                                                                           .circular(
-                                                                              16.0),
+                                                                              16),
                                                                   border: Border
                                                                       .all(
                                                                     color: BaseTheme.of(
                                                                             context)
                                                                         .primaryBackground,
-                                                                    width: 1.0,
+                                                                    width: 1,
                                                                   ),
                                                                 ),
                                                                 alignment:
                                                                     AlignmentDirectional(
-                                                                        0.0,
-                                                                        0.0),
+                                                                        0, 0),
                                                                 child: Text(
                                                                   'European',
                                                                   style: BaseTheme.of(
@@ -1437,7 +1428,7 @@ class _EditRecipePageWidgetState extends State<EditRecipePageWidget> {
                                                                         color: BaseTheme.of(context)
                                                                             .primaryText,
                                                                         letterSpacing:
-                                                                            0.0,
+                                                                            0,
                                                                       ),
                                                                 ),
                                                               ),
@@ -1469,34 +1460,33 @@ class _EditRecipePageWidgetState extends State<EditRecipePageWidget> {
                                                             child: Material(
                                                               color: Colors
                                                                   .transparent,
-                                                              elevation: 3.0,
+                                                              elevation: 3,
                                                               shape:
                                                                   RoundedRectangleBorder(
                                                                 borderRadius:
                                                                     BorderRadius
                                                                         .circular(
-                                                                            16.0),
+                                                                            16),
                                                               ),
                                                               child: Container(
-                                                                width: 100.0,
-                                                                height: 30.0,
+                                                                width: 100,
+                                                                height: 30,
                                                                 decoration:
                                                                     BoxDecoration(
                                                                   borderRadius:
                                                                       BorderRadius
                                                                           .circular(
-                                                                              16.0),
+                                                                              16),
                                                                   border: Border
                                                                       .all(
                                                                     color: Color(
                                                                         0xFFFB6D3A),
-                                                                    width: 2.0,
+                                                                    width: 2,
                                                                   ),
                                                                 ),
                                                                 alignment:
                                                                     AlignmentDirectional(
-                                                                        0.0,
-                                                                        0.0),
+                                                                        0, 0),
                                                                 child: Text(
                                                                   'European',
                                                                   style: BaseTheme.of(
@@ -1508,7 +1498,7 @@ class _EditRecipePageWidgetState extends State<EditRecipePageWidget> {
                                                                         color: BaseTheme.of(context)
                                                                             .primaryBackground,
                                                                         letterSpacing:
-                                                                            0.0,
+                                                                            0,
                                                                         fontWeight:
                                                                             FontWeight.normal,
                                                                       ),
@@ -1564,35 +1554,34 @@ class _EditRecipePageWidgetState extends State<EditRecipePageWidget> {
                                                             child: Material(
                                                               color: Colors
                                                                   .transparent,
-                                                              elevation: 3.0,
+                                                              elevation: 3,
                                                               shape:
                                                                   RoundedRectangleBorder(
                                                                 borderRadius:
                                                                     BorderRadius
                                                                         .circular(
-                                                                            16.0),
+                                                                            16),
                                                               ),
                                                               child: Container(
-                                                                width: 100.0,
-                                                                height: 30.0,
+                                                                width: 100,
+                                                                height: 30,
                                                                 decoration:
                                                                     BoxDecoration(
                                                                   borderRadius:
                                                                       BorderRadius
                                                                           .circular(
-                                                                              16.0),
+                                                                              16),
                                                                   border: Border
                                                                       .all(
                                                                     color: BaseTheme.of(
                                                                             context)
                                                                         .primaryBackground,
-                                                                    width: 1.0,
+                                                                    width: 1,
                                                                   ),
                                                                 ),
                                                                 alignment:
                                                                     AlignmentDirectional(
-                                                                        0.0,
-                                                                        0.0),
+                                                                        0, 0),
                                                                 child: Text(
                                                                   'Soup',
                                                                   style: BaseTheme.of(
@@ -1604,7 +1593,7 @@ class _EditRecipePageWidgetState extends State<EditRecipePageWidget> {
                                                                         color: BaseTheme.of(context)
                                                                             .primaryText,
                                                                         letterSpacing:
-                                                                            0.0,
+                                                                            0,
                                                                       ),
                                                                 ),
                                                               ),
@@ -1635,34 +1624,33 @@ class _EditRecipePageWidgetState extends State<EditRecipePageWidget> {
                                                             child: Material(
                                                               color: Colors
                                                                   .transparent,
-                                                              elevation: 3.0,
+                                                              elevation: 3,
                                                               shape:
                                                                   RoundedRectangleBorder(
                                                                 borderRadius:
                                                                     BorderRadius
                                                                         .circular(
-                                                                            16.0),
+                                                                            16),
                                                               ),
                                                               child: Container(
-                                                                width: 100.0,
-                                                                height: 30.0,
+                                                                width: 100,
+                                                                height: 30,
                                                                 decoration:
                                                                     BoxDecoration(
                                                                   borderRadius:
                                                                       BorderRadius
                                                                           .circular(
-                                                                              16.0),
+                                                                              16),
                                                                   border: Border
                                                                       .all(
                                                                     color: Color(
                                                                         0xFFFB6D3A),
-                                                                    width: 2.0,
+                                                                    width: 2,
                                                                   ),
                                                                 ),
                                                                 alignment:
                                                                     AlignmentDirectional(
-                                                                        0.0,
-                                                                        0.0),
+                                                                        0, 0),
                                                                 child: Text(
                                                                   'Soup',
                                                                   style: BaseTheme.of(
@@ -1674,7 +1662,7 @@ class _EditRecipePageWidgetState extends State<EditRecipePageWidget> {
                                                                         color: BaseTheme.of(context)
                                                                             .primaryBackground,
                                                                         letterSpacing:
-                                                                            0.0,
+                                                                            0,
                                                                         fontWeight:
                                                                             FontWeight.normal,
                                                                       ),
@@ -1731,35 +1719,34 @@ class _EditRecipePageWidgetState extends State<EditRecipePageWidget> {
                                                             child: Material(
                                                               color: Colors
                                                                   .transparent,
-                                                              elevation: 3.0,
+                                                              elevation: 3,
                                                               shape:
                                                                   RoundedRectangleBorder(
                                                                 borderRadius:
                                                                     BorderRadius
                                                                         .circular(
-                                                                            16.0),
+                                                                            16),
                                                               ),
                                                               child: Container(
-                                                                width: 100.0,
-                                                                height: 30.0,
+                                                                width: 100,
+                                                                height: 30,
                                                                 decoration:
                                                                     BoxDecoration(
                                                                   borderRadius:
                                                                       BorderRadius
                                                                           .circular(
-                                                                              16.0),
+                                                                              16),
                                                                   border: Border
                                                                       .all(
                                                                     color: BaseTheme.of(
                                                                             context)
                                                                         .primaryBackground,
-                                                                    width: 1.0,
+                                                                    width: 1,
                                                                   ),
                                                                 ),
                                                                 alignment:
                                                                     AlignmentDirectional(
-                                                                        0.0,
-                                                                        0.0),
+                                                                        0, 0),
                                                                 child: Text(
                                                                   'Desserts',
                                                                   style: BaseTheme.of(
@@ -1771,7 +1758,7 @@ class _EditRecipePageWidgetState extends State<EditRecipePageWidget> {
                                                                         color: BaseTheme.of(context)
                                                                             .primaryText,
                                                                         letterSpacing:
-                                                                            0.0,
+                                                                            0,
                                                                       ),
                                                                 ),
                                                               ),
@@ -1803,34 +1790,33 @@ class _EditRecipePageWidgetState extends State<EditRecipePageWidget> {
                                                             child: Material(
                                                               color: Colors
                                                                   .transparent,
-                                                              elevation: 3.0,
+                                                              elevation: 3,
                                                               shape:
                                                                   RoundedRectangleBorder(
                                                                 borderRadius:
                                                                     BorderRadius
                                                                         .circular(
-                                                                            16.0),
+                                                                            16),
                                                               ),
                                                               child: Container(
-                                                                width: 100.0,
-                                                                height: 30.0,
+                                                                width: 100,
+                                                                height: 30,
                                                                 decoration:
                                                                     BoxDecoration(
                                                                   borderRadius:
                                                                       BorderRadius
                                                                           .circular(
-                                                                              16.0),
+                                                                              16),
                                                                   border: Border
                                                                       .all(
                                                                     color: Color(
                                                                         0xFFFB6D3A),
-                                                                    width: 2.0,
+                                                                    width: 2,
                                                                   ),
                                                                 ),
                                                                 alignment:
                                                                     AlignmentDirectional(
-                                                                        0.0,
-                                                                        0.0),
+                                                                        0, 0),
                                                                 child: Text(
                                                                   'Desserts',
                                                                   style: BaseTheme.of(
@@ -1842,7 +1828,7 @@ class _EditRecipePageWidgetState extends State<EditRecipePageWidget> {
                                                                         color: BaseTheme.of(context)
                                                                             .primaryBackground,
                                                                         letterSpacing:
-                                                                            0.0,
+                                                                            0,
                                                                         fontWeight:
                                                                             FontWeight.normal,
                                                                       ),
@@ -1858,7 +1844,7 @@ class _EditRecipePageWidgetState extends State<EditRecipePageWidget> {
                                             ),
                                           ],
                                         ),
-                                      ].divide(SizedBox(height: 8.0)),
+                                      ].divide(SizedBox(height: 8)),
                                     ),
                                   ),
                                 ],
@@ -1878,8 +1864,8 @@ class _EditRecipePageWidgetState extends State<EditRecipePageWidget> {
                                               .bodyMedium
                                               .override(
                                                 fontFamily: 'Spline Sans',
-                                                fontSize: 16.0,
-                                                letterSpacing: 0.0,
+                                                fontSize: 16,
+                                                letterSpacing: 0,
                                               ),
                                         ),
                                         Container(
@@ -1887,7 +1873,7 @@ class _EditRecipePageWidgetState extends State<EditRecipePageWidget> {
                                           decoration: BoxDecoration(
                                             color: Color(0x46D0CDC8),
                                             borderRadius:
-                                                BorderRadius.circular(8.0),
+                                                BorderRadius.circular(8),
                                           ),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.max,
@@ -1896,8 +1882,7 @@ class _EditRecipePageWidgetState extends State<EditRecipePageWidget> {
                                             children: [
                                               Padding(
                                                 padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        15.0, 0.0, 0.0, 0.0),
+                                                    .fromSTEB(15, 0, 0, 0),
                                                 child: Builder(
                                                   builder: (context) {
                                                     final ingredientEditPostPage =
@@ -1905,8 +1890,8 @@ class _EditRecipePageWidgetState extends State<EditRecipePageWidget> {
                                                             .TempIngredientAppState
                                                             .toList();
                                                     return Wrap(
-                                                      spacing: 20.0,
-                                                      runSpacing: 20.0,
+                                                      spacing: 20,
+                                                      runSpacing: 20,
                                                       alignment:
                                                           WrapAlignment.start,
                                                       crossAxisAlignment:
@@ -1935,22 +1920,22 @@ class _EditRecipePageWidgetState extends State<EditRecipePageWidget> {
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
-                                                                        20.0),
+                                                                        0),
                                                             border: Border.all(
                                                               color: BaseTheme
                                                                       .of(context)
                                                                   .tertiary,
-                                                              width: 2.0,
+                                                              width: 2,
                                                             ),
                                                           ),
                                                           child: Padding(
                                                             padding:
                                                                 EdgeInsetsDirectional
                                                                     .fromSTEB(
-                                                                        10.0,
-                                                                        0.0,
-                                                                        0.0,
-                                                                        0.0),
+                                                                        10,
+                                                                        0,
+                                                                        0,
+                                                                        0),
                                                             child: Row(
                                                               mainAxisSize:
                                                                   MainAxisSize
@@ -1968,7 +1953,7 @@ class _EditRecipePageWidgetState extends State<EditRecipePageWidget> {
                                                                         fontFamily:
                                                                             'Playfair Display',
                                                                         letterSpacing:
-                                                                            0.0,
+                                                                            0,
                                                                       ),
                                                                 ),
                                                                 BaseIconButton(
@@ -1977,11 +1962,11 @@ class _EditRecipePageWidgetState extends State<EditRecipePageWidget> {
                                                                               context)
                                                                           .primary,
                                                                   borderRadius:
-                                                                      20.0,
+                                                                      20,
                                                                   borderWidth:
-                                                                      1.0,
+                                                                      1,
                                                                   buttonSize:
-                                                                      28.0,
+                                                                      28,
                                                                   fillColor: Color(
                                                                       0xFFFB6D3A),
                                                                   icon: Icon(
@@ -1989,7 +1974,7 @@ class _EditRecipePageWidgetState extends State<EditRecipePageWidget> {
                                                                     color: BaseTheme.of(
                                                                             context)
                                                                         .primaryText,
-                                                                    size: 12.0,
+                                                                    size: 12,
                                                                   ),
                                                                   onPressed:
                                                                       () async {
@@ -2002,7 +1987,7 @@ class _EditRecipePageWidgetState extends State<EditRecipePageWidget> {
                                                                   },
                                                                 ),
                                                               ].divide(SizedBox(
-                                                                  width: 10.0)),
+                                                                  width: 10)),
                                                             ),
                                                           ),
                                                         );
@@ -2013,8 +1998,7 @@ class _EditRecipePageWidgetState extends State<EditRecipePageWidget> {
                                               ),
                                               Padding(
                                                 padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        0.0, 10.0, 0.0, 0.0),
+                                                    .fromSTEB(0, 10, 0, 0),
                                                 child: Row(
                                                   mainAxisSize:
                                                       MainAxisSize.max,
@@ -2039,8 +2023,7 @@ class _EditRecipePageWidgetState extends State<EditRecipePageWidget> {
                                                                       Colors
                                                                           .transparent,
                                                                   alignment: AlignmentDirectional(
-                                                                          0.0,
-                                                                          0.0)
+                                                                          0, 0)
                                                                       .resolve(
                                                                           Directionality.of(
                                                                               context)),
@@ -2068,25 +2051,25 @@ class _EditRecipePageWidgetState extends State<EditRecipePageWidget> {
                                                             color: BaseTheme
                                                                     .of(context)
                                                                 .tertiary,
-                                                            size: 20.0,
+                                                            size: 20,
                                                           ),
                                                           options:
                                                               FFButtonOptions(
-                                                            height: 30.0,
+                                                            height: 30,
                                                             padding:
                                                                 EdgeInsetsDirectional
                                                                     .fromSTEB(
-                                                                        24.0,
-                                                                        0.0,
-                                                                        24.0,
-                                                                        0.0),
+                                                                        24,
+                                                                        0,
+                                                                        24,
+                                                                        0),
                                                             iconPadding:
                                                                 EdgeInsetsDirectional
                                                                     .fromSTEB(
-                                                                        5.0,
-                                                                        0.0,
-                                                                        0.0,
-                                                                        0.0),
+                                                                        5,
+                                                                        0,
+                                                                        0,
+                                                                        0),
                                                             color: Colors
                                                                 .transparent,
                                                             textStyle:
@@ -2099,20 +2082,20 @@ class _EditRecipePageWidgetState extends State<EditRecipePageWidget> {
                                                                       color: Colors
                                                                           .white,
                                                                       letterSpacing:
-                                                                          0.0,
+                                                                          0,
                                                                     ),
-                                                            elevation: 3.0,
+                                                            elevation: 3,
                                                             borderSide:
                                                                 BorderSide(
                                                               color: BaseTheme
                                                                       .of(context)
                                                                   .primaryBackground,
-                                                              width: 1.0,
+                                                              width: 1,
                                                             ),
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
-                                                                        20.0),
+                                                                        20),
                                                           ),
                                                         ),
                                                       ),
@@ -2122,12 +2105,11 @@ class _EditRecipePageWidgetState extends State<EditRecipePageWidget> {
                                               ),
                                             ]
                                                 .addToStart(
-                                                    SizedBox(height: 10.0))
-                                                .addToEnd(
-                                                    SizedBox(height: 10.0)),
+                                                    SizedBox(height: 10))
+                                                .addToEnd(SizedBox(height: 10)),
                                           ),
                                         ),
-                                      ].divide(SizedBox(height: 8.0)),
+                                      ].divide(SizedBox(height: 8)),
                                     ),
                                   ),
                                 ],
@@ -2147,8 +2129,8 @@ class _EditRecipePageWidgetState extends State<EditRecipePageWidget> {
                                               .bodyMedium
                                               .override(
                                                 fontFamily: 'Spline Sans',
-                                                fontSize: 16.0,
-                                                letterSpacing: 0.0,
+                                                fontSize: 16,
+                                                letterSpacing: 0,
                                               ),
                                         ),
                                         Container(
@@ -2156,7 +2138,7 @@ class _EditRecipePageWidgetState extends State<EditRecipePageWidget> {
                                           decoration: BoxDecoration(
                                             color: Color(0x46D0CDC8),
                                             borderRadius:
-                                                BorderRadius.circular(8.0),
+                                                BorderRadius.circular(8),
                                           ),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.max,
@@ -2168,8 +2150,8 @@ class _EditRecipePageWidgetState extends State<EditRecipePageWidget> {
                                                           .TempInstructionAppState
                                                           .toList();
                                                   return Wrap(
-                                                    spacing: 0.0,
-                                                    runSpacing: 20.0,
+                                                    spacing: 0,
+                                                    runSpacing: 20,
                                                     alignment:
                                                         WrapAlignment.start,
                                                     crossAxisAlignment:
@@ -2191,11 +2173,8 @@ class _EditRecipePageWidgetState extends State<EditRecipePageWidget> {
                                                       return Padding(
                                                         padding:
                                                             EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    10.0,
-                                                                    0.0,
-                                                                    10.0,
-                                                                    0.0),
+                                                                .fromSTEB(10, 0,
+                                                                    10, 0),
                                                         child: Row(
                                                           mainAxisSize:
                                                               MainAxisSize.max,
@@ -2234,7 +2213,7 @@ class _EditRecipePageWidgetState extends State<EditRecipePageWidget> {
                                                                         backgroundColor:
                                                                             Colors.transparent,
                                                                         alignment:
-                                                                            AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
+                                                                            AlignmentDirectional(0, 0).resolve(Directionality.of(context)),
                                                                         child:
                                                                             GestureDetector(
                                                                           onTap: () => _model.unfocusNode.canRequestFocus
@@ -2259,14 +2238,14 @@ class _EditRecipePageWidgetState extends State<EditRecipePageWidget> {
                                                                       .edit_outlined,
                                                                   color: Color(
                                                                       0xFFFB6D3A),
-                                                                  size: 24.0,
+                                                                  size: 24,
                                                                 ),
                                                               ),
                                                             ),
                                                             Align(
                                                               alignment:
                                                                   AlignmentDirectional(
-                                                                      0.0, 0.0),
+                                                                      0, 0),
                                                               child: Text(
                                                                 '•',
                                                                 style: BaseTheme.of(
@@ -2276,7 +2255,7 @@ class _EditRecipePageWidgetState extends State<EditRecipePageWidget> {
                                                                       fontFamily:
                                                                           'Playfair Display',
                                                                       letterSpacing:
-                                                                          0.0,
+                                                                          0,
                                                                     ),
                                                               ),
                                                             ),
@@ -2295,13 +2274,13 @@ class _EditRecipePageWidgetState extends State<EditRecipePageWidget> {
                                                                         color: BaseTheme.of(context)
                                                                             .tertiary,
                                                                         letterSpacing:
-                                                                            0.0,
+                                                                            0,
                                                                       ),
                                                                 ),
                                                               ),
                                                             ),
                                                           ].divide(SizedBox(
-                                                              width: 10.0)),
+                                                              width: 10)),
                                                         ),
                                                       );
                                                     }),
@@ -2311,8 +2290,7 @@ class _EditRecipePageWidgetState extends State<EditRecipePageWidget> {
                                               Builder(
                                                 builder: (context) => Padding(
                                                   padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          0.0, 15.0, 0.0, 0.0),
+                                                      .fromSTEB(0, 15, 0, 0),
                                                   child: FFButtonWidget(
                                                     onPressed: () async {
                                                       await showDialog(
@@ -2327,7 +2305,7 @@ class _EditRecipePageWidgetState extends State<EditRecipePageWidget> {
                                                                 Colors
                                                                     .transparent,
                                                             alignment: AlignmentDirectional(
-                                                                    0.0, 0.0)
+                                                                    0, 0)
                                                                 .resolve(
                                                                     Directionality.of(
                                                                         context)),
@@ -2359,24 +2337,18 @@ class _EditRecipePageWidgetState extends State<EditRecipePageWidget> {
                                                           BaseTheme.of(
                                                                   context)
                                                               .tertiary,
-                                                      size: 20.0,
+                                                      size: 20,
                                                     ),
                                                     options: FFButtonOptions(
-                                                      height: 30.0,
+                                                      height: 30,
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  24.0,
-                                                                  0.0,
-                                                                  24.0,
-                                                                  0.0),
+                                                                  24, 0, 24, 0),
                                                       iconPadding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  5.0,
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0),
+                                                                  5, 0, 0, 0),
                                                       color: Colors.transparent,
                                                       textStyle:
                                                           BaseTheme.of(
@@ -2388,31 +2360,30 @@ class _EditRecipePageWidgetState extends State<EditRecipePageWidget> {
                                                                 color: Colors
                                                                     .white,
                                                                 letterSpacing:
-                                                                    0.0,
+                                                                    0,
                                                               ),
-                                                      elevation: 3.0,
+                                                      elevation: 3,
                                                       borderSide: BorderSide(
                                                         color: BaseTheme
                                                                 .of(context)
                                                             .primaryBackground,
-                                                        width: 1.0,
+                                                        width: 1,
                                                       ),
                                                       borderRadius:
                                                           BorderRadius.circular(
-                                                              20.0),
+                                                              20),
                                                     ),
                                                   ),
                                                 ),
                                               ),
                                             ]
-                                                .divide(SizedBox(height: 8.0))
+                                                .divide(SizedBox(height: 8))
                                                 .addToStart(
-                                                    SizedBox(height: 10.0))
-                                                .addToEnd(
-                                                    SizedBox(height: 10.0)),
+                                                    SizedBox(height: 10))
+                                                .addToEnd(SizedBox(height: 10)),
                                           ),
                                         ),
-                                      ].divide(SizedBox(height: 8.0)),
+                                      ].divide(SizedBox(height: 8)),
                                     ),
                                   ),
                                 ],
@@ -2472,12 +2443,12 @@ class _EditRecipePageWidgetState extends State<EditRecipePageWidget> {
                                       },
                                       text: 'Save Changes',
                                       options: FFButtonOptions(
-                                        height: 40.0,
+                                        height: 40,
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            24.0, 0.0, 24.0, 0.0),
+                                            24, 0, 24, 0),
                                         iconPadding:
                                             EdgeInsetsDirectional.fromSTEB(
-                                                0.0, 0.0, 0.0, 0.0),
+                                                0, 0, 0, 0),
                                         color: BaseTheme.of(context)
                                             .primary,
                                         textStyle: BaseTheme.of(context)
@@ -2487,28 +2458,27 @@ class _EditRecipePageWidgetState extends State<EditRecipePageWidget> {
                                               color:
                                                   BaseTheme.of(context)
                                                       .tertiary,
-                                              letterSpacing: 0.0,
+                                              letterSpacing: 0,
                                             ),
-                                        elevation: 3.0,
+                                        elevation: 3,
                                         borderSide: BorderSide(
                                           color: Colors.transparent,
-                                          width: 1.0,
+                                          width: 1,
                                         ),
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
+                                        borderRadius: BorderRadius.circular(8),
                                       ),
                                     ),
                                   ),
                                 ],
                               ),
                             ]
-                                .divide(SizedBox(height: 16.0))
-                                .addToEnd(SizedBox(height: 25.0)),
+                                .divide(SizedBox(height: 16))
+                                .addToEnd(SizedBox(height: 25)),
                           ),
                         ),
                       ),
                     ),
-                  ].divide(SizedBox(height: 16.0)),
+                  ].divide(SizedBox(height: 16)),
                 ),
               ),
             ),

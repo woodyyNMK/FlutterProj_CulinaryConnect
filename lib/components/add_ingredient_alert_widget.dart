@@ -51,19 +51,19 @@ class _AddIngredientAlertWidgetState extends State<AddIngredientAlertWidget> {
       ),
       child: Material(
         color: Colors.transparent,
-        elevation: 4.0,
+        elevation: 4,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(12.0),
+          borderRadius: BorderRadius.circular(12),
         ),
         child: Container(
-          width: 325.0,
-          height: 170.0,
+          width: 325,
+          height: 170,
           decoration: BoxDecoration(
             color: BaseTheme.of(context).secondaryBackground,
-            borderRadius: BorderRadius.circular(12.0),
+            borderRadius: BorderRadius.circular(12),
           ),
           child: Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 10.0),
+            padding: EdgeInsetsDirectional.fromSTEB(16, 16, 16, 10),
             child: Column(
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.center,
@@ -79,8 +79,8 @@ class _AddIngredientAlertWidgetState extends State<AddIngredientAlertWidget> {
                       style: BaseTheme.of(context).titleMedium.override(
                             fontFamily: 'Playfair Display',
                             color: BaseTheme.of(context).primary,
-                            fontSize: 20.0,
-                            letterSpacing: 0.0,
+                            fontSize: 20,
+                            letterSpacing: 0,
                             fontWeight: FontWeight.bold,
                           ),
                     ),
@@ -88,15 +88,14 @@ class _AddIngredientAlertWidgetState extends State<AddIngredientAlertWidget> {
                 ),
                 Flexible(
                   child: Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Expanded(
                           child: Container(
-                            width: 100.0,
-                            height: 100.0,
+                            width: 100,
+                            height: 100,
                             decoration: BoxDecoration(
                               color: BaseTheme.of(context)
                                   .secondaryBackground,
@@ -106,7 +105,7 @@ class _AddIngredientAlertWidgetState extends State<AddIngredientAlertWidget> {
                               children: [
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 8.0, 0.0),
+                                      0, 0, 8, 0),
                                   child: Container(
                                     width:
                                         MediaQuery.sizeOf(context).width * 0.5,
@@ -120,7 +119,7 @@ class _AddIngredientAlertWidgetState extends State<AddIngredientAlertWidget> {
                                             .labelMedium
                                             .override(
                                               fontFamily: 'Playfair Display',
-                                              letterSpacing: 0.0,
+                                              letterSpacing: 0,
                                             ),
                                         hintText: 'INGREDIENT',
                                         hintStyle: BaseTheme.of(context)
@@ -130,43 +129,43 @@ class _AddIngredientAlertWidgetState extends State<AddIngredientAlertWidget> {
                                               color:
                                                   BaseTheme.of(context)
                                                       .tertiary,
-                                              letterSpacing: 0.0,
+                                              letterSpacing: 0,
                                             ),
                                         enabledBorder: OutlineInputBorder(
                                           borderSide: BorderSide(
                                             color: BaseTheme.of(context)
                                                 .tertiary,
-                                            width: 1.0,
+                                            width: 1,
                                           ),
                                           borderRadius:
-                                              BorderRadius.circular(14.0),
+                                              BorderRadius.circular(14),
                                         ),
                                         focusedBorder: OutlineInputBorder(
                                           borderSide: BorderSide(
                                             color: BaseTheme.of(context)
                                                 .primary,
-                                            width: 1.0,
+                                            width: 1,
                                           ),
                                           borderRadius:
-                                              BorderRadius.circular(14.0),
+                                              BorderRadius.circular(14),
                                         ),
                                         errorBorder: OutlineInputBorder(
                                           borderSide: BorderSide(
                                             color: BaseTheme.of(context)
                                                 .error,
-                                            width: 1.0,
+                                            width: 1,
                                           ),
                                           borderRadius:
-                                              BorderRadius.circular(14.0),
+                                              BorderRadius.circular(14),
                                         ),
                                         focusedErrorBorder: OutlineInputBorder(
                                           borderSide: BorderSide(
                                             color: BaseTheme.of(context)
                                                 .error,
-                                            width: 1.0,
+                                            width: 1,
                                           ),
                                           borderRadius:
-                                              BorderRadius.circular(14.0),
+                                              BorderRadius.circular(14),
                                         ),
                                         filled: true,
                                         fillColor: Color(0x4BD0CDC8),
@@ -177,7 +176,7 @@ class _AddIngredientAlertWidgetState extends State<AddIngredientAlertWidget> {
                                             fontFamily: 'Playfair Display',
                                             color: BaseTheme.of(context)
                                                 .secondaryText,
-                                            letterSpacing: 0.0,
+                                            letterSpacing: 0,
                                           ),
                                       validator: _model.textController1Validator
                                           .asValidator(context),
@@ -198,7 +197,7 @@ class _AddIngredientAlertWidgetState extends State<AddIngredientAlertWidget> {
                                             .labelMedium
                                             .override(
                                               fontFamily: 'Playfair Display',
-                                              letterSpacing: 0.0,
+                                              letterSpacing: 0,
                                             ),
                                         hintText: 'QUANTITY',
                                         hintStyle: BaseTheme.of(context)
@@ -208,43 +207,43 @@ class _AddIngredientAlertWidgetState extends State<AddIngredientAlertWidget> {
                                               color:
                                                   BaseTheme.of(context)
                                                       .tertiary,
-                                              letterSpacing: 0.0,
+                                              letterSpacing: 0,
                                             ),
                                         enabledBorder: OutlineInputBorder(
                                           borderSide: BorderSide(
                                             color: BaseTheme.of(context)
                                                 .alternate,
-                                            width: 2.0,
+                                            width: 2,
                                           ),
                                           borderRadius:
-                                              BorderRadius.circular(14.0),
+                                              BorderRadius.circular(14),
                                         ),
                                         focusedBorder: OutlineInputBorder(
                                           borderSide: BorderSide(
                                             color: BaseTheme.of(context)
                                                 .primary,
-                                            width: 2.0,
+                                            width: 2,
                                           ),
                                           borderRadius:
-                                              BorderRadius.circular(14.0),
+                                              BorderRadius.circular(14),
                                         ),
                                         errorBorder: OutlineInputBorder(
                                           borderSide: BorderSide(
                                             color: BaseTheme.of(context)
                                                 .error,
-                                            width: 2.0,
+                                            width: 2,
                                           ),
                                           borderRadius:
-                                              BorderRadius.circular(14.0),
+                                              BorderRadius.circular(14),
                                         ),
                                         focusedErrorBorder: OutlineInputBorder(
                                           borderSide: BorderSide(
                                             color: BaseTheme.of(context)
                                                 .error,
-                                            width: 2.0,
+                                            width: 2,
                                           ),
                                           borderRadius:
-                                              BorderRadius.circular(14.0),
+                                              BorderRadius.circular(14),
                                         ),
                                         filled: true,
                                         fillColor: Color(0x4BD0CDC8),
@@ -255,7 +254,7 @@ class _AddIngredientAlertWidgetState extends State<AddIngredientAlertWidget> {
                                             fontFamily: 'Playfair Display',
                                             color: BaseTheme.of(context)
                                                 .secondaryText,
-                                            letterSpacing: 0.0,
+                                            letterSpacing: 0,
                                           ),
                                       validator: _model.textController2Validator
                                           .asValidator(context),
@@ -272,7 +271,7 @@ class _AddIngredientAlertWidgetState extends State<AddIngredientAlertWidget> {
                 ),
                 Expanded(
                   child: Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 6.0, 0.0, 0.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(0, 6, 0, 0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -284,12 +283,12 @@ class _AddIngredientAlertWidgetState extends State<AddIngredientAlertWidget> {
                             },
                             text: 'CANCEL',
                             options: FFButtonOptions(
-                              width: 114.0,
-                              height: 44.0,
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 0.0),
-                              iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 0.0),
+                              width: 114,
+                              height: 44,
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                              iconPadding:
+                                  EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                               color: BaseTheme.of(context)
                                   .primaryBackground,
                               textStyle: BaseTheme.of(context)
@@ -297,11 +296,11 @@ class _AddIngredientAlertWidgetState extends State<AddIngredientAlertWidget> {
                                   .override(
                                     fontFamily: 'Playfair Display',
                                     color: BaseTheme.of(context).error,
-                                    fontSize: 13.0,
-                                    letterSpacing: 0.0,
+                                    fontSize: 13,
+                                    letterSpacing: 0,
                                     fontWeight: FontWeight.w600,
                                   ),
-                              elevation: 2.0,
+                              elevation: 2,
                               borderSide: BorderSide(
                                 color: BaseTheme.of(context).secondary,
                               ),
@@ -316,20 +315,23 @@ class _AddIngredientAlertWidgetState extends State<AddIngredientAlertWidget> {
                         Flexible(
                           child: FFButtonWidget(
                             onPressed: () async {
-                              setState(() {
-                                FFAppState().addToTempIngredientAppState(
-                                    '${_model.textController1.text} ${_model.textController2.text}');
-                              });
-                              Navigator.pop(context);
+                              if (!((_model.textController1.text == '') ||
+                                  (_model.textController2.text == ''))) {
+                                setState(() {
+                                  FFAppState().addToTempIngredientAppState(
+                                      '${_model.textController1.text} ${_model.textController2.text}');
+                                });
+                                Navigator.pop(context);
+                              }
                             },
                             text: 'ADD',
                             options: FFButtonOptions(
-                              width: 114.0,
-                              height: 44.0,
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 0.0),
-                              iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 0.0),
+                              width: 114,
+                              height: 44,
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                              iconPadding:
+                                  EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                               color: BaseTheme.of(context).primary,
                               textStyle: BaseTheme.of(context)
                                   .labelLarge
@@ -337,18 +339,18 @@ class _AddIngredientAlertWidgetState extends State<AddIngredientAlertWidget> {
                                     fontFamily: 'Playfair Display',
                                     color: BaseTheme.of(context)
                                         .primaryText,
-                                    fontSize: 13.0,
-                                    letterSpacing: 0.0,
+                                    fontSize: 13,
+                                    letterSpacing: 0,
                                     fontWeight: FontWeight.normal,
                                   ),
-                              elevation: 2.0,
+                              elevation: 2,
                               borderSide: BorderSide(
                                 color: BaseTheme.of(context).secondary,
                               ),
                             ),
                           ),
                         ),
-                      ].divide(SizedBox(width: 15.0)),
+                      ].divide(SizedBox(width: 15)),
                     ),
                   ),
                 ),
