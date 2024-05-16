@@ -608,7 +608,7 @@ class _RecipePageWidgetState extends State<RecipePageWidget>
                                                                     child:
                                                                         Stack(
                                                                       children: [
-                                                                        if ((currentUserDocument?.followings.toList() ?? []).contains(rowUsersRecord.reference) ==
+                                                                        if ((currentUserDocument?.followings?.toList() ?? []).contains(rowUsersRecord.reference) ==
                                                                             true)
                                                                           Align(
                                                                             alignment:
@@ -661,7 +661,7 @@ class _RecipePageWidgetState extends State<RecipePageWidget>
                                                                               ),
                                                                             ),
                                                                           ),
-                                                                        if ((currentUserDocument?.followings.toList() ?? []).contains(rowUsersRecord.reference) ==
+                                                                        if ((currentUserDocument?.followings?.toList() ?? []).contains(rowUsersRecord.reference) ==
                                                                             false)
                                                                           AuthUserStreamWidget(
                                                                             builder: (context) =>
@@ -1026,7 +1026,7 @@ class _RecipePageWidgetState extends State<RecipePageWidget>
                                                                       shape:
                                                                           RoundedRectangleBorder(
                                                                         borderRadius:
-                                                                            BorderRadius.circular(16),
+                                                                            BorderRadius.circular(0),
                                                                       ),
                                                                       child:
                                                                           Container(
@@ -1037,7 +1037,7 @@ class _RecipePageWidgetState extends State<RecipePageWidget>
                                                                           color:
                                                                               Color(0xFF4A656B),
                                                                           borderRadius:
-                                                                              BorderRadius.circular(16),
+                                                                              BorderRadius.circular(0),
                                                                           border:
                                                                               Border.all(
                                                                             color:
