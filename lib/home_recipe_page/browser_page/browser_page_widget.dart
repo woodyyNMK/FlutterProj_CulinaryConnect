@@ -69,8 +69,8 @@ class _BrowserPageWidgetState extends State<BrowserPageWidget> {
             backgroundColor: BaseTheme.of(context).primaryBackground,
             body: Center(
               child: SizedBox(
-                width: 50.0,
-                height: 50.0,
+                width: 50,
+                height: 50,
                 child: CircularProgressIndicator(
                   valueColor: AlwaysStoppedAnimation<Color>(
                     BaseTheme.of(context).primary,
@@ -98,16 +98,15 @@ class _BrowserPageWidgetState extends State<BrowserPageWidget> {
                         BaseTheme.of(context).primary,
                         BaseTheme.of(context).secondary
                       ],
-                      stops: [0.0, 0.75],
-                      begin: AlignmentDirectional(0.0, -1.0),
-                      end: AlignmentDirectional(0, 1.0),
+                      stops: [0, 0.75],
+                      begin: AlignmentDirectional(0, -1),
+                      end: AlignmentDirectional(0, 1),
                     ),
                   ),
                   child: Stack(
                     children: [
                       Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 40.0, 0.0, 0.0),
+                        padding: EdgeInsetsDirectional.fromSTEB(0, 40, 0, 0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -118,8 +117,8 @@ class _BrowserPageWidgetState extends State<BrowserPageWidget> {
                                   .bodyMedium
                                   .override(
                                     fontFamily: 'Playfair Display',
-                                    fontSize: 32.0,
-                                    letterSpacing: 0.0,
+                                    fontSize: 32,
+                                    letterSpacing: 0,
                                     fontWeight: FontWeight.normal,
                                   ),
                             ),
@@ -127,8 +126,7 @@ class _BrowserPageWidgetState extends State<BrowserPageWidget> {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            0.0, 90.0, 0.0, 60.0),
+                        padding: EdgeInsetsDirectional.fromSTEB(0, 90, 0, 60),
                         child: Container(
                           decoration: BoxDecoration(),
                           child: SingleChildScrollView(
@@ -141,15 +139,15 @@ class _BrowserPageWidgetState extends State<BrowserPageWidget> {
                                   children: [
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          15.0, 0.0, 0.0, 0.0),
+                                          15, 0, 0, 0),
                                       child: BaseIconButton(
-                                        borderRadius: 20.0,
-                                        borderWidth: 1.0,
-                                        buttonSize: 40.0,
+                                        borderRadius: 20,
+                                        borderWidth: 1,
+                                        buttonSize: 40,
                                         icon: Icon(
                                           Icons.search,
                                           color: Color(0xFFA0A5BA),
-                                          size: 24.0,
+                                          size: 24,
                                         ),
                                         onPressed: () {
                                           print('IconButton pressed ...');
@@ -158,7 +156,7 @@ class _BrowserPageWidgetState extends State<BrowserPageWidget> {
                                     ),
                                     Expanded(
                                       child: Container(
-                                        width: 327.0,
+                                        width: 327,
                                         child: Autocomplete<String>(
                                           initialValue: TextEditingValue(),
                                           optionsBuilder: (textEditingValue) {
@@ -192,17 +190,17 @@ class _BrowserPageWidgetState extends State<BrowserPageWidget> {
                                                       .override(
                                                         fontFamily:
                                                             'Playfair Display',
-                                                        letterSpacing: 0.0,
+                                                        letterSpacing: 0,
                                                       ),
                                               textHighlightStyle: TextStyle(),
-                                              elevation: 4.0,
+                                              elevation: 4,
                                               optionBackgroundColor:
                                                   BaseTheme.of(context)
                                                       .primary,
                                               optionHighlightColor:
                                                   BaseTheme.of(context)
                                                       .secondaryText,
-                                              maxHeight: 200.0,
+                                              maxHeight: 200,
                                             );
                                           },
                                           onSelected: (String selection) {
@@ -244,7 +242,7 @@ class _BrowserPageWidgetState extends State<BrowserPageWidget> {
                                                                         record,
                                                                         [
                                                                   record
-                                                                      .recipeName
+                                                                      .recipeName!
                                                                 ]),
                                                           )
                                                           .toList(),
@@ -272,7 +270,7 @@ class _BrowserPageWidgetState extends State<BrowserPageWidget> {
                                                         .override(
                                                           fontFamily:
                                                               'Playfair Display',
-                                                          letterSpacing: 0.0,
+                                                          letterSpacing: 0,
                                                         ),
                                                 alignLabelWithHint: true,
                                                 hintText: 'Search',
@@ -284,7 +282,7 @@ class _BrowserPageWidgetState extends State<BrowserPageWidget> {
                                                               'Playfair Display',
                                                           color:
                                                               Color(0xFFA0A5BA),
-                                                          letterSpacing: 0.0,
+                                                          letterSpacing: 0,
                                                         ),
                                                 enabledBorder: InputBorder.none,
                                                 focusedBorder: InputBorder.none,
@@ -293,8 +291,7 @@ class _BrowserPageWidgetState extends State<BrowserPageWidget> {
                                                     InputBorder.none,
                                                 contentPadding:
                                                     EdgeInsetsDirectional
-                                                        .fromSTEB(16.0, 0.0,
-                                                            0.0, 0.0),
+                                                        .fromSTEB(16, 0, 0, 0),
                                               ),
                                               style:
                                                   BaseTheme.of(context)
@@ -304,7 +301,7 @@ class _BrowserPageWidgetState extends State<BrowserPageWidget> {
                                                             'Playfair Display',
                                                         color:
                                                             Color(0xFFA0A5BA),
-                                                        letterSpacing: 0.0,
+                                                        letterSpacing: 0,
                                                       ),
                                               validator: _model
                                                   .searchRecipeTextControllerValidator
@@ -322,10 +319,10 @@ class _BrowserPageWidgetState extends State<BrowserPageWidget> {
                                     Expanded(
                                       child: Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            15.0, 0.0, 15.0, 16.0),
+                                            15, 0, 15, 16),
                                         child: Container(
-                                          width: 345.0,
-                                          height: 1.0,
+                                          width: 345,
+                                          height: 1,
                                           decoration: BoxDecoration(
                                             color: Color(0xFFA0A5BA),
                                           ),
@@ -340,8 +337,8 @@ class _BrowserPageWidgetState extends State<BrowserPageWidget> {
                                       final trendingListFromRecipe =
                                           browserPageRecipeRecordList.toList();
                                       return Wrap(
-                                        spacing: 0.0,
-                                        runSpacing: 0.0,
+                                        spacing: 0,
+                                        runSpacing: 0,
                                         alignment: WrapAlignment.start,
                                         crossAxisAlignment:
                                             WrapCrossAlignment.start,
@@ -359,7 +356,7 @@ class _BrowserPageWidgetState extends State<BrowserPageWidget> {
                                           return Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 0.0, 16.0),
+                                                    0, 0, 0, 16),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               mainAxisAlignment:
@@ -369,8 +366,8 @@ class _BrowserPageWidgetState extends State<BrowserPageWidget> {
                                                   child: Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(15.0, 0.0,
-                                                                15.0, 0.0),
+                                                            .fromSTEB(
+                                                                15, 0, 15, 0),
                                                     child: InkWell(
                                                       splashColor:
                                                           Colors.transparent,
@@ -415,7 +412,7 @@ class _BrowserPageWidgetState extends State<BrowserPageWidget> {
                                                                 serializeParam(
                                                               (currentUserDocument
                                                                               ?.favouriteRecipe
-                                                                              .toList() ??
+                                                                              ?.toList() ??
                                                                           [])
                                                                       .contains(
                                                                           trendingListFromRecipeItem
@@ -446,7 +443,7 @@ class _BrowserPageWidgetState extends State<BrowserPageWidget> {
                                                           Container(
                                                             width:
                                                                 double.infinity,
-                                                            height: 170.0,
+                                                            height: 170,
                                                             decoration:
                                                                 BoxDecoration(
                                                               color: Color(
@@ -465,7 +462,7 @@ class _BrowserPageWidgetState extends State<BrowserPageWidget> {
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          20.0),
+                                                                          20),
                                                             ),
                                                           ),
                                                           Opacity(
@@ -473,7 +470,7 @@ class _BrowserPageWidgetState extends State<BrowserPageWidget> {
                                                             child: Container(
                                                               width: double
                                                                   .infinity,
-                                                              height: 170.0,
+                                                              height: 170,
                                                               decoration:
                                                                   BoxDecoration(
                                                                 color: BaseTheme.of(
@@ -482,7 +479,7 @@ class _BrowserPageWidgetState extends State<BrowserPageWidget> {
                                                                 borderRadius:
                                                                     BorderRadius
                                                                         .circular(
-                                                                            20.0),
+                                                                            20),
                                                               ),
                                                             ),
                                                           ),
@@ -490,15 +487,25 @@ class _BrowserPageWidgetState extends State<BrowserPageWidget> {
                                                             padding:
                                                                 EdgeInsetsDirectional
                                                                     .fromSTEB(
-                                                                        20.0,
-                                                                        76.0,
-                                                                        20.0,
-                                                                        0.0),
+                                                                        20,
+                                                                        76,
+                                                                        20,
+                                                                        0),
                                                             child: StreamBuilder<
                                                                 List<
                                                                     UsersRecord>>(
                                                               stream:
                                                                   queryUsersRecord(
+                                                                queryBuilder:
+                                                                    (usersRecord) =>
+                                                                        usersRecord
+                                                                            .where(
+                                                                  'uid',
+                                                                  isEqualTo:
+                                                                      trendingListFromRecipeItem
+                                                                          .userId
+                                                                          ?.id,
+                                                                ),
                                                                 singleRecord:
                                                                     true,
                                                               ),
@@ -510,10 +517,9 @@ class _BrowserPageWidgetState extends State<BrowserPageWidget> {
                                                                   return Center(
                                                                     child:
                                                                         SizedBox(
-                                                                      width:
-                                                                          50.0,
+                                                                      width: 50,
                                                                       height:
-                                                                          50.0,
+                                                                          50,
                                                                       child:
                                                                           CircularProgressIndicator(
                                                                         valueColor:
@@ -561,19 +567,20 @@ class _BrowserPageWidgetState extends State<BrowserPageWidget> {
                                                                               .bodyMedium
                                                                               .override(
                                                                                 fontFamily: 'Playfair Display',
-                                                                                fontSize: 24.0,
-                                                                                letterSpacing: 0.0,
+                                                                                fontSize: 24,
+                                                                                letterSpacing: 0,
                                                                                 fontWeight: FontWeight.w600,
                                                                               ),
                                                                         ),
                                                                       ],
                                                                     ),
                                                                     Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                                                          0.0,
-                                                                          5.0,
-                                                                          0.0,
-                                                                          0.0),
+                                                                      padding: EdgeInsetsDirectional
+                                                                          .fromSTEB(
+                                                                              0,
+                                                                              5,
+                                                                              0,
+                                                                              0),
                                                                       child:
                                                                           Row(
                                                                         mainAxisSize:
@@ -583,8 +590,8 @@ class _BrowserPageWidgetState extends State<BrowserPageWidget> {
                                                                             columnUsersRecord!.displayName,
                                                                             style: BaseTheme.of(context).bodyMedium.override(
                                                                                   fontFamily: 'Playfair Display',
-                                                                                  fontSize: 16.0,
-                                                                                  letterSpacing: 0.0,
+                                                                                  fontSize: 16,
+                                                                                  letterSpacing: 0,
                                                                                 ),
                                                                           ),
                                                                         ],
@@ -601,33 +608,33 @@ class _BrowserPageWidgetState extends State<BrowserPageWidget> {
                                                                         Transform
                                                                             .scale(
                                                                           scaleX:
-                                                                              -1.0,
+                                                                              -1,
                                                                           scaleY:
-                                                                              1.0,
+                                                                              1,
                                                                           origin: Offset(
-                                                                              0.0,
+                                                                              0,
                                                                               0),
                                                                           child:
                                                                               Padding(
                                                                             padding: EdgeInsetsDirectional.fromSTEB(
-                                                                                0.0,
-                                                                                5.0,
-                                                                                0.0,
-                                                                                0.0),
+                                                                                0,
+                                                                                5,
+                                                                                0,
+                                                                                0),
                                                                             child:
                                                                                 FaIcon(
                                                                               FontAwesomeIcons.levelUpAlt,
                                                                               color: Color(0xFF00C308),
-                                                                              size: 15.0,
+                                                                              size: 15,
                                                                             ),
                                                                           ),
                                                                         ),
                                                                         Padding(
                                                                           padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              5.0,
-                                                                              0.0,
-                                                                              0.0,
-                                                                              0.0),
+                                                                              5,
+                                                                              0,
+                                                                              0,
+                                                                              0),
                                                                           child:
                                                                               Text(
                                                                             valueOrDefault<String>(
@@ -636,42 +643,42 @@ class _BrowserPageWidgetState extends State<BrowserPageWidget> {
                                                                             ),
                                                                             style: BaseTheme.of(context).bodyMedium.override(
                                                                                   fontFamily: 'Playfair Display',
-                                                                                  fontSize: 14.0,
-                                                                                  letterSpacing: 0.0,
+                                                                                  fontSize: 14,
+                                                                                  letterSpacing: 0,
                                                                                 ),
                                                                           ),
                                                                         ),
                                                                         Padding(
                                                                           padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              10.0,
-                                                                              0.0,
-                                                                              0.0,
-                                                                              0.0),
+                                                                              10,
+                                                                              0,
+                                                                              0,
+                                                                              0),
                                                                           child:
                                                                               Transform.scale(
                                                                             scaleX:
-                                                                                1.0,
+                                                                                1,
                                                                             scaleY:
-                                                                                -1.0,
+                                                                                -1,
                                                                             origin:
-                                                                                Offset(0.0, 0),
+                                                                                Offset(0, 0),
                                                                             child:
                                                                                 Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 5.0),
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 5),
                                                                               child: FaIcon(
                                                                                 FontAwesomeIcons.levelUpAlt,
                                                                                 color: Color(0xFFFF0000),
-                                                                                size: 15.0,
+                                                                                size: 15,
                                                                               ),
                                                                             ),
                                                                           ),
                                                                         ),
                                                                         Padding(
                                                                           padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              5.0,
-                                                                              0.0,
-                                                                              10.0,
-                                                                              0.0),
+                                                                              5,
+                                                                              0,
+                                                                              10,
+                                                                              0),
                                                                           child:
                                                                               Text(
                                                                             valueOrDefault<String>(
@@ -680,8 +687,8 @@ class _BrowserPageWidgetState extends State<BrowserPageWidget> {
                                                                             ),
                                                                             style: BaseTheme.of(context).bodyMedium.override(
                                                                                   fontFamily: 'Playfair Display',
-                                                                                  fontSize: 14.0,
-                                                                                  letterSpacing: 0.0,
+                                                                                  fontSize: 14,
+                                                                                  letterSpacing: 0,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -710,8 +717,8 @@ class _BrowserPageWidgetState extends State<BrowserPageWidget> {
                                       final trendingListFromRecipe =
                                           _model.simpleSearchResults.toList();
                                       return Wrap(
-                                        spacing: 0.0,
-                                        runSpacing: 0.0,
+                                        spacing: 0,
+                                        runSpacing: 0,
                                         alignment: WrapAlignment.start,
                                         crossAxisAlignment:
                                             WrapCrossAlignment.start,
@@ -729,7 +736,7 @@ class _BrowserPageWidgetState extends State<BrowserPageWidget> {
                                           return Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 0.0, 16.0),
+                                                    0, 0, 0, 16),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               mainAxisAlignment:
@@ -739,8 +746,8 @@ class _BrowserPageWidgetState extends State<BrowserPageWidget> {
                                                   child: Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(15.0, 0.0,
-                                                                15.0, 0.0),
+                                                            .fromSTEB(
+                                                                15, 0, 15, 0),
                                                     child: InkWell(
                                                       splashColor:
                                                           Colors.transparent,
@@ -785,7 +792,7 @@ class _BrowserPageWidgetState extends State<BrowserPageWidget> {
                                                                 serializeParam(
                                                               (currentUserDocument
                                                                               ?.favouriteRecipe
-                                                                              .toList() ??
+                                                                              ?.toList() ??
                                                                           [])
                                                                       .contains(
                                                                           trendingListFromRecipeItem
@@ -816,7 +823,7 @@ class _BrowserPageWidgetState extends State<BrowserPageWidget> {
                                                           Container(
                                                             width:
                                                                 double.infinity,
-                                                            height: 170.0,
+                                                            height: 170,
                                                             decoration:
                                                                 BoxDecoration(
                                                               color: Color(
@@ -835,7 +842,7 @@ class _BrowserPageWidgetState extends State<BrowserPageWidget> {
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          20.0),
+                                                                          20),
                                                             ),
                                                           ),
                                                           Opacity(
@@ -843,7 +850,7 @@ class _BrowserPageWidgetState extends State<BrowserPageWidget> {
                                                             child: Container(
                                                               width: double
                                                                   .infinity,
-                                                              height: 170.0,
+                                                              height: 170,
                                                               decoration:
                                                                   BoxDecoration(
                                                                 color: BaseTheme.of(
@@ -852,7 +859,7 @@ class _BrowserPageWidgetState extends State<BrowserPageWidget> {
                                                                 borderRadius:
                                                                     BorderRadius
                                                                         .circular(
-                                                                            20.0),
+                                                                            20),
                                                               ),
                                                             ),
                                                           ),
@@ -860,10 +867,10 @@ class _BrowserPageWidgetState extends State<BrowserPageWidget> {
                                                             padding:
                                                                 EdgeInsetsDirectional
                                                                     .fromSTEB(
-                                                                        20.0,
-                                                                        76.0,
-                                                                        20.0,
-                                                                        0.0),
+                                                                        20,
+                                                                        76,
+                                                                        20,
+                                                                        0),
                                                             child: StreamBuilder<
                                                                 List<
                                                                     UsersRecord>>(
@@ -880,10 +887,9 @@ class _BrowserPageWidgetState extends State<BrowserPageWidget> {
                                                                   return Center(
                                                                     child:
                                                                         SizedBox(
-                                                                      width:
-                                                                          50.0,
+                                                                      width: 50,
                                                                       height:
-                                                                          50.0,
+                                                                          50,
                                                                       child:
                                                                           CircularProgressIndicator(
                                                                         valueColor:
@@ -931,19 +937,20 @@ class _BrowserPageWidgetState extends State<BrowserPageWidget> {
                                                                               .bodyMedium
                                                                               .override(
                                                                                 fontFamily: 'Playfair Display',
-                                                                                fontSize: 24.0,
-                                                                                letterSpacing: 0.0,
+                                                                                fontSize: 24,
+                                                                                letterSpacing: 0,
                                                                                 fontWeight: FontWeight.w600,
                                                                               ),
                                                                         ),
                                                                       ],
                                                                     ),
                                                                     Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                                                          0.0,
-                                                                          5.0,
-                                                                          0.0,
-                                                                          0.0),
+                                                                      padding: EdgeInsetsDirectional
+                                                                          .fromSTEB(
+                                                                              0,
+                                                                              5,
+                                                                              0,
+                                                                              0),
                                                                       child:
                                                                           Row(
                                                                         mainAxisSize:
@@ -953,8 +960,8 @@ class _BrowserPageWidgetState extends State<BrowserPageWidget> {
                                                                             columnUsersRecord!.displayName,
                                                                             style: BaseTheme.of(context).bodyMedium.override(
                                                                                   fontFamily: 'Playfair Display',
-                                                                                  fontSize: 16.0,
-                                                                                  letterSpacing: 0.0,
+                                                                                  fontSize: 16,
+                                                                                  letterSpacing: 0,
                                                                                 ),
                                                                           ),
                                                                         ],
@@ -971,33 +978,33 @@ class _BrowserPageWidgetState extends State<BrowserPageWidget> {
                                                                         Transform
                                                                             .scale(
                                                                           scaleX:
-                                                                              -1.0,
+                                                                              -1,
                                                                           scaleY:
-                                                                              1.0,
+                                                                              1,
                                                                           origin: Offset(
-                                                                              0.0,
+                                                                              0,
                                                                               0),
                                                                           child:
                                                                               Padding(
                                                                             padding: EdgeInsetsDirectional.fromSTEB(
-                                                                                0.0,
-                                                                                5.0,
-                                                                                0.0,
-                                                                                0.0),
+                                                                                0,
+                                                                                5,
+                                                                                0,
+                                                                                0),
                                                                             child:
                                                                                 FaIcon(
                                                                               FontAwesomeIcons.levelUpAlt,
                                                                               color: Color(0xFF00C308),
-                                                                              size: 15.0,
+                                                                              size: 15,
                                                                             ),
                                                                           ),
                                                                         ),
                                                                         Padding(
                                                                           padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              5.0,
-                                                                              0.0,
-                                                                              0.0,
-                                                                              0.0),
+                                                                              5,
+                                                                              0,
+                                                                              0,
+                                                                              0),
                                                                           child:
                                                                               Text(
                                                                             valueOrDefault<String>(
@@ -1006,42 +1013,42 @@ class _BrowserPageWidgetState extends State<BrowserPageWidget> {
                                                                             ),
                                                                             style: BaseTheme.of(context).bodyMedium.override(
                                                                                   fontFamily: 'Playfair Display',
-                                                                                  fontSize: 14.0,
-                                                                                  letterSpacing: 0.0,
+                                                                                  fontSize: 14,
+                                                                                  letterSpacing: 0,
                                                                                 ),
                                                                           ),
                                                                         ),
                                                                         Padding(
                                                                           padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              10.0,
-                                                                              0.0,
-                                                                              0.0,
-                                                                              0.0),
+                                                                              10,
+                                                                              0,
+                                                                              0,
+                                                                              0),
                                                                           child:
                                                                               Transform.scale(
                                                                             scaleX:
-                                                                                1.0,
+                                                                                1,
                                                                             scaleY:
-                                                                                -1.0,
+                                                                                -1,
                                                                             origin:
-                                                                                Offset(0.0, 0),
+                                                                                Offset(0, 0),
                                                                             child:
                                                                                 Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 5.0),
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 5),
                                                                               child: FaIcon(
                                                                                 FontAwesomeIcons.levelUpAlt,
                                                                                 color: Color(0xFFFF0000),
-                                                                                size: 15.0,
+                                                                                size: 15,
                                                                               ),
                                                                             ),
                                                                           ),
                                                                         ),
                                                                         Padding(
                                                                           padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              5.0,
-                                                                              0.0,
-                                                                              10.0,
-                                                                              0.0),
+                                                                              5,
+                                                                              0,
+                                                                              10,
+                                                                              0),
                                                                           child:
                                                                               Text(
                                                                             valueOrDefault<String>(
@@ -1050,8 +1057,8 @@ class _BrowserPageWidgetState extends State<BrowserPageWidget> {
                                                                             ),
                                                                             style: BaseTheme.of(context).bodyMedium.override(
                                                                                   fontFamily: 'Playfair Display',
-                                                                                  fontSize: 14.0,
-                                                                                  letterSpacing: 0.0,
+                                                                                  fontSize: 14,
+                                                                                  letterSpacing: 0,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -1080,8 +1087,7 @@ class _BrowserPageWidgetState extends State<BrowserPageWidget> {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            15.0, 55.0, 0.0, 10.0),
+                        padding: EdgeInsetsDirectional.fromSTEB(15, 55, 0, 10),
                         child: InkWell(
                           splashColor: Colors.transparent,
                           focusColor: Colors.transparent,
@@ -1094,7 +1100,7 @@ class _BrowserPageWidgetState extends State<BrowserPageWidget> {
                             Icons.arrow_back_ios,
                             color:
                                 BaseTheme.of(context).primaryBackground,
-                            size: 24.0,
+                            size: 24,
                           ),
                         ),
                       ),
@@ -1102,24 +1108,24 @@ class _BrowserPageWidgetState extends State<BrowserPageWidget> {
                   ),
                 ),
                 Align(
-                  alignment: AlignmentDirectional(0.0, 1.0),
+                  alignment: AlignmentDirectional(0, 1),
                   child: Container(
                     decoration: BoxDecoration(),
                     child: ClipRRect(
-                      borderRadius: BorderRadius.circular(8.0),
+                      borderRadius: BorderRadius.circular(8),
                       child: Image.asset(
                         'assets/images/NavBarBG.png',
-                        width: MediaQuery.sizeOf(context).width * 1.0,
-                        height: 60.0,
+                        width: MediaQuery.sizeOf(context).width,
+                        height: 60,
                         fit: BoxFit.cover,
                       ),
                     ),
                   ),
                 ),
                 Align(
-                  alignment: AlignmentDirectional(0.0, 0.0),
+                  alignment: AlignmentDirectional(0, 0),
                   child: Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 6.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 6),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -1151,7 +1157,7 @@ class _BrowserPageWidgetState extends State<BrowserPageWidget> {
                                       elevation: 0,
                                       insetPadding: EdgeInsets.zero,
                                       backgroundColor: Colors.transparent,
-                                      alignment: AlignmentDirectional(0.0, 0.0)
+                                      alignment: AlignmentDirectional(0, 0)
                                           .resolve(Directionality.of(context)),
                                       child: GestureDetector(
                                         onTap: () => _model
@@ -1173,11 +1179,11 @@ class _BrowserPageWidgetState extends State<BrowserPageWidget> {
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
                                 ClipRRect(
-                                  borderRadius: BorderRadius.circular(8.0),
+                                  borderRadius: BorderRadius.circular(8),
                                   child: Image.asset(
                                     'assets/images/FeedIcon.png',
-                                    width: 32.0,
-                                    height: 32.0,
+                                    width: 32,
+                                    height: 32,
                                     fit: BoxFit.cover,
                                   ),
                                 ),
@@ -1187,8 +1193,8 @@ class _BrowserPageWidgetState extends State<BrowserPageWidget> {
                                       .bodyMedium
                                       .override(
                                         fontFamily: 'Playfair Display',
-                                        fontSize: 12.0,
-                                        letterSpacing: 0.0,
+                                        fontSize: 12,
+                                        letterSpacing: 0,
                                       ),
                                 ),
                               ],
@@ -1196,16 +1202,16 @@ class _BrowserPageWidgetState extends State<BrowserPageWidget> {
                           ),
                         ),
                         Align(
-                          alignment: AlignmentDirectional(0.0, 1.0),
+                          alignment: AlignmentDirectional(0, 1),
                           child: Column(
                             mainAxisSize: MainAxisSize.min,
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: [
                               Align(
-                                alignment: AlignmentDirectional(0.0, 1.0),
+                                alignment: AlignmentDirectional(0, 1),
                                 child: Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 0.0, 20.0),
+                                      0, 0, 0, 20),
                                   child: InkWell(
                                     splashColor: Colors.transparent,
                                     focusColor: Colors.transparent,
@@ -1226,13 +1232,13 @@ class _BrowserPageWidgetState extends State<BrowserPageWidget> {
                                       );
                                     },
                                     child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(51.0),
+                                      borderRadius: BorderRadius.circular(51),
                                       child: Image.asset(
                                         'assets/images/CurrentDir.png',
-                                        width: 60.0,
-                                        height: 60.0,
+                                        width: 60,
+                                        height: 60,
                                         fit: BoxFit.cover,
-                                        alignment: Alignment(0.0, 0.0),
+                                        alignment: Alignment(0, 0),
                                       ),
                                     ),
                                   ),
@@ -1267,7 +1273,7 @@ class _BrowserPageWidgetState extends State<BrowserPageWidget> {
                                       elevation: 0,
                                       insetPadding: EdgeInsets.zero,
                                       backgroundColor: Colors.transparent,
-                                      alignment: AlignmentDirectional(0.0, 0.0)
+                                      alignment: AlignmentDirectional(0, 0)
                                           .resolve(Directionality.of(context)),
                                       child: GestureDetector(
                                         onTap: () => _model
@@ -1318,7 +1324,7 @@ class _BrowserPageWidgetState extends State<BrowserPageWidget> {
                                               backgroundColor:
                                                   Colors.transparent,
                                               alignment:
-                                                  AlignmentDirectional(0.0, 0.0)
+                                                  AlignmentDirectional(0, 0)
                                                       .resolve(
                                                           Directionality.of(
                                                               context)),
@@ -1338,11 +1344,11 @@ class _BrowserPageWidgetState extends State<BrowserPageWidget> {
                                       }
                                     },
                                     child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(8.0),
+                                      borderRadius: BorderRadius.circular(8),
                                       child: Image.asset(
                                         'assets/images/ProfileIcon.png',
-                                        width: 32.0,
-                                        height: 32.0,
+                                        width: 32,
+                                        height: 32,
                                         fit: BoxFit.cover,
                                       ),
                                     ),
@@ -1354,8 +1360,8 @@ class _BrowserPageWidgetState extends State<BrowserPageWidget> {
                                       .bodyMedium
                                       .override(
                                         fontFamily: 'Playfair Display',
-                                        fontSize: 12.0,
-                                        letterSpacing: 0.0,
+                                        fontSize: 12,
+                                        letterSpacing: 0,
                                       ),
                                 ),
                               ],
